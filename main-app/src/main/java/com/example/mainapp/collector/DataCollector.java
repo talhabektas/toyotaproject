@@ -1,0 +1,116 @@
+package com.example.mainapp.collector;
+
+
+
+import com.example.mainapp.coordinator.CoordinatorCallBack;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.HashSet;
+import java.util.Properties;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+/**
+ * Platform bağlayıcıları için temel işlevselliği sağlayan soyut sınıf
+ */
+public abstract class DataCollector implements PlatformConnector, Runnable {
+
+    private static final Logger logger = LoggerFactory.getLogger(DataCollector.class);
+
+    protected String platformName;
+    protected CoordinatorCallBack callback;
+    protected Properties config;
+    protected final Set<String> subscribedRates = new HashSet<>();
+    protected Thread workerThread;
+    protected final AtomicBoolean running = new AtomicBoolean(false);
+
+    /**
+     * Constructor
+     * @param platformName Platform adı
+     * @param config Platform konfigürasyonu
+     */
+    public DataCollector(String platformName, Properties config) {
+        this.platformName = platformName;
+        this.config = config;
+    }
+
+    @Override
+    public void setCallback(CoordinatorCallBack callback) {
+        this.callback = callback;
+    }
+
+    @Override
+    public String getPlatformName() {
+        return platformName;
+    }
+
+    @Override
+    public void start() {
+        if (running.compareAndSet(false, true)) {
+            logger.info("Starting data collector for platform: {}", platformName);
+            workerThread = new Thread(this, "DataCollector-" + platformName);
+            workerThread.setDaemon(true);
+            workerThread.start();
+        } else {
+            logger.warn("Data collector for platform {} is already running", platformName);
+        }
+    }
+
+    @Override
+    public void stop() {
+        if (running.compareAndSet(true, false)) {
+            logger.info("Stopping data collector for platform: {}", platformName);
+
+            // Tüm abonelikleri iptal et
+            Set<String> rates = new HashSet<>(subscribedRates);
+            rates.forEach(rateName -> unsubscribe(platformName, rateName));
+
+            // Bağlantıyı kapat
+            disconnect(platformName, null, null);
+
+            // Thread'i durdur
+            if (workerThread != null) {
+                workerThread.interrupt();
+                try {
+                    workerThread.join(5000);
+                } catch (InterruptedException e) {
+                    logger.error("Interrupted while waiting for worker thread to stop", e);
+                    Thread.currentThread().interrupt();
+                }
+            }
+
+            logger.info("Data collector for platform {} stopped", platformName);
+        } else {
+            logger.warn("Data collector for platform {} is not running", platformName);
+        }
+    }
+
+    /**
+     * Kur verilerine abone olduktan sonra yapılacak işlemleri gerçekleştirir
+     * @param rateName Kur adı
+     * @param success Abonelik başarılı mı
+     */
+    protected void handleSubscriptionResult(String rateName, boolean success) {
+        if (success) {
+            logger.info("Successfully subscribed to rate {} on platform {}", rateName, platformName);
+            subscribedRates.add(rateName);
+        } else {
+            logger.warn("Failed to subscribe to rate {} on platform {}", rateName, platformName);
+        }
+    }
+
+    /**
+     * Kur verisi aboneliğini iptal ettikten sonra yapılacak işlemleri gerçekleştirir
+     * @param rateName Kur adı
+     * @param success İptal işlemi başarılı mı
+     */
+    protected void handleUnsubscriptionResult(String rateName, boolean success) {
+        if (success) {
+            logger.info("Successfully unsubscribed from rate {} on platform {}", rateName, platformName);
+            subscribedRates.remove(rateName);
+        } else {
+            logger.warn("Failed to unsubscribe from rate {} on platform {}", rateName, platformName);
+        }
+    }
+}

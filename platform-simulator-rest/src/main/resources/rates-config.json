@@ -1,0 +1,17 @@
+[
+  {
+    "rateName": "PF2_USDTRY",
+    "initialBid": 34.80,
+    "initialAsk": 35.10
+  },
+  {
+    "rateName": "PF2_EURUSD",
+    "initialBid": 1.0370,
+    "initialAsk": 1.0410
+  },
+  {
+    "rateName": "PF2_GBPUSD",
+    "initialBid": 1.2590,
+    "initialAsk": 1.2615
+  }
+]
