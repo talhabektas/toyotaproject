@@ -12,37 +12,32 @@ services:
     volumes:
       - zookeeper-data:/var/lib/zookeeper/data
     networks:
-      - finansal-network
-    healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "2181"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      - finansal_network
+
   # Kafka
   kafka:
     image: confluentinc/cp-kafka:7.3.2
     container_name: kafka
     depends_on:
-      zookeeper:
-        condition: service_healthy
+      - zookeeper
     ports:
       - "9092:9092"
+      - "29092:29092"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
-      KAFKA_LOG_DIRS: /var/lib/kafka/data
-      KAFKA_DEFAULT_REPLICATION_FACTOR: 1
-      KAFKA_NUM_PARTITIONS: 1
     volumes:
       - kafka-data:/var/lib/kafka/data
     networks:
-      - finansal-network
+      - finansal_network
     restart: always
+
   # Redis
   redis:
     image: redis:7.0-alpine
@@ -53,12 +48,8 @@ services:
       - redis-data:/data
     command: redis-server --save 60 1 --loglevel warning
     networks:
-      - finansal-network
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 5s
-      timeout: 3s
-      retries: 3
+      - finansal_network
+
   # PostgreSQL
   postgres:
     image: postgres:15-alpine
@@ -72,12 +63,8 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
-      - finansal-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
-      timeout: 3s
-      retries: 5
+      - finansal_network
+
   # TCP Platform Simulator
   tcp-simulator:
     build:
@@ -86,12 +73,19 @@ services:
     ports:
       - "8081:8081"
     networks:
-      - finansal-network
+      - finansal_network
     volumes:
       - ./demo/logs:/app/logs
+      - ./demo/config:/app/config
     restart: unless-stopped
     depends_on:
       - kafka
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+    # İsteğe bağlı: Java heap bellek ayarları
+    # environment:
+    #   - JAVA_OPTS=-Xmx512m -Xms256m
+
   # REST Platform Simulator
   rest-simulator:
     build:
@@ -100,12 +94,15 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - finansal-network
+      - finansal_network
     volumes:
       - ./platform-simulator-rest/logs:/app/logs
     restart: unless-stopped
     depends_on:
       - kafka
+    environment:
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+
   # Main Application
   main-app:
     build:
@@ -114,7 +111,7 @@ services:
     ports:
       - "8090:8090"
     networks:
-      - finansal-network
+      - finansal_network
     volumes:
       - ./main-app/logs:/app/logs
     restart: unless-stopped
@@ -125,25 +122,33 @@ services:
       - SPRING_DATA_REDIS_HOST=redis
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
       - KAFKA_TOPIC_RATES=finansal.rates
+
   # Kafka Consumer
   kafka-consumer:
     build:
       context: ./Kafka-Consumer
     container_name: kafka-consumer
     networks:
-      - finansal-network
+      - finansal_network
+    volumes:
+      - ./Kafka-Consumer/logs:/app/logs
     restart: unless-stopped
     depends_on:
       - kafka
       - postgres
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/finansal_rates
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - KAFKA_TOPIC_RATES=finansal.rates
+
 volumes:
   zookeeper-data:
   kafka-data:
   redis-data:
   postgres-data:
+
 networks:
-  finansal-network:
+  finansal_network:
     driver: bridge
