@@ -1,0 +1,498 @@
+2025-03-14 14:51:38.680 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Starting KafkaConsumerApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-03-14 14:51:38.743 [main] DEBUG com.example.kafkaconsumer.KafkaConsumerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-14 14:51:38.751 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-14 14:51:41.320 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-14 14:51:41.586 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 143 ms. Found 1 JPA repository interface.
+2025-03-14 14:51:43.937 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-14 14:51:44.524 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-03-14 14:51:44.685 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-14 14:51:45.646 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-14 14:51:45.772 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-14 14:51:50.319 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 08001
+2025-03-14 14:51:50.327 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - The connection attempt failed.
+2025-03-14 14:51:50.335 [main] WARN  org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+org.hibernate.exception.JDBCConnectionException: unable to obtain isolated JDBC connection [The connection attempt failed.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:320) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1442) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1513) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346) [spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) [spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) [spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) [spring-context-6.2.3.jar!/:6.2.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) [spring-context-6.2.3.jar!/:6.2.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) [spring-boot-3.4.3.jar!/:3.4.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) [spring-boot-3.4.3.jar!/:3.4.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) [spring-boot-3.4.3.jar!/:3.4.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) [spring-boot-3.4.3.jar!/:3.4.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) [spring-boot-3.4.3.jar!/:3.4.3]
+	at com.example.kafkaconsumer.KafkaConsumerApplication.main(KafkaConsumerApplication.java:12) [!/:0.0.1-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) [app.jar:0.0.1-SNAPSHOT]
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:364) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.Driver.makeConnection(Driver.java:446) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar!/:?]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:467) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	... 41 more
+Caused by: java.net.UnknownHostException: postgres
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source) ~[?:?]
+	at java.base/java.net.Socket.connect(Unknown Source) ~[?:?]
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:260) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.PGStream.<init>(PGStream.java:121) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:140) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:268) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.Driver.makeConnection(Driver.java:446) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar!/:?]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:467) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	... 41 more
+2025-03-14 14:51:50.539 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-14 14:51:50.590 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (null)']
+	Database driver: undefined/unknown
+	Database version: 12.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-14 14:51:53.981 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-14 14:51:54.021 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-14 14:51:55.025 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 08001
+2025-03-14 14:51:55.026 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - The connection attempt failed.
+2025-03-14 14:51:55.034 [main] ERROR org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [The connection attempt failed.] [n/a]
+2025-03-14 14:51:55.044 [main] WARN  org.springframework.context.annotation.AnnotationConfigApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [The connection attempt failed.] [n/a]
+2025-03-14 14:51:55.079 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-14 14:51:55.135 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [The connection attempt failed.] [n/a]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.3.jar!/:6.2.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.3.jar!/:6.2.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) [spring-boot-3.4.3.jar!/:3.4.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) [spring-boot-3.4.3.jar!/:3.4.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) [spring-boot-3.4.3.jar!/:3.4.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) [spring-boot-3.4.3.jar!/:3.4.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) [spring-boot-3.4.3.jar!/:3.4.3]
+	at com.example.kafkaconsumer.KafkaConsumerApplication.main(KafkaConsumerApplication.java:12) [!/:0.0.1-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) [app.jar:0.0.1-SNAPSHOT]
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [The connection attempt failed.] [n/a]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:431) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	... 21 more
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [The connection attempt failed.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:43) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:39) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:66) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:60) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:185) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:93) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at java.base/java.util.HashMap.forEach(Unknown Source) ~[?:?]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	... 21 more
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:364) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.Driver.makeConnection(Driver.java:446) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar!/:?]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:467) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:43) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:39) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:66) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:60) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:185) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:93) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at java.base/java.util.HashMap.forEach(Unknown Source) ~[?:?]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	... 21 more
+Caused by: java.net.UnknownHostException: postgres
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source) ~[?:?]
+	at java.base/java.net.Socket.connect(Unknown Source) ~[?:?]
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:260) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.PGStream.<init>(PGStream.java:121) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:140) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:268) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.Driver.makeConnection(Driver.java:446) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar!/:?]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:467) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:43) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:39) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:66) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:60) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:185) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:93) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at java.base/java.util.HashMap.forEach(Unknown Source) ~[?:?]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.8.Final.jar!/:6.6.8.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.3.jar!/:6.2.3]
+	... 21 more
+2025-03-14 14:51:58.919 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Starting KafkaConsumerApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-03-14 14:51:58.926 [main] DEBUG com.example.kafkaconsumer.KafkaConsumerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-14 14:51:58.932 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-14 14:51:59.905 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-14 14:52:00.096 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 136 ms. Found 1 JPA repository interface.
+2025-03-14 14:52:01.289 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-14 14:52:01.468 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-03-14 14:52:01.553 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-14 14:52:02.081 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-14 14:52:02.140 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-14 14:52:02.571 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6c951ada
+2025-03-14 14:52:02.575 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-14 14:52:02.668 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-14 14:52:02.786 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-14 14:52:04.408 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-14 14:52:04.519 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-14 14:52:06.224 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [kafka:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-finansal-rates-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = finansal-rates-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-03-14 14:52:06.431 [main] INFO  org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-03-14 14:52:06.826 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2025-03-14 14:52:06.830 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-03-14 14:52:06.832 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1741963926823
+2025-03-14 14:52:06.842 [main] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Subscribed to topic(s): finansal.rates
+2025-03-14 14:52:06.881 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Started KafkaConsumerApplication in 8.722 seconds (process running for 10.81)
+2025-03-14 14:52:07.523 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:07.527 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:07.528 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:07.632 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:07.634 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:07.635 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:07.740 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:07.741 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:07.741 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:07.953 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:07.954 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:07.955 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:09.282 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:09.284 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Cancelled in-flight API_VERSIONS request with correlation id 1 due to node -1 being disconnected (elapsed time since creation: 868ms, elapsed time since send: 868ms, throttle time: 0ms, request timeout: 30000ms)
+2025-03-14 14:52:09.285 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:10.239 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:10.240 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:10.241 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:11.254 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:11.255 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:11.256 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:12.107 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:12.108 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:12.109 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:13.114 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:13.116 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:13.117 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:14.116 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:14.117 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:14.117 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:15.130 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:15.131 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:15.131 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:16.041 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:16.042 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:16.043 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:16.964 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:16.965 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:16.965 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:17.966 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:17.967 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:17.970 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:19.819 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:19.820 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Cancelled in-flight API_VERSIONS request with correlation id 2 due to node -1 being disconnected (elapsed time since creation: 852ms, elapsed time since send: 852ms, throttle time: 0ms, request timeout: 30000ms)
+2025-03-14 14:52:19.821 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:20.721 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:20.722 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:20.723 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:21.541 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:21.542 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:21.542 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:22.566 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:22.568 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:22.569 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:23.567 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:23.568 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:23.569 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:24.580 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:24.580 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:24.581 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:25.439 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:25.441 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:25.441 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:26.487 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:26.489 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:26.490 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:27.330 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:27.331 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:27.331 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:28.331 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 14:52:28.332 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.22.0.2:29092) could not be established. Node may not be available.
+2025-03-14 14:52:28.333 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-03-14 14:52:29.321 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Cluster ID: 7ACDQ7KATHyjb74X8-FQ5A
+2025-03-14 14:52:29.334 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Discovered group coordinator kafka:29092 (id: 2147483646 rack: null)
+2025-03-14 14:52:29.338 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-03-14 14:52:29.365 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: need to re-join with the given member-id: consumer-finansal-rates-group-1-964f154d-e48b-4b55-bab1-eaaeb74dcaa8
+2025-03-14 14:52:29.366 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-03-14 14:53:14.220 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully joined group with generation Generation{generationId=4, memberId='consumer-finansal-rates-group-1-964f154d-e48b-4b55-bab1-eaaeb74dcaa8', protocol='range'}
+2025-03-14 14:53:14.226 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Finished assignment for group at generation 4: {consumer-finansal-rates-group-1-964f154d-e48b-4b55-bab1-eaaeb74dcaa8=Assignment(partitions=[finansal.rates-0])}
+2025-03-14 14:53:14.265 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully synced group in generation Generation{generationId=4, memberId='consumer-finansal-rates-group-1-964f154d-e48b-4b55-bab1-eaaeb74dcaa8', protocol='range'}
+2025-03-14 14:53:14.266 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Notifying assignor about the new Assignment(partitions=[finansal.rates-0])
+2025-03-14 14:53:14.269 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Adding newly assigned partitions: finansal.rates-0
+2025-03-14 14:53:14.284 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition finansal.rates-0 to the committed offset FetchPosition{offset=8, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}
+2025-03-14 14:53:14.286 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions assigned: [finansal.rates-0]
+2025-03-14 14:53:25.795 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.KafkaConsumerService - Received message: payload=
+2025-03-14 14:53:25.803 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] ERROR com.example.kafkaconsumer.util.RateDataParser - Cannot parse null or empty message
+2025-03-14 14:53:25.804 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] ERROR com.example.kafkaconsumer.service.RatePersistenceService - Failed to parse message: 
+2025-03-14 14:53:25.806 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] ERROR com.example.kafkaconsumer.service.KafkaConsumerService - Failed to process message
+2025-03-14 14:53:29.860 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.KafkaConsumerService - Received message: payload=
+2025-03-14 14:53:29.862 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] ERROR com.example.kafkaconsumer.util.RateDataParser - Cannot parse null or empty message
+2025-03-14 14:53:29.862 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] ERROR com.example.kafkaconsumer.service.RatePersistenceService - Failed to parse message: 
+2025-03-14 14:53:29.863 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] ERROR com.example.kafkaconsumer.service.KafkaConsumerService - Failed to process message
+2025-03-14 14:53:29.864 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.KafkaConsumerService - Received message: payload=PF1_USDTRY|33.95|34.15|2023-03-12T12:30:45
+2025-03-14 14:53:29.864 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.util.RateDataParser - Detected standard format
+2025-03-14 14:53:29.964 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.RatePersistenceService - Saved rate: RateEntity{id=34, rateName='PF1_USDTRY', bid=33.95, ask=34.15, rateUpdateTime=2023-03-12T12:30:45, dbUpdateTime=2025-03-14T14:53:29.868596086}
+2025-03-14 14:53:29.978 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.KafkaConsumerService - Successfully processed message
+2025-03-14 14:53:33.358 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.KafkaConsumerService - Received message: payload=
+2025-03-14 14:53:33.360 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] ERROR com.example.kafkaconsumer.util.RateDataParser - Cannot parse null or empty message
+2025-03-14 14:53:33.361 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] ERROR com.example.kafkaconsumer.service.RatePersistenceService - Failed to parse message: 
+2025-03-14 14:53:33.361 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] ERROR com.example.kafkaconsumer.service.KafkaConsumerService - Failed to process message
+2025-03-14 15:01:29.342 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-03-14 15:11:29.456 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.

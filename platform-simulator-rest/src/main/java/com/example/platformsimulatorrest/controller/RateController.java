@@ -55,11 +55,7 @@ public class RateController {
         return ResponseEntity.ok(rateData);
     }
 
-    /**
-     * Simülasyon durumunu değiştirir (başlat/durdur)
-     * @param action Eylem (start/stop)
-     * @return İşlem sonucu
-     */
+
     @PostMapping("/simulation/{action}")
     public ResponseEntity<String> controlSimulation(@PathVariable String action) {
         logger.info("Simulation control action: {}", action);

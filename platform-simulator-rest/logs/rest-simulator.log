@@ -1,0 +1,17 @@
+2025-03-14 14:51:39.001 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Starting PlatformSimulatorRestApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-03-14 14:51:39.065 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-14 14:51:45.103 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-14 14:51:45.138 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-14 14:51:45.148 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-14 14:51:45.151 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-14 14:51:45.231 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-14 14:51:45.236 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6013 ms
+2025-03-14 14:51:45.828 [main] INFO  com.example.platformsimulatorrest.config.SimulatorConfig - Loaded 3 initial rates from: rates-config.json
+2025-03-14 14:51:45.868 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_EURUSD', bid=1.037, ask=1.041, timestamp=2025-03-14T14:51:45.868623893}
+2025-03-14 14:51:45.875 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_GBPUSD', bid=1.259, ask=1.2615, timestamp=2025-03-14T14:51:45.875654222}
+2025-03-14 14:51:45.876 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_USDTRY', bid=34.8, ask=35.1, timestamp=2025-03-14T14:51:45.876876155}
+2025-03-14 14:51:45.878 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation started with update interval: 8000ms
+2025-03-14 14:51:46.995 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2025-03-14 14:51:47.125 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-14 14:51:47.204 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-14 14:51:47.240 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Started PlatformSimulatorRestApplication in 9.645 seconds (process running for 16.479)
