@@ -13,6 +13,11 @@ services:
       - zookeeper-data:/var/lib/zookeeper/data
     networks:
       - finansal_network
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "2181"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   # Kafka
   kafka:
@@ -37,6 +42,12 @@ services:
     networks:
       - finansal_network
     restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-topics --bootstrap-server localhost:9092 --list"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
   # Redis
   redis:
@@ -49,6 +60,11 @@ services:
     command: redis-server --save 60 1 --loglevel warning
     networks:
       - finansal_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
 
   # PostgreSQL
   postgres:
@@ -64,6 +80,66 @@ services:
       - postgres-data:/var/lib/postgresql/data
     networks:
       - finansal_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # OpenSearch
+  opensearch:
+    image: opensearchproject/opensearch:2.4.0
+    container_name: opensearch
+    environment:
+      - discovery.type=single-node
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+      - bootstrap.memory_lock=true
+      - "DISABLE_SECURITY_PLUGIN=true"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+    ports:
+      - "9200:9200"
+      - "9600:9600"
+    networks:
+      - finansal_network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health | grep -q '\"status\":\"green\"\\|\"status\":\"yellow\"'"]
+      interval: 20s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # OpenSearch Dashboards
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2.4.0
+    container_name: opensearch-dashboards
+    ports:
+      - "5601:5601"
+    environment:
+      - "OPENSEARCH_HOSTS=http://opensearch:9200"
+      - "DISABLE_SECURITY_DASHBOARDS_PLUGIN=true"
+    networks:
+      - finansal_network
+    depends_on:
+      - opensearch
+
+  # Filebeat
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.6.0
+    container_name: filebeat
+    user: root
+    volumes:
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - ./logs:/logs:ro
+    networks:
+      - finansal_network
+    depends_on:
+      - opensearch
 
   # TCP Platform Simulator
   tcp-simulator:
@@ -82,9 +158,11 @@ services:
       - kafka
     environment:
       - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
-    # İsteğe bağlı: Java heap bellek ayarları
-    # environment:
-    #   - JAVA_OPTS=-Xmx512m -Xms256m
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   # REST Platform Simulator
   rest-simulator:
@@ -102,6 +180,34 @@ services:
       - kafka
     environment:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # FIX Platform Simulator
+  fix-simulator:
+    build:
+      context: ./fix-simulator
+    container_name: fix-simulator
+    ports:
+      - "8082:8082"
+    networks:
+      - finansal_network
+    volumes:
+      - ./fix-simulator/logs:/app/logs
+      - ./fix-simulator/config:/app/config
+    restart: unless-stopped
+    depends_on:
+      - kafka
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   # Main Application
   main-app:
@@ -118,12 +224,22 @@ services:
     depends_on:
       - kafka
       - redis
+      - opensearch
+      - tcp-simulator
+      - rest-simulator
+      - fix-simulator
     environment:
       - SPRING_DATA_REDIS_HOST=redis
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
       - KAFKA_TOPIC_RATES=finansal.rates
+      - OPENSEARCH_URL=http://opensearch:9200
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
-  # Kafka Consumer
+  # Kafka Consumer for PostgreSQL
   kafka-consumer:
     build:
       context: ./Kafka-Consumer
@@ -136,18 +252,49 @@ services:
     depends_on:
       - kafka
       - postgres
+      - main-app
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/finansal_rates
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
       - KAFKA_TOPIC_RATES=finansal.rates
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Kafka Consumer for OpenSearch
+  kafka-consumer-opensearch:
+    build:
+      context: ./Kafka-Consumer-OpenSearch
+    container_name: kafka-consumer-opensearch
+    networks:
+      - finansal_network
+    volumes:
+      - ./Kafka-Consumer-OpenSearch/logs:/app/logs
+    restart: unless-stopped
+    depends_on:
+      - kafka
+      - opensearch
+      - main-app
+    environment:
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - KAFKA_TOPIC_RATES=finansal.rates
+      - OPENSEARCH_URL=http://opensearch:9200
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 volumes:
   zookeeper-data:
   kafka-data:
   redis-data:
   postgres-data:
+  opensearch-data:
 
 networks:
   finansal_network:
