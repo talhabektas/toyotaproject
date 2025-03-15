@@ -1,0 +1,30 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /logs/main-app.log
+      - /logs/tcp-simulator.log
+      - /logs/rest-simulator.log
+      - /logs/fix-simulator.log
+      - /logs/kafka-consumer.log
+      - /logs/kafka-consumer-opensearch.log
+    fields:
+      application: finansal_rates
+    fields_under_root: true
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+processors:
+  - add_host_metadata: ~
+  - add_docker_metadata: ~
+
+output.opensearch:
+  hosts: ["opensearch:9200"]
+  protocol: "http"
+  username: ""
+  password: ""
+  index: "finansal-rates-logs-%{+yyyy.MM.dd}"
+
+logging.level: info
