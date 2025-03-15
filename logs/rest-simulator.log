@@ -1,0 +1,37 @@
+2025-03-11 02:08:11.651 [restartedMain] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Starting PlatformSimulatorRestApplication using Java 17.0.13 with PID 9588 (C:\Users\Pc\Desktop\cltoyota\platform-simulator-rest\target\classes started by Pc in C:\Users\Pc\Desktop\cltoyota)
+2025-03-11 02:08:11.669 [restartedMain] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-11 02:08:11.774 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-11 02:08:11.774 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-11 02:08:14.289 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-11 02:08:14.313 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-11 02:08:14.315 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-11 02:08:14.316 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-11 02:08:14.411 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-11 02:08:14.412 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2637 ms
+2025-03-11 02:08:14.807 [restartedMain] INFO  com.example.platformsimulatorrest.config.SimulatorConfig - Loaded 3 initial rates from: rates-config.json
+2025-03-11 02:08:14.822 [restartedMain] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_EURUSD', bid=1.037, ask=1.041, timestamp=2025-03-11T02:08:14.822323400}
+2025-03-11 02:08:14.828 [restartedMain] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_GBPUSD', bid=1.259, ask=1.2615, timestamp=2025-03-11T02:08:14.828821900}
+2025-03-11 02:08:14.829 [restartedMain] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_USDTRY', bid=34.8, ask=35.1, timestamp=2025-03-11T02:08:14.829346400}
+2025-03-11 02:08:14.829 [restartedMain] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation started with update interval: 8000ms
+2025-03-11 02:08:15.699 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-03-11 02:08:15.709 [restartedMain] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2025-03-11 02:08:15.783 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-11 02:08:15.792 [restartedMain] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-03-11 02:08:15.798 [restartedMain] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation stopped
+2025-03-11 02:08:15.835 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-11 02:08:15.867 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
