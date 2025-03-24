@@ -1,7 +1,5 @@
 package com.example.mainapp.cache.impl;
 
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.example.mainapp.cache.RateCache;
 import com.example.mainapp.model.Rate;
 import org.slf4j.Logger;
@@ -9,15 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.SetOperations;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Redis implementation of RateCache
- */
 @Component
 @ConditionalOnProperty(name = "cache.type", havingValue = "redis")
 public class RedisRateCache implements RateCache {
@@ -29,17 +23,10 @@ public class RedisRateCache implements RateCache {
     private static final String RATE_NAMES_KEY = "rate:names";
 
     private final RedisTemplate<String, Object> redisTemplate;
-    private final ObjectMapper objectMapper;
 
-    /**
-     * Constructor
-     * @param redisTemplate Redis template
-     * @param objectMapper Object mapper for serialization
-     */
     @Autowired
-    public RedisRateCache(RedisTemplate<String, Object> redisTemplate, ObjectMapper objectMapper) {
+    public RedisRateCache(RedisTemplate<String, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
-        this.objectMapper = objectMapper;
     }
 
     @Override
@@ -170,8 +157,7 @@ public class RedisRateCache implements RateCache {
     @Override
     public Set<String> getAllRateNames() {
         try {
-            SetOperations<String, Object> setOps = redisTemplate.opsForSet();
-            Set<Object> members = setOps.members(RATE_NAMES_KEY);
+            Set<Object> members = redisTemplate.opsForSet().members(RATE_NAMES_KEY);
 
             if (members != null) {
                 Set<String> rateNames = new HashSet<>();
@@ -208,12 +194,6 @@ public class RedisRateCache implements RateCache {
         }
     }
 
-    /**
-     * Create a platform-specific key for the index
-     * @param platformName Platform name
-     * @param rateName Rate name
-     * @return Combined key
-     */
     private String createPlatformKey(String platformName, String rateName) {
         return PLATFORM_RATE_KEY_PREFIX + platformName + ":" + rateName;
     }

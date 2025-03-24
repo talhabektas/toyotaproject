@@ -1,6 +1,5 @@
 package com.example.mainapp.coordinator.impl;
 
-
 import com.example.mainapp.cache.RateCache;
 import com.example.mainapp.calculator.RateCalculator;
 import com.example.mainapp.collector.PlatformConnector;
@@ -14,14 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
-/**
- * Coordinator arayüzünün varsayılan uygulaması
- */
 @Component
 public class DefaultCoordinator implements Coordinator {
 
@@ -34,12 +28,6 @@ public class DefaultCoordinator implements Coordinator {
     private final RateCalculator rateCalculator;
     private final KafkaProducerService kafkaProducerService;
 
-    /**
-     * Constructor
-     * @param rateCache Kur önbelleği
-     * @param rateCalculator Kur hesaplayıcı
-     * @param kafkaProducerService Kafka üretici servisi
-     */
     @Autowired
     public DefaultCoordinator(RateCache rateCache, RateCalculator rateCalculator,
                               KafkaProducerService kafkaProducerService) {
@@ -50,17 +38,14 @@ public class DefaultCoordinator implements Coordinator {
         initializeCalculatedRateDependencies();
     }
 
-    /**
-     * Hesaplanan kurlar için bağımlılıkları başlatır
-     */
     private void initializeCalculatedRateDependencies() {
-        // USDTRY için PF1_USDTRY ve PF2_USDTRY bağımlılıkları
+        // USDTRY dependencies: PF1_USDTRY and PF2_USDTRY
         Set<String> usdtryDeps = new HashSet<>();
         usdtryDeps.add("PF1_USDTRY");
         usdtryDeps.add("PF2_USDTRY");
         calculatedRateDependencies.put("USDTRY", usdtryDeps);
 
-        // EURTRY için PF1_EURUSD, PF2_EURUSD, PF1_USDTRY ve PF2_USDTRY bağımlılıkları
+        // EURTRY dependencies: PF1_EURUSD, PF2_EURUSD, PF1_USDTRY, and PF2_USDTRY
         Set<String> eurtryDeps = new HashSet<>();
         eurtryDeps.add("PF1_EURUSD");
         eurtryDeps.add("PF2_EURUSD");
@@ -68,7 +53,7 @@ public class DefaultCoordinator implements Coordinator {
         eurtryDeps.add("PF2_USDTRY");
         calculatedRateDependencies.put("EURTRY", eurtryDeps);
 
-        // GBPTRY için PF1_GBPUSD, PF2_GBPUSD, PF1_USDTRY ve PF2_USDTRY bağımlılıkları
+        // GBPTRY dependencies: PF1_GBPUSD, PF2_GBPUSD, PF1_USDTRY, and PF2_USDTRY
         Set<String> gbptryDeps = new HashSet<>();
         gbptryDeps.add("PF1_GBPUSD");
         gbptryDeps.add("PF2_GBPUSD");
@@ -80,16 +65,12 @@ public class DefaultCoordinator implements Coordinator {
     @Override
     public void start() {
         logger.info("Starting coordinator");
-
-        // Tüm bağlayıcıları başlat
         connectors.values().forEach(PlatformConnector::start);
     }
 
     @Override
     public void stop() {
         logger.info("Stopping coordinator");
-
-        // Tüm bağlayıcıları durdur
         connectors.values().forEach(PlatformConnector::stop);
     }
 
@@ -211,7 +192,7 @@ public class DefaultCoordinator implements Coordinator {
             return false;
         }
 
-        // Tüm bağımlılıkların mevcut olup olmadığını kontrol et
+        // Check if all dependencies are available
         Map<String, Rate> dependencyRates = new HashMap<>();
         for (String depRateName : dependencies) {
             Rate depRate = rateCache.getRate(depRateName);
@@ -223,10 +204,10 @@ public class DefaultCoordinator implements Coordinator {
         }
 
         try {
-            // Kuru hesapla
+            // Calculate the rate
             Rate calculatedRate = rateCalculator.calculate(targetRateName, dependencyRates);
             if (calculatedRate != null) {
-                // Hesaplanan kuru önbelleğe ve Kafka'ya gönder
+                // Cache and send to Kafka
                 rateCache.putRate(calculatedRate);
                 kafkaProducerService.sendRate(calculatedRate);
 
@@ -240,8 +221,7 @@ public class DefaultCoordinator implements Coordinator {
         return false;
     }
 
-    // CoordinatorCallback uygulamaları
-
+    // Coordinator callback methods implementation
     @Override
     public void onConnect(String platformName, boolean status) {
         logger.info("Platform {} connection status: {}", platformName, status);
@@ -256,13 +236,13 @@ public class DefaultCoordinator implements Coordinator {
     public void onRateAvailable(String platformName, String rateName, Rate rate) {
         logger.debug("Rate {} available from platform {}", rateName, platformName);
 
-        // Kuru önbelleğe ekle
+        // Add to cache
         rateCache.putRate(rate);
 
-        // Kafka'ya gönder
+        // Send to Kafka
         kafkaProducerService.sendRate(rate);
 
-        // Bu kur herhangi bir hesaplanan kurun bağımlılığı mı kontrol et
+        // Check if this rate is a dependency for any calculated rates
         checkAndCalculateDependentRates(rateName);
     }
 
@@ -270,10 +250,10 @@ public class DefaultCoordinator implements Coordinator {
     public void onRateUpdate(String platformName, String rateName, RateFields rateFields) {
         logger.debug("Rate {} updated from platform {}", rateName, platformName);
 
-        // Önbellekten mevcut kuru al
+        // Get existing rate from cache
         Rate existingRate = rateCache.getRate(platformName, rateName);
         if (existingRate != null) {
-            // Güncellenmiş kur oluştur
+            // Create updated rate
             Rate updatedRate = new Rate(
                     existingRate.getRateName(),
                     existingRate.getPlatformName(),
@@ -283,13 +263,13 @@ public class DefaultCoordinator implements Coordinator {
                     existingRate.isCalculated()
             );
 
-            // Önbelleği güncelle
+            // Update cache
             rateCache.putRate(updatedRate);
 
-            // Kafka'ya gönder
+            // Send to Kafka
             kafkaProducerService.sendRate(updatedRate);
 
-            // Bu kur herhangi bir hesaplanan kurun bağımlılığı mı kontrol et
+            // Check if this rate is a dependency for any calculated rates
             checkAndCalculateDependentRates(rateName);
         } else {
             logger.warn("Received update for unknown rate {} from platform {}", rateName, platformName);
@@ -301,15 +281,11 @@ public class DefaultCoordinator implements Coordinator {
         logger.info("Rate {} status from platform {}: {}", rateName, platformName, rateStatus);
 
         if (rateStatus == RateStatus.UNAVAILABLE || rateStatus == RateStatus.ERROR) {
-            // Kuru önbellekten kaldır
+            // Remove from cache
             rateCache.removeRate(platformName, rateName);
         }
     }
 
-    /**
-     * Bir kur güncellendiyse ve bu kur hesaplanan kurların bağımlılığı ise gerekli hesaplamaları yapar
-     * @param updatedRateName Güncellenen kur adı
-     */
     private void checkAndCalculateDependentRates(String updatedRateName) {
         for (Map.Entry<String, Set<String>> entry : calculatedRateDependencies.entrySet()) {
             String calculatedRateName = entry.getKey();

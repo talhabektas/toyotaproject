@@ -5,11 +5,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.opensearch.action.admin.indices.create.CreateIndexRequest;
-import org.opensearch.action.admin.indices.get.GetIndexRequest;
 import org.opensearch.action.index.IndexRequest;
 import org.opensearch.client.RequestOptions;
 import org.opensearch.client.RestHighLevelClient;
+import org.opensearch.client.indices.CreateIndexRequest;
+import org.opensearch.client.indices.GetIndexRequest;
 import org.opensearch.common.xcontent.XContentType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -101,10 +101,9 @@ public class OpenSearchService {
                 Map<String, Object> mapping = new HashMap<>();
                 mapping.put("properties", properties);
 
-                Map<String, Object> mappings = new HashMap<>();
-                mappings.put("_doc", mapping);
-
-                createIndexRequest.mapping("_doc", mapping);
+                // Create a proper mapping using XContentType.JSON
+                String mappingJson = objectMapper.writeValueAsString(mapping);
+                createIndexRequest.mapping(mappingJson, XContentType.JSON);
 
                 // İndeksi oluştur
                 client.indices().create(createIndexRequest, RequestOptions.DEFAULT);

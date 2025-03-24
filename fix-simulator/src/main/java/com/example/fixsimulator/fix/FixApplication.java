@@ -133,7 +133,8 @@ public class FixApplication implements Application {
         String mdReqID = request.getMDReqID().getValue();
         int subscriptionType = request.getSubscriptionRequestType().getValue();
 
-        if (subscriptionType == SubscriptionRequestType.SNAPSHOT_PLUS_UPDATES) {
+        // Fix for the error: directly use the integer constants instead of the undefined fields
+        if (subscriptionType == 1) { // Use 1 instead of SubscriptionRequestType.SNAPSHOT_PLUS_UPDATES
             int symbolCount = request.getNoRelatedSym().getValue();
             for (int i = 1; i <= symbolCount; i++) {
                 MarketDataRequest.NoRelatedSym symbolGroup = new MarketDataRequest.NoRelatedSym();
@@ -160,7 +161,7 @@ public class FixApplication implements Application {
                     }
                 }
             }
-        } else if (subscriptionType == SubscriptionRequestType.DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST) {
+        } else if (subscriptionType == 2) { // Use 2 instead of SubscriptionRequestType.DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST
             int symbolCount = request.getNoRelatedSym().getValue();
             for (int i = 1; i <= symbolCount; i++) {
                 MarketDataRequest.NoRelatedSym symbolGroup = new MarketDataRequest.NoRelatedSym();

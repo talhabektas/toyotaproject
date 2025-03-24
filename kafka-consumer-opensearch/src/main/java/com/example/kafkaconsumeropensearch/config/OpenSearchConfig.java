@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * OpenSearch konfigürasyon sınıfı
  */
+
 @Configuration
 public class OpenSearchConfig {
 

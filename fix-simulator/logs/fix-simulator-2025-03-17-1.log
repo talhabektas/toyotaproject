@@ -1,0 +1,1521 @@
+2025-03-17 14:48:05.206 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:48:05.327 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:48:12.576 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:48:12.615 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:48:18.924 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:48:18.993 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:48:25.989 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:48:26.034 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:48:32.883 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:48:32.893 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:48:40.418 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:48:40.459 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:48:48.474 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:48:48.519 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:48:59.648 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:48:59.673 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:49:14.912 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:49:14.920 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:49:42.302 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:49:42.316 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:50:35.190 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:50:35.195 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:51:36.608 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:51:36.621 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:52:37.948 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:52:37.953 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:53:40.448 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:53:40.453 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:54:42.830 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:54:42.835 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:55:43.985 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:55:43.990 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:56:44.941 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:56:44.946 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:57:45.867 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:57:45.871 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:58:46.757 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:58:46.760 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 14:59:47.672 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 14:59:47.676 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:00:48.700 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:00:48.704 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:01:49.668 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:01:49.671 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:02:50.584 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:02:50.588 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:03:51.480 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:03:51.485 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:04:52.453 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:04:52.457 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:05:53.321 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:05:53.325 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:06:54.217 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:06:54.221 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:07:55.104 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:07:55.108 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:08:56.102 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:08:56.105 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:09:57.095 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:09:57.101 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:10:58.057 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:10:58.060 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:11:59.656 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:11:59.661 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:13:00.665 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:13:00.669 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:14:01.645 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:14:01.649 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:15:02.594 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:15:02.598 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:16:03.491 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:16:03.495 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:17:04.431 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:17:04.436 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:18:05.554 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:18:05.560 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:19:06.491 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:19:06.494 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:20:07.373 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:20:07.377 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:21:08.338 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:21:08.342 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:22:09.231 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:22:09.236 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:23:10.194 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:23:10.198 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:24:11.127 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:24:11.130 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:25:12.083 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:25:12.088 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:26:13.024 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:26:13.028 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:27:13.919 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:27:13.923 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:28:14.854 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:28:14.857 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:29:15.791 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:29:15.794 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:30:16.689 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:30:16.693 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:31:17.558 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:31:17.561 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:32:18.490 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:32:18.494 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:33:19.389 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:33:19.393 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:34:20.286 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:34:20.289 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:35:21.530 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:35:21.537 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:36:22.540 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:36:22.543 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:37:23.885 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:37:23.889 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:38:25.169 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:38:25.175 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:39:26.162 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:39:26.165 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:40:27.054 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:40:27.058 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:41:27.937 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:41:27.940 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:42:28.839 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:42:28.842 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:43:29.735 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:43:29.739 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:44:30.616 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:44:30.620 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:45:31.534 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:45:31.539 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:46:32.434 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:46:32.438 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:47:33.308 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:47:33.311 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:48:34.321 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:48:34.326 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:49:35.349 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:49:35.354 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:50:36.467 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:50:36.472 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:51:37.427 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:51:37.432 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:52:38.347 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:52:38.353 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:53:39.405 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:53:39.411 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:54:40.326 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:54:40.330 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:55:41.227 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:55:41.230 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:56:42.132 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:56:42.136 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:57:43.063 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:57:43.066 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:58:43.991 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:58:43.996 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 15:59:44.906 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 15:59:44.909 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:00:45.850 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:00:45.854 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:01:47.149 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:01:47.157 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:02:48.114 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:02:48.118 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:03:49.224 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:03:49.227 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:04:50.354 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:04:50.358 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:05:51.486 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:05:51.494 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:06:52.436 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:06:52.440 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:07:53.319 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:07:53.322 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:08:54.352 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:08:54.357 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:09:55.300 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:09:55.304 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:10:56.324 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:10:56.328 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:11:57.324 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:11:57.329 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:12:58.329 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:12:58.334 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:13:59.389 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:13:59.394 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:15:00.411 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:15:00.416 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:16:01.445 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:16:01.449 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:17:02.733 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:17:02.737 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:18:03.842 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:18:03.847 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:19:04.953 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:19:04.957 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:20:06.184 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:20:06.188 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:21:07.277 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:21:07.281 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:22:08.382 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:22:08.386 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:23:09.569 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:23:09.576 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:24:11.763 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:24:11.784 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:25:13.338 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:25:13.345 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:26:14.462 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:26:14.467 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:27:15.589 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:27:15.594 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:28:16.741 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:28:16.746 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:29:17.864 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:29:17.869 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:30:19.033 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:30:19.040 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:31:20.279 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:31:20.284 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:32:21.514 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:32:21.519 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:33:22.716 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:33:22.720 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:34:23.813 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:34:23.818 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:35:24.963 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:35:24.968 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:36:26.026 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:36:26.031 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:37:27.125 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:37:27.129 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]
+2025-03-17 16:38:28.182 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Dosya bulunamadı: config/rates-config.json
+2025-03-17 16:38:28.186 [main] ERROR com.example.fixsimulator.FixSimulatorApplication - Uygulama başlatılırken hata oluştu
+java.lang.RuntimeException: Gerekli dosya bulunamadı: config/rates-config.json
+	at com.example.fixsimulator.FixSimulatorApplication.checkFileExists(FixSimulatorApplication.java:93) ~[classes!/:0.0.1-SNAPSHOT]
+	at com.example.fixsimulator.FixSimulatorApplication.main(FixSimulatorApplication.java:37) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) [app.jar:0.0.1-SNAPSHOT]

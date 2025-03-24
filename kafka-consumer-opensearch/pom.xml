@@ -64,7 +64,8 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
-		</dependency>
+		</dependency><!-- pom.xml dosyasına ekle -->
+
 
 		<!-- Testing -->
 		<dependency>

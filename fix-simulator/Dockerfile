@@ -20,7 +20,7 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
 # Copy the configuration files
-COPY src/main/resources/config /app/config
+# COPY src/main/resources/config /app/config
 
 # Create directories for logs and store
 RUN mkdir -p /app/logs /app/store
