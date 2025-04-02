@@ -1,6 +1,5 @@
 package com.example.platformsimulatorrest.controller;
 
-
 import com.example.platformsimulatorrest.model.RateData;
 import com.example.platformsimulatorrest.service.RateSimulationService;
 import org.slf4j.Logger;
@@ -11,9 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-/**
- * Kur verilerini sağlayan REST Controller
- */
 @RestController
 @RequestMapping("/api/rates")
 public class RateController {
@@ -26,10 +22,6 @@ public class RateController {
         this.rateSimulationService = rateSimulationService;
     }
 
-    /**
-     * Tüm kur verilerini döndürür
-     * @return Kur verilerinin listesi
-     */
     @GetMapping
     public ResponseEntity<Map<String, RateData>> getAllRates() {
         logger.info("Request received for all rates");
@@ -37,11 +29,6 @@ public class RateController {
         return ResponseEntity.ok(rates);
     }
 
-    /**
-     * Belirli bir kur verisini döndürür
-     * @param rateName Kur adı
-     * @return Kur verisi
-     */
     @GetMapping("/{rateName}")
     public ResponseEntity<?> getRate(@PathVariable String rateName) {
         logger.info("Request received for rate: {}", rateName);
@@ -55,7 +42,6 @@ public class RateController {
         return ResponseEntity.ok(rateData);
     }
 
-
     @PostMapping("/simulation/{action}")
     public ResponseEntity<String> controlSimulation(@PathVariable String action) {
         logger.info("Simulation control action: {}", action);
@@ -65,6 +51,7 @@ public class RateController {
                 rateSimulationService.start();
                 return ResponseEntity.ok("Simulation started");
             case "stop":
+                rateSimulationService.stop();
                 rateSimulationService.stop();
                 return ResponseEntity.ok("Simulation stopped");
             default:

@@ -17,10 +17,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * Kur simülasyonundan sorumlu servis sınıfı.
- * Belirli aralıklarla kur değerlerini güncelleyerek simülasyon yapar.
- */
 @Service
 public class RateSimulationService {
     private static final Logger logger = LoggerFactory.getLogger(RateSimulationService.class);
@@ -32,38 +28,26 @@ public class RateSimulationService {
     private AtomicInteger updateCount = new AtomicInteger(0);
     private boolean running = false;
 
-    /**
-     * Constructor
-     * @param config Simülatör konfigürasyonu
-     */
     @Autowired
     public RateSimulationService(SimulatorConfig config) {
         this.config = config;
         this.rateGenerator = new RandomRateGenerator(
                 config.getMinRateChange(),
                 config.getMaxRateChange());
+        logger.info("RateSimulationService initialized with config: {}", config);
     }
 
-    /**
-     * Uygulama başladığında çalışacak metot
-     */
     @PostConstruct
     public void init() {
         initializeRates();
         start();
     }
 
-    /**
-     * Uygulama kapanmadan önce çalışacak metot
-     */
     @PreDestroy
     public void cleanup() {
         stop();
     }
 
-    /**
-     * Konfigürasyonda belirtilen başlangıç kurlarını initialize eder
-     */
     private void initializeRates() {
         config.getInitialRates().forEach((rateName, rateConfig) -> {
             RateData rateData = new RateData(
@@ -77,9 +61,6 @@ public class RateSimulationService {
         });
     }
 
-    /**
-     * Simülasyonu başlatır
-     */
     public synchronized void start() {
         if (running) {
             logger.warn("Simulation is already running");
@@ -90,9 +71,6 @@ public class RateSimulationService {
         logger.info("Rate simulation started with update interval: {}ms", config.getUpdateIntervalMs());
     }
 
-    /**
-     * Simülasyonu durdurur
-     */
     public synchronized void stop() {
         if (!running) {
             logger.warn("Simulation is not running");
@@ -103,9 +81,6 @@ public class RateSimulationService {
         logger.info("Rate simulation stopped");
     }
 
-    /**
-     * Belirli aralıklarla çalışarak tüm kur verilerini günceller
-     */
     @Scheduled(fixedDelayString = "${simulation.updateIntervalMs}")
     public void updateRates() {
         if (!running) {
@@ -124,24 +99,14 @@ public class RateSimulationService {
         rateDataMap.forEach((rateName, oldRateData) -> {
             RateData newRateData = rateGenerator.generateNextRate(oldRateData);
             rateDataMap.put(rateName, newRateData);
-
             logger.debug("Updated rate: {}", newRateData);
         });
     }
 
-    /**
-     * Belirli bir kur verisini döndürür
-     * @param rateName Kur adı
-     * @return Kur verisi, bulunamazsa null
-     */
     public RateData getRateData(String rateName) {
         return rateDataMap.get(rateName);
     }
 
-    /**
-     * Mevcut tüm kurları döndürür
-     * @return Kur haritası
-     */
     public Map<String, RateData> getAllRates() {
         return new HashMap<>(rateDataMap);
     }
