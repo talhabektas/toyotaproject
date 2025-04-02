@@ -1,7 +1,5 @@
 package com.example.mainapp.calculator;
 
-
-import com.example.mainapp.calculator.RateCalculator;
 import com.example.mainapp.calculator.factory.CalculatorFactory;
 import com.example.mainapp.calculator.impl.GroovyRateCalculator;
 import com.example.mainapp.calculator.impl.JavaRateCalculator;
@@ -10,6 +8,7 @@ import com.example.mainapp.model.Rate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -21,6 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * RateCalculator arayüzünün varsayılan uygulaması
  */
 @Component
+@DependsOn("calculatorFactory")
 public class DefaultRateCalculator implements RateCalculator {
 
     private static final Logger logger = LoggerFactory.getLogger(DefaultRateCalculator.class);

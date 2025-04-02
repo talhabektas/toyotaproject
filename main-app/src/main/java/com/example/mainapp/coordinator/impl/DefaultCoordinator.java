@@ -11,6 +11,7 @@ import com.example.mainapp.services.KafkaProducerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -29,7 +30,7 @@ public class DefaultCoordinator implements Coordinator {
     private final KafkaProducerService kafkaProducerService;
 
     @Autowired
-    public DefaultCoordinator(RateCache rateCache, RateCalculator rateCalculator,
+    public DefaultCoordinator(RateCache rateCache, @Lazy RateCalculator rateCalculator,
                               KafkaProducerService kafkaProducerService) {
         this.rateCache = rateCache;
         this.rateCalculator = rateCalculator;
@@ -207,11 +208,13 @@ public class DefaultCoordinator implements Coordinator {
             // Calculate the rate
             Rate calculatedRate = rateCalculator.calculate(targetRateName, dependencyRates);
             if (calculatedRate != null) {
-                // Cache and send to Kafka
+                // Cache the calculated rate
                 rateCache.putRate(calculatedRate);
-                kafkaProducerService.sendRate(calculatedRate);
 
-                logger.info("Successfully calculated rate: {}", calculatedRate);
+                // Send to Kafka
+                kafkaProducerService.sendRate(calculatedRate);
+                logger.info("Successfully calculated and sent rate to Kafka: {}", calculatedRate);
+
                 return true;
             }
         } catch (Exception e) {
@@ -234,13 +237,14 @@ public class DefaultCoordinator implements Coordinator {
 
     @Override
     public void onRateAvailable(String platformName, String rateName, Rate rate) {
-        logger.debug("Rate {} available from platform {}", rateName, platformName);
+        logger.info("Rate {} available from platform {}", rateName, platformName);
 
         // Add to cache
         rateCache.putRate(rate);
 
         // Send to Kafka
         kafkaProducerService.sendRate(rate);
+        logger.debug("Sent rate to Kafka: {}", rate);
 
         // Check if this rate is a dependency for any calculated rates
         checkAndCalculateDependentRates(rateName);
@@ -248,7 +252,7 @@ public class DefaultCoordinator implements Coordinator {
 
     @Override
     public void onRateUpdate(String platformName, String rateName, RateFields rateFields) {
-        logger.debug("Rate {} updated from platform {}", rateName, platformName);
+        logger.info("Rate {} updated from platform {}", rateName, platformName);
 
         // Get existing rate from cache
         Rate existingRate = rateCache.getRate(platformName, rateName);
@@ -268,6 +272,7 @@ public class DefaultCoordinator implements Coordinator {
 
             // Send to Kafka
             kafkaProducerService.sendRate(updatedRate);
+            logger.debug("Sent updated rate to Kafka: {}", updatedRate);
 
             // Check if this rate is a dependency for any calculated rates
             checkAndCalculateDependentRates(rateName);
@@ -275,7 +280,6 @@ public class DefaultCoordinator implements Coordinator {
             logger.warn("Received update for unknown rate {} from platform {}", rateName, platformName);
         }
     }
-
     @Override
     public void onRateStatus(String platformName, String rateName, RateStatus rateStatus) {
         logger.info("Rate {} status from platform {}: {}", rateName, platformName, rateStatus);

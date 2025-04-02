@@ -27,6 +27,7 @@ public class RedisRateCache implements RateCache {
     @Autowired
     public RedisRateCache(RedisTemplate<String, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
+        logger.info("Redis Rate Cache initialized");
     }
 
     @Override

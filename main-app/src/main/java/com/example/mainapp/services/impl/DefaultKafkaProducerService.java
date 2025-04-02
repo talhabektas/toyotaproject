@@ -9,9 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-/**
- * Default implementation of KafkaProducerService
- */
 @Service
 public class DefaultKafkaProducerService implements KafkaProducerService {
 
@@ -22,10 +19,6 @@ public class DefaultKafkaProducerService implements KafkaProducerService {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    /**
-     * Constructor
-     * @param kafkaTemplate Kafka template
-     */
     @Autowired
     public DefaultKafkaProducerService(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
@@ -45,11 +38,13 @@ public class DefaultKafkaProducerService implements KafkaProducerService {
             // Use rate name as key
             String key = rate.getRateName();
 
-            // Send to Kafka using CompletableFuture instead of ListenableFuture
+            logger.info("Sending rate to Kafka: key={}, message={}", key, message);
+
+            // Send to Kafka
             kafkaTemplate.send(ratesTopic, key, message)
                     .whenComplete((result, ex) -> {
                         if (ex == null) {
-                            logger.debug("Sent rate {} to Kafka: {}", key, message);
+                            logger.debug("Successfully sent rate {} to Kafka: {}", key, message);
                         } else {
                             logger.error("Failed to send rate {} to Kafka", key, ex);
                         }
