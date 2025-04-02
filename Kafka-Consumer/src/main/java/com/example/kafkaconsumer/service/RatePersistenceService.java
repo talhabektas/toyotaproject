@@ -9,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Service for persisting rate data
- */
 @Service
 public class RatePersistenceService {
 
@@ -19,20 +16,11 @@ public class RatePersistenceService {
 
     private final RateRepository rateRepository;
 
-    /**
-     * Constructor
-     * @param rateRepository Rate repository
-     */
     @Autowired
     public RatePersistenceService(RateRepository rateRepository) {
         this.rateRepository = rateRepository;
     }
 
-    /**
-     * Save a rate entity to the database
-     * @param rateEntity Rate entity
-     * @return Saved entity
-     */
     @Transactional
     public RateEntity saveRate(RateEntity rateEntity) {
         try {
@@ -45,14 +33,10 @@ public class RatePersistenceService {
         }
     }
 
-    /**
-     * Process a Kafka message and save to database
-     * @param message Kafka message
-     * @return true if successful
-     */
     @Transactional
     public boolean processMessage(String message) {
         try {
+            logger.debug("Processing message: {}", message);
             RateEntity rateEntity = RateDataParser.parseMessage(message);
             if (rateEntity != null) {
                 saveRate(rateEntity);
