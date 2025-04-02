@@ -1,9 +1,8 @@
 package com.example.demo.service;
 
-
 import com.example.demo.model.RateData;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,11 +12,9 @@ import java.net.Socket;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * TCP bağlantılarını işleyen sınıf
- */
 public class TCPConnectionHandler implements Runnable {
-    private static final Logger logger = LogManager.getLogger(TCPConnectionHandler.class);
+
+    private static final Logger logger = LoggerFactory.getLogger(TCPConnectionHandler.class);
 
     private final Socket clientSocket;
     private final RateSimulationService simulationService;
@@ -26,11 +23,6 @@ public class TCPConnectionHandler implements Runnable {
     private BufferedReader in;
     private final AtomicBoolean running = new AtomicBoolean(true);
 
-    /**
-     * Constructor
-     * @param clientSocket İstemci soketi
-     * @param simulationService Simülasyon servisi
-     */
     public TCPConnectionHandler(Socket clientSocket, RateSimulationService simulationService) {
         this.clientSocket = clientSocket;
         this.simulationService = simulationService;
@@ -40,15 +32,16 @@ public class TCPConnectionHandler implements Runnable {
     @Override
     public void run() {
         try {
-            // Input ve output stream'leri oluştur
+            // Create input and output streams
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
             logger.info("New connection established: {}", connectionId);
 
             String inputLine;
-            // İstemciden gelen komutları işle
+            // Process commands from client
             while (running.get() && (inputLine = in.readLine()) != null) {
+                logger.debug("Received command: {}", inputLine);
                 handleCommand(inputLine);
             }
 
@@ -59,14 +52,8 @@ public class TCPConnectionHandler implements Runnable {
         }
     }
 
-    /**
-     * İstemci komutlarını işler
-     * @param command İstemciden gelen komut
-     */
     private void handleCommand(String command) {
-        logger.debug("Received command: {}", command);
-
-        // Komut formatını kontrol et
+        // Check command format
         String[] parts = command.split("\\|");
         if (parts.length < 1) {
             sendErrorMessage("Invalid request format");
@@ -95,10 +82,6 @@ public class TCPConnectionHandler implements Runnable {
         }
     }
 
-    /**
-     * Kur'a abone olma komutunu işler
-     * @param parts Komut parçaları
-     */
     private void handleSubscribe(String[] parts) {
         if (parts.length < 2) {
             sendErrorMessage("Invalid subscribe format. Use: subscribe|RATENAME");
@@ -110,15 +93,12 @@ public class TCPConnectionHandler implements Runnable {
 
         if (success) {
             out.println("Subscribed to " + rateName);
+            logger.info("Client {} subscribed to rate {}", connectionId, rateName);
         } else {
             sendErrorMessage("Rate data not found for " + rateName);
         }
     }
 
-    /**
-     * Kur aboneliğini iptal etme komutunu işler
-     * @param parts Komut parçaları
-     */
     private void handleUnsubscribe(String[] parts) {
         if (parts.length < 2) {
             sendErrorMessage("Invalid unsubscribe format. Use: unsubscribe|RATENAME");
@@ -130,57 +110,45 @@ public class TCPConnectionHandler implements Runnable {
 
         if (success) {
             out.println("Unsubscribed from " + rateName);
+            logger.info("Client {} unsubscribed from rate {}", connectionId, rateName);
         } else {
             sendErrorMessage("Not subscribed to " + rateName);
         }
     }
 
-    /**
-     * Mevcut kurları listeleme komutunu işler
-     */
     private void handleListRates() {
         StringBuilder response = new StringBuilder("Available rates:\n");
         simulationService.getAllRates().keySet().forEach(rate ->
                 response.append(rate).append("\n"));
         out.println(response.toString());
+        logger.debug("Sent rates list to client {}", connectionId);
     }
 
-    /**
-     * Çıkış komutunu işler
-     */
     private void handleQuit() {
         out.println("Goodbye!");
         running.set(false);
+        logger.info("Client {} requested to quit", connectionId);
     }
 
-    /**
-     * Kur güncellemelerini istemciye gönderir
-     * @param rateData Güncel kur verisi
-     */
     private void sendRateUpdate(RateData rateData) {
         if (out != null && !clientSocket.isClosed()) {
             out.println(rateData.toTcpProtocolString());
+            logger.debug("Sent rate update to client {}: {}", connectionId, rateData.getRateName());
         }
     }
 
-    /**
-     * Hata mesajı gönderir
-     * @param message Hata mesajı
-     */
     private void sendErrorMessage(String message) {
         out.println("ERROR|" + message);
+        logger.debug("Sent error message to client {}: {}", connectionId, message);
     }
 
-    /**
-     * Kaynakları temizler
-     */
     private void cleanup() {
         logger.info("Cleaning up connection: {}", connectionId);
 
-        // Tüm abonelikleri iptal et
+        // Unsubscribe from all rates
         simulationService.unsubscribeAll(connectionId);
 
-        // Stream'leri kapat
+        // Close streams
         try {
             if (out != null) {
                 out.close();
@@ -196,9 +164,6 @@ public class TCPConnectionHandler implements Runnable {
         }
     }
 
-    /**
-     * Bağlantıyı kapatmak için kullanılır
-     */
     public void close() {
         running.set(false);
         cleanup();
