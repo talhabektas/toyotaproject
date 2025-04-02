@@ -21,9 +21,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DefaultCoordinator implements Coordinator {
 
     private static final Logger logger = LoggerFactory.getLogger(DefaultCoordinator.class);
+    private static final double TOLERANCE_THRESHOLD = 0.01; // %1 tolerans eşiği
 
     private final Map<String, PlatformConnector> connectors = new ConcurrentHashMap<>();
     private final Map<String, Set<String>> calculatedRateDependencies = new ConcurrentHashMap<>();
+    private final Map<String, Rate> lastRates = new ConcurrentHashMap<>(); // Son kur değerlerini tut
 
     private final RateCache rateCache;
     private final RateCalculator rateCalculator;
@@ -208,14 +210,30 @@ public class DefaultCoordinator implements Coordinator {
             // Calculate the rate
             Rate calculatedRate = rateCalculator.calculate(targetRateName, dependencyRates);
             if (calculatedRate != null) {
-                // Cache the calculated rate
-                rateCache.putRate(calculatedRate);
+                // Veri temizleme - tolerans kontrolü
+                Rate previousRate = lastRates.get(targetRateName);
+                if (isWithinTolerance(calculatedRate, previousRate)) {
+                    // Cache the calculated rate
+                    rateCache.putRate(calculatedRate);
+                    lastRates.put(targetRateName, calculatedRate);
 
-                // Send to Kafka
-                kafkaProducerService.sendRate(calculatedRate);
-                logger.info("Successfully calculated and sent rate to Kafka: {}", calculatedRate);
+                    // Send to Kafka
+                    kafkaProducerService.sendRate(calculatedRate);
+                    logger.info("Successfully calculated and sent rate to Kafka: {}", calculatedRate);
 
-                return true;
+                    return true;
+                } else {
+                    logger.warn("Calculated rate exceeds tolerance threshold: {}", calculatedRate);
+                    if (previousRate != null) {
+                        logger.info("Using previous rate value: {}", previousRate);
+                        return true;
+                    }
+                    // İlk hesaplama ise toleransı geçse bile kabul et
+                    rateCache.putRate(calculatedRate);
+                    lastRates.put(targetRateName, calculatedRate);
+                    kafkaProducerService.sendRate(calculatedRate);
+                    return true;
+                }
             }
         } catch (Exception e) {
             logger.error("Error calculating rate {}", targetRateName, e);
@@ -239,15 +257,32 @@ public class DefaultCoordinator implements Coordinator {
     public void onRateAvailable(String platformName, String rateName, Rate rate) {
         logger.info("Rate {} available from platform {}", rateName, platformName);
 
-        // Add to cache
-        rateCache.putRate(rate);
+        // Veri temizleme - tolerans kontrolü
+        String fullRateName = platformName + "_" + rateName;
+        Rate previousRate = lastRates.get(fullRateName);
+        if (isWithinTolerance(rate, previousRate)) {
+            // Add to cache
+            rateCache.putRate(rate);
+            lastRates.put(fullRateName, rate);
 
-        // Send to Kafka
-        kafkaProducerService.sendRate(rate);
-        logger.debug("Sent rate to Kafka: {}", rate);
+            // Send to Kafka
+            kafkaProducerService.sendRate(rate);
+            logger.debug("Sent rate to Kafka: {}", rate);
 
-        // Check if this rate is a dependency for any calculated rates
-        checkAndCalculateDependentRates(rateName);
+            // Check if this rate is a dependency for any calculated rates
+            checkAndCalculateDependentRates(rateName);
+        } else {
+            logger.warn("Rate change exceeds tolerance threshold: {}", rate);
+            if (previousRate != null) {
+                logger.info("Using previous rate value: {}", previousRate);
+            } else {
+                // İlk veri ise toleransı geçse bile kabul et
+                rateCache.putRate(rate);
+                lastRates.put(fullRateName, rate);
+                kafkaProducerService.sendRate(rate);
+                checkAndCalculateDependentRates(rateName);
+            }
+        }
     }
 
     @Override
@@ -267,19 +302,31 @@ public class DefaultCoordinator implements Coordinator {
                     existingRate.isCalculated()
             );
 
-            // Update cache
-            rateCache.putRate(updatedRate);
+            // Veri temizleme - tolerans kontrolü
+            String fullRateName = platformName + "_" + rateName;
+            Rate previousRate = lastRates.get(fullRateName);
+            if (isWithinTolerance(updatedRate, previousRate)) {
+                // Update cache
+                rateCache.putRate(updatedRate);
+                lastRates.put(fullRateName, updatedRate);
 
-            // Send to Kafka
-            kafkaProducerService.sendRate(updatedRate);
-            logger.debug("Sent updated rate to Kafka: {}", updatedRate);
+                // Send to Kafka
+                kafkaProducerService.sendRate(updatedRate);
+                logger.debug("Sent updated rate to Kafka: {}", updatedRate);
 
-            // Check if this rate is a dependency for any calculated rates
-            checkAndCalculateDependentRates(rateName);
+                // Check if this rate is a dependency for any calculated rates
+                checkAndCalculateDependentRates(rateName);
+            } else {
+                logger.warn("Rate update exceeds tolerance threshold: {}", updatedRate);
+                if (previousRate != null) {
+                    logger.info("Using previous rate value: {}", previousRate);
+                }
+            }
         } else {
             logger.warn("Received update for unknown rate {} from platform {}", rateName, platformName);
         }
     }
+
     @Override
     public void onRateStatus(String platformName, String rateName, RateStatus rateStatus) {
         logger.info("Rate {} status from platform {}: {}", rateName, platformName, rateStatus);
@@ -301,5 +348,29 @@ public class DefaultCoordinator implements Coordinator {
                 calculateRate(calculatedRateName);
             }
         }
+    }
+
+    /**
+     * Tolerans kontrolü - yeni değerin eski değerle karşılaştırılması
+     * @param newRate Yeni kur değeri
+     * @param previousRate Eski kur değeri
+     * @return Tolerans içinde ise true
+     */
+    private boolean isWithinTolerance(Rate newRate, Rate previousRate) {
+        if (previousRate == null) {
+            return true; // İlk veri ise tolerans kontrolü yapma
+        }
+
+        double bidDiff = Math.abs((newRate.getBid() - previousRate.getBid()) / previousRate.getBid());
+        double askDiff = Math.abs((newRate.getAsk() - previousRate.getAsk()) / previousRate.getAsk());
+
+        boolean isValid = bidDiff <= TOLERANCE_THRESHOLD && askDiff <= TOLERANCE_THRESHOLD;
+
+        if (!isValid) {
+            logger.warn("Rate change exceeds tolerance limit: bid diff = {}%, ask diff = {}%",
+                    bidDiff * 100, askDiff * 100);
+        }
+
+        return isValid;
     }
 }

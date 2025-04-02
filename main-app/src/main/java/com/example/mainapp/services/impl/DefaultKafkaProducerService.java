@@ -7,7 +7,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
+
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class DefaultKafkaProducerService implements KafkaProducerService {
@@ -40,18 +43,25 @@ public class DefaultKafkaProducerService implements KafkaProducerService {
 
             logger.info("Sending rate to Kafka: key={}, message={}", key, message);
 
-            // Send to Kafka
-            kafkaTemplate.send(ratesTopic, key, message)
-                    .whenComplete((result, ex) -> {
-                        if (ex == null) {
-                            logger.debug("Successfully sent rate {} to Kafka: {}", key, message);
-                        } else {
-                            logger.error("Failed to send rate {} to Kafka", key, ex);
-                        }
-                    });
+            // Send to Kafka with improved error handling
+            CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send(ratesTopic, key, message);
+
+            future.whenComplete((result, ex) -> {
+                if (ex == null) {
+                    logger.debug("Successfully sent rate {} to Kafka: topic={}, partition={}, offset={}",
+                            key, result.getRecordMetadata().topic(),
+                            result.getRecordMetadata().partition(),
+                            result.getRecordMetadata().offset());
+                } else {
+                    logger.error("Failed to send rate {} to Kafka: {}", key, ex.getMessage(), ex);
+                }
+            });
+
+            // Optional: You can use the following to make the operation synchronous if needed
+            // future.get(10, TimeUnit.SECONDS);
 
         } catch (Exception e) {
-            logger.error("Error sending rate to Kafka", e);
+            logger.error("Error sending rate to Kafka: {}", e.getMessage(), e);
         }
     }
 }
