@@ -855,3 +855,490 @@
 2025-04-02 21:56:30.396 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-04-02 21:56:30.411 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-04-02 21:56:30.497 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-02 22:15:25.509 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Starting KafkaConsumerApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-02 22:15:25.541 [main] DEBUG com.example.kafkaconsumer.KafkaConsumerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-02 22:15:25.554 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 22:15:28.207 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 22:15:28.556 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 283 ms. Found 1 JPA repository interface.
+2025-04-02 22:15:32.714 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 22:15:33.009 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-02 22:15:33.230 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 22:15:34.558 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 22:15:34.642 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 22:15:35.540 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@691567ea
+2025-04-02 22:15:35.548 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 22:15:35.715 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 22:15:35.839 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 22:15:39.579 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 22:15:39.708 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 22:15:42.996 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [kafka:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-finansal-rates-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = finansal-rates-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-02 22:15:43.156 [main] INFO  org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-04-02 22:15:43.984 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2025-04-02 22:15:43.988 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-04-02 22:15:43.995 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1743632143981
+2025-04-02 22:15:44.024 [main] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Subscribed to topic(s): finansal.rates
+2025-04-02 22:15:44.153 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Started KafkaConsumerApplication in 22.11 seconds (process running for 29.47)
+2025-04-02 22:15:45.428 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:45.462 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:45.475 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:45.572 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:45.575 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:45.577 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:45.747 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:45.749 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:45.754 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:45.939 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:45.956 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:45.957 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:46.406 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:46.407 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:46.409 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:47.310 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:47.317 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:47.318 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:48.134 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:48.135 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:48.136 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:49.037 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:49.038 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:49.039 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:49.990 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:49.991 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:49.991 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:51.009 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:51.010 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:51.011 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:51.944 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:51.945 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:51.946 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:52.824 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:52.825 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:52.827 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:53.868 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:53.869 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:53.870 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:54.877 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:54.878 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:54.878 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:55.891 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:55.892 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:55.895 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:56.821 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:56.827 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:56.836 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:57.864 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:57.865 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:57.867 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:58.887 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:58.889 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:58.889 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:15:59.889 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:15:59.890 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:15:59.891 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:00.756 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:00.757 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:00.757 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:01.684 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:01.685 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:01.686 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:02.690 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:02.691 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:02.694 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:04.723 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:04.724 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:04.725 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:05.736 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:05.746 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:05.757 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:06.738 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:06.739 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:06.740 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:07.741 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:07.742 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:07.744 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:08.610 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:08.611 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:08.612 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:09.615 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:09.616 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:09.617 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:10.617 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:10.618 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:10.619 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:11.529 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:11.530 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:11.531 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:12.530 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:12.531 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:12.532 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:13.444 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:13.445 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:13.465 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:14.453 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:14.454 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:14.455 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:15.456 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:15.458 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:15.460 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:16.458 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:16.462 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:16.464 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:17.460 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:16:17.461 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.20.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:16:17.462 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:16:19.381 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Error while fetching metadata with correlation id 3 : {finansal.rates=LEADER_NOT_AVAILABLE}
+2025-04-02 22:16:19.385 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Cluster ID: LOXJmav0SCChd4c3cptSRw
+2025-04-02 22:16:19.544 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Error while fetching metadata with correlation id 7 : {finansal.rates=LEADER_NOT_AVAILABLE}
+2025-04-02 22:16:19.812 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Discovered group coordinator kafka:29092 (id: 2147483646 rack: null)
+2025-04-02 22:16:19.820 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-02 22:16:19.922 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: need to re-join with the given member-id: consumer-finansal-rates-group-1-6fba528d-9cb8-46fc-aadb-52f1d1605680
+2025-04-02 22:16:19.923 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-02 22:16:22.953 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully joined group with generation Generation{generationId=58, memberId='consumer-finansal-rates-group-1-6fba528d-9cb8-46fc-aadb-52f1d1605680', protocol='range'}
+2025-04-02 22:16:22.969 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Finished assignment for group at generation 58: {consumer-finansal-rates-group-1-6fba528d-9cb8-46fc-aadb-52f1d1605680=Assignment(partitions=[finansal.rates-0])}
+2025-04-02 22:16:23.129 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully synced group in generation Generation{generationId=58, memberId='consumer-finansal-rates-group-1-6fba528d-9cb8-46fc-aadb-52f1d1605680', protocol='range'}
+2025-04-02 22:16:23.131 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Notifying assignor about the new Assignment(partitions=[finansal.rates-0])
+2025-04-02 22:16:23.137 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Adding newly assigned partitions: finansal.rates-0
+2025-04-02 22:16:23.171 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition finansal.rates-0 to the committed offset FetchPosition{offset=25, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}
+2025-04-02 22:16:23.174 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions assigned: [finansal.rates-0]
+2025-04-02 22:22:04.882 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Revoke previously assigned partitions finansal.rates-0
+2025-04-02 22:22:04.884 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions revoked: [finansal.rates-0]
+2025-04-02 22:22:04.885 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Member consumer-finansal-rates-group-1-6fba528d-9cb8-46fc-aadb-52f1d1605680 sending LeaveGroup request to coordinator kafka:29092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-04-02 22:22:04.887 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-02 22:22:04.887 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-02 22:22:04.888 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Unsubscribed all topics or patterns and assigned partitions
+2025-04-02 22:22:04.891 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-02 22:22:04.892 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-02 22:22:05.287 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-04-02 22:22:05.288 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-04-02 22:22:05.289 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-04-02 22:22:05.289 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-04-02 22:22:05.302 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-finansal-rates-group-1 unregistered
+2025-04-02 22:22:05.304 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: Consumer stopped
+2025-04-02 22:22:05.308 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 22:22:05.312 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-02 22:22:05.317 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-02 22:30:39.310 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Starting KafkaConsumerApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-02 22:30:39.338 [main] DEBUG com.example.kafkaconsumer.KafkaConsumerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-02 22:30:39.366 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 22:30:43.758 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 22:30:44.189 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 235 ms. Found 1 JPA repository interface.
+2025-04-02 22:30:47.659 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 22:30:48.126 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-02 22:30:48.442 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 22:30:50.398 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 22:30:50.546 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 22:30:51.870 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@691567ea
+2025-04-02 22:30:51.878 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 22:30:52.065 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 22:30:52.199 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 22:30:58.988 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 22:30:59.333 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 22:31:04.078 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [kafka:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-finansal-rates-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = finansal-rates-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-02 22:31:04.359 [main] INFO  org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-04-02 22:31:05.194 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2025-04-02 22:31:05.208 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-04-02 22:31:05.209 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1743633065191
+2025-04-02 22:31:05.250 [main] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Subscribed to topic(s): finansal.rates
+2025-04-02 22:31:05.365 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Started KafkaConsumerApplication in 29.966 seconds (process running for 36.597)
+2025-04-02 22:31:06.093 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:06.102 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:06.110 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:06.246 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:06.247 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:06.247 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:06.405 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:06.407 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:06.409 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:06.571 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:06.589 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:06.591 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:06.970 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:06.973 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:06.974 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:07.949 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:07.950 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:07.951 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:08.773 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:08.775 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:08.776 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:09.782 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:09.796 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:09.812 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:10.736 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:10.737 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:10.738 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:11.758 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:11.759 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:11.760 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:12.692 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:12.693 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:12.694 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:13.693 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:13.694 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:13.695 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:14.732 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:14.738 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:14.748 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:15.583 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:15.584 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:15.586 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:16.615 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:16.616 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:16.616 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:17.631 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:17.633 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:17.640 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:18.632 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:18.639 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:18.640 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:19.638 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:19.643 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:19.643 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:20.521 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:20.528 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:20.529 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:21.441 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-02 22:31:21.442 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node -1 (kafka/172.21.0.8:29092) could not be established. Node may not be available.
+2025-04-02 22:31:21.442 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Bootstrap broker kafka:29092 (id: -1 rack: null) disconnected
+2025-04-02 22:31:24.008 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Error while fetching metadata with correlation id 2 : {finansal.rates=LEADER_NOT_AVAILABLE}
+2025-04-02 22:31:24.011 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Cluster ID: LOXJmav0SCChd4c3cptSRw
+2025-04-02 22:31:24.254 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Error while fetching metadata with correlation id 6 : {finansal.rates=LEADER_NOT_AVAILABLE}
+2025-04-02 22:31:24.676 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Error while fetching metadata with correlation id 8 : {finansal.rates=LEADER_NOT_AVAILABLE}
+2025-04-02 22:31:25.468 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Discovered group coordinator kafka:29092 (id: 2147483646 rack: null)
+2025-04-02 22:31:25.497 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-02 22:31:25.769 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: need to re-join with the given member-id: consumer-finansal-rates-group-1-7b25dfd7-ec83-4a8e-b56b-57c6ee39a7ae
+2025-04-02 22:31:25.771 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-02 22:31:28.838 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully joined group with generation Generation{generationId=60, memberId='consumer-finansal-rates-group-1-7b25dfd7-ec83-4a8e-b56b-57c6ee39a7ae', protocol='range'}
+2025-04-02 22:31:28.854 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Finished assignment for group at generation 60: {consumer-finansal-rates-group-1-7b25dfd7-ec83-4a8e-b56b-57c6ee39a7ae=Assignment(partitions=[finansal.rates-0])}
+2025-04-02 22:31:29.082 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully synced group in generation Generation{generationId=60, memberId='consumer-finansal-rates-group-1-7b25dfd7-ec83-4a8e-b56b-57c6ee39a7ae', protocol='range'}
+2025-04-02 22:31:29.090 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Notifying assignor about the new Assignment(partitions=[finansal.rates-0])
+2025-04-02 22:31:29.099 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Adding newly assigned partitions: finansal.rates-0
+2025-04-02 22:31:29.150 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition finansal.rates-0 to the committed offset FetchPosition{offset=25, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}
+2025-04-02 22:31:29.154 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions assigned: [finansal.rates-0]
+2025-04-02 22:33:52.572 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Revoke previously assigned partitions finansal.rates-0
+2025-04-02 22:33:52.574 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions revoked: [finansal.rates-0]
+2025-04-02 22:33:52.575 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Member consumer-finansal-rates-group-1-7b25dfd7-ec83-4a8e-b56b-57c6ee39a7ae sending LeaveGroup request to coordinator kafka:29092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-04-02 22:33:52.577 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-02 22:33:52.580 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-02 22:33:52.581 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Unsubscribed all topics or patterns and assigned partitions
+2025-04-02 22:33:52.584 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-02 22:33:52.585 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-02 22:33:53.054 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-04-02 22:33:53.055 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-04-02 22:33:53.056 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-04-02 22:33:53.056 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-04-02 22:33:53.065 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-finansal-rates-group-1 unregistered
+2025-04-02 22:33:53.066 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: Consumer stopped
+2025-04-02 22:33:53.070 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 22:33:53.073 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-02 22:33:53.078 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
