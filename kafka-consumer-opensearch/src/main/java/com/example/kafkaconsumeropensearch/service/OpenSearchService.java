@@ -22,9 +22,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * OpenSearch ile etkileşim için servis sınıfı
- */
 @Service
 public class OpenSearchService {
 
@@ -36,61 +33,54 @@ public class OpenSearchService {
     @Value("${opensearch.index-prefix:rates}")
     private String indexPrefix;
 
-    /**
-     * Constructor
-     * @param client OpenSearch client
-     * @param objectMapper Jackson ObjectMapper
-     */
     @Autowired
     public OpenSearchService(RestHighLevelClient client, ObjectMapper objectMapper) {
         this.client = client;
         this.objectMapper = objectMapper;
+        logger.info("OpenSearchService initialized with objectMapper: {}", objectMapper);
     }
 
-    /**
-     * İlklendirme - indeksleri oluştur
-     */
     @PostConstruct
     public void init() {
-        // Günlük indeks adını oluştur
+        // Create daily index name
         String indexName = getIndexName();
 
         try {
-            // İndeks var mı kontrol et
+            // Check if index exists
             boolean exists = client.indices().exists(
                     new GetIndexRequest(indexName), RequestOptions.DEFAULT);
 
             if (!exists) {
-                // İndeks yoksa oluştur
+                // Create index if it doesn't exist
                 CreateIndexRequest createIndexRequest = new CreateIndexRequest(indexName);
 
-                // Mapping - alan tanımlarını belirle
+                // Define mapping for fields
                 Map<String, Object> properties = new HashMap<>();
 
-                // rateName alanı - keyword tipi
+                // rateName field - keyword type
                 Map<String, Object> rateName = new HashMap<>();
                 rateName.put("type", "keyword");
 
-                // bid ve ask alanları - double tipi
+                // bid and ask fields - double type
                 Map<String, Object> bid = new HashMap<>();
                 bid.put("type", "double");
 
                 Map<String, Object> ask = new HashMap<>();
                 ask.put("type", "double");
 
-                // spread ve midPrice alanları - double tipi (hesaplanmış)
+                // spread and midPrice fields - double type (calculated)
                 Map<String, Object> spread = new HashMap<>();
                 spread.put("type", "double");
 
                 Map<String, Object> midPrice = new HashMap<>();
                 midPrice.put("type", "double");
 
-                // timestamp alanı - date tipi
+                // timestamp field - date type
                 Map<String, Object> timestamp = new HashMap<>();
                 timestamp.put("type", "date");
                 timestamp.put("format", "date_time||strict_date_time");
 
-                // Tüm alanları properties altında birleştir
+                // Add all fields to properties
                 properties.put("rateName", rateName);
                 properties.put("bid", bid);
                 properties.put("ask", ask);
@@ -105,59 +95,51 @@ public class OpenSearchService {
                 String mappingJson = objectMapper.writeValueAsString(mapping);
                 createIndexRequest.mapping(mappingJson, XContentType.JSON);
 
-                // İndeksi oluştur
+                // Create the index
                 client.indices().create(createIndexRequest, RequestOptions.DEFAULT);
-                logger.info("İndeks oluşturuldu: {}", indexName);
+                logger.info("Index created: {}", indexName);
             } else {
-                logger.info("İndeks zaten var: {}", indexName);
+                logger.info("Index already exists: {}", indexName);
             }
         } catch (IOException e) {
-            logger.error("İndeks oluşturulurken hata: {}", indexName, e);
+            logger.error("Error creating index: {}", indexName, e);
         }
     }
 
-    /**
-     * RateData'yı OpenSearch'e kaydet
-     * @param rateData Kur verisi
-     */
     public void indexRateData(RateData rateData) {
         try {
-            // Günlük indeks adını oluştur
+            // Create daily index name
             String indexName = getIndexName();
 
-            // ID oluştur - rateName ve timestamp birleşimi
+            // Create ID - combination of rateName and timestamp
             String id = rateData.getRateName() + "_" +
                     rateData.getTimestamp().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 
-            // Belgeyi hazırla - spread ve midPrice hesaplanmış alanlarını da ekle
+            // Prepare document - add calculated fields spread and midPrice
             Map<String, Object> document = new HashMap<>();
             document.put("rateName", rateData.getRateName());
             document.put("bid", rateData.getBid());
             document.put("ask", rateData.getAsk());
-            document.put("spread", rateData.getSpread());
-            document.put("midPrice", rateData.getMidPrice());
+            document.put("spread", rateData.getAsk() - rateData.getBid());
+            document.put("midPrice", (rateData.getBid() + rateData.getAsk()) / 2);
             document.put("timestamp", rateData.getTimestamp().toString());
 
-            // IndexRequest oluştur
+            // Create IndexRequest
             IndexRequest indexRequest = new IndexRequest(indexName)
                     .id(id)
                     .source(objectMapper.writeValueAsString(document), XContentType.JSON);
 
-            // Belgeyi indeksle
+            // Index the document
             client.index(indexRequest, RequestOptions.DEFAULT);
 
-            logger.debug("Kur verisi indekslendi: {}", rateData.getRateName());
+            logger.debug("Rate data indexed: {}", rateData.getRateName());
         } catch (IOException e) {
-            logger.error("Kur verisi indekslenirken hata: {}", rateData.getRateName(), e);
+            logger.error("Error indexing rate data: {}", rateData.getRateName(), e);
         }
     }
 
-    /**
-     * Günlük indeks adı oluştur
-     * @return İndeks adı
-     */
     private String getIndexName() {
-        // Günlük indeks adı: rates-YYYY.MM.DD formatında
+        // Daily index name: rates-YYYY.MM.DD format
         return indexPrefix + "-" +
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
     }
