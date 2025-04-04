@@ -21,7 +21,6 @@ import java.util.Properties;
 import java.util.Set;
 
 @Service
-@DependsOn("redisTemplate")
 public class DefaultRateCalculationService implements RateCalculationService {
 
     private static final Logger logger = LoggerFactory.getLogger(DefaultRateCalculationService.class);

@@ -1,15 +1,15 @@
 package com.example.mainapp.calculator.impl;
 
-
+import com.example.mainapp.calculator.RateCalculator;
 import com.example.mainapp.model.Rate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.time.LocalDateTime;
 
 import javax.tools.*;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,12 +22,82 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Java dilinde kur hesaplama uygulaması
  */
-public class JavaRateCalculator {
+public class JavaRateCalculator implements RateCalculator {
 
     private static final Logger logger = LoggerFactory.getLogger(JavaRateCalculator.class);
 
     // Derlenmiş sınıfları önbellekle
     private final Map<String, Class<?>> compiledClasses = new ConcurrentHashMap<>();
+
+    // Kur formüllerini sakla
+    private final Map<String, String> formulaMap = new ConcurrentHashMap<>();
+
+    @Override
+    public Rate calculate(String targetRateName, Map<String, Rate> dependencyRates) {
+        // Formülü kontrol et
+        String formula = formulaMap.get(targetRateName);
+        if (formula == null) {
+            logger.error("No formula registered for rate: {}", targetRateName);
+            return null;
+        }
+
+        // Bağlam haritasını oluştur
+        Map<String, Object> context = new HashMap<>();
+        context.put("targetRateName", targetRateName);
+        context.put("formula", formula);
+        context.put("dependencies", dependencyRates);
+
+        // Formülü çalıştır
+        Map<String, Object> result = executeFormula(context);
+        if (result == null) {
+            return null;
+        }
+
+        // Rate nesnesini oluştur
+        Double bid = (Double) result.get("bid");
+        Double ask = (Double) result.get("ask");
+
+        if (bid == null || ask == null) {
+            logger.error("Formula execution did not return valid bid/ask values");
+            return null;
+        }
+
+        Rate calculatedRate = new Rate();
+        calculatedRate.setRateName(targetRateName);
+        calculatedRate.setBid(bid);
+        calculatedRate.setAsk(ask);
+        calculatedRate.setTimestamp(LocalDateTime.now());
+        calculatedRate.setCalculated(true);
+
+        return calculatedRate;
+    }
+
+    @Override
+    public boolean registerFormula(String rateName, String formula, String formulaType) {
+        if (!"java".equals(formulaType)) {
+            logger.error("Unsupported formula type: {}", formulaType);
+            return false;
+        }
+
+        // Formülü kaydet
+        formulaMap.put(rateName, formula);
+
+        // Önceden derlenmiş sınıfı varsa kaldır
+        compiledClasses.remove(rateName);
+
+        return true;
+    }
+
+    @Override
+    public boolean unregisterFormula(String rateName) {
+        // Formülü kaldır
+        boolean removed = formulaMap.remove(rateName) != null;
+
+        // Derlenmiş sınıfı da kaldır
+        compiledClasses.remove(rateName);
+
+        return removed;
+    }
 
     /**
      * Java formülünü çalıştırır

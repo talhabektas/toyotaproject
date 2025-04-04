@@ -1,6 +1,5 @@
 package com.example.mainapp.calculator.factory;
 
-
 import com.example.mainapp.calculator.impl.GroovyRateCalculator;
 import com.example.mainapp.calculator.impl.JavaRateCalculator;
 import com.example.mainapp.calculator.impl.JavaScriptRateCalculator;
