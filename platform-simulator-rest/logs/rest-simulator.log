@@ -18,3 +18,129 @@
 2025-04-04 12:29:07.106 [SpringApplicationShutdownHook] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
 2025-04-04 12:29:07.276 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Graceful shutdown complete
 2025-04-04 12:29:07.291 [SpringApplicationShutdownHook] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation stopped
+2025-04-04 12:38:18.422 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Starting PlatformSimulatorRestApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-04 12:38:18.473 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-04 12:38:35.442 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-04 12:38:35.591 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-04 12:38:35.700 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-04 12:38:35.720 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-04 12:38:36.073 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-04 12:38:36.151 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 17119 ms
+2025-04-04 12:38:40.021 [main] INFO  com.example.platformsimulatorrest.config.SimulatorConfig - Loaded 3 initial rates from: rates-config.json
+2025-04-04 12:38:40.212 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_EURUSD', bid=1.037, ask=1.041, timestamp=2025-04-04T12:38:40.212205966}
+2025-04-04 12:38:40.253 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_GBPUSD', bid=1.259, ask=1.2615, timestamp=2025-04-04T12:38:40.253811428}
+2025-04-04 12:38:40.256 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_USDTRY', bid=34.8, ask=35.1, timestamp=2025-04-04T12:38:40.256476734}
+2025-04-04 12:38:40.260 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation started with update interval: 8000ms
+2025-04-04 12:38:47.232 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2025-04-04 12:38:47.744 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-04 12:38:48.197 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-04 12:38:48.314 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Started PlatformSimulatorRestApplication in 34.066 seconds (process running for 46.666)
+2025-04-04 12:39:28.916 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-04 12:39:28.918 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-04 12:39:28.920 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-04-04 12:39:29.144 [http-nio-8080-exec-1] INFO  com.example.platformsimulatorrest.controller.RateController - Request received for rate: PF2_USDTRY
+2025-04-04 12:40:03.029 [http-nio-8080-exec-2] INFO  com.example.platformsimulatorrest.controller.RateController - Request received for rate: PF2_EURUSD
+2025-04-04 12:40:04.409 [http-nio-8080-exec-3] INFO  com.example.platformsimulatorrest.controller.RateController - Request received for rate: PF2_GBPUSD
+2025-04-04 13:04:42.342 [SpringApplicationShutdownHook] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-04 13:04:42.481 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-04 13:04:42.522 [SpringApplicationShutdownHook] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation stopped
+2025-04-04 13:16:50.130 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Starting PlatformSimulatorRestApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-04 13:16:50.200 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-04 13:17:04.533 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-04 13:17:04.612 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-04 13:17:04.629 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-04 13:17:04.631 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-04 13:17:04.732 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-04 13:17:04.747 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 14170 ms
+2025-04-04 13:17:07.870 [main] INFO  com.example.platformsimulatorrest.config.SimulatorConfig - Loaded 3 initial rates from: rates-config.json
+2025-04-04 13:17:07.978 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_EURUSD', bid=1.037, ask=1.041, timestamp=2025-04-04T13:17:07.978417294}
+2025-04-04 13:17:08.071 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_GBPUSD', bid=1.259, ask=1.2615, timestamp=2025-04-04T13:17:08.070903449}
+2025-04-04 13:17:08.107 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_USDTRY', bid=34.8, ask=35.1, timestamp=2025-04-04T13:17:08.107041847}
+2025-04-04 13:17:08.116 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation started with update interval: 8000ms
+2025-04-04 13:17:11.935 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2025-04-04 13:17:12.343 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-04 13:17:12.612 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-04 13:17:12.993 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Started PlatformSimulatorRestApplication in 27.048 seconds (process running for 34.375)
+2025-04-04 13:25:59.070 [SpringApplicationShutdownHook] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-04 13:25:59.096 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-04 13:25:59.108 [SpringApplicationShutdownHook] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation stopped
+2025-04-04 13:46:06.397 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Starting PlatformSimulatorRestApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-04 13:46:06.522 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-04 13:46:20.322 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-04 13:46:20.425 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-04 13:46:20.448 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-04 13:46:20.474 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-04 13:46:20.676 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-04 13:46:20.687 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 13756 ms
+2025-04-04 13:46:22.074 [main] INFO  com.example.platformsimulatorrest.config.SimulatorConfig - Loaded 3 initial rates from: rates-config.json
+2025-04-04 13:46:22.155 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_EURUSD', bid=1.037, ask=1.041, timestamp=2025-04-04T13:46:22.155582129}
+2025-04-04 13:46:22.182 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_GBPUSD', bid=1.259, ask=1.2615, timestamp=2025-04-04T13:46:22.182191288}
+2025-04-04 13:46:22.183 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_USDTRY', bid=34.8, ask=35.1, timestamp=2025-04-04T13:46:22.183876721}
+2025-04-04 13:46:22.190 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation started with update interval: 8000ms
+2025-04-04 13:46:26.303 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2025-04-04 13:46:27.061 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-04 13:46:27.506 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-04 13:46:27.608 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Started PlatformSimulatorRestApplication in 24.9 seconds (process running for 31.524)
+2025-04-04 13:48:47.493 [SpringApplicationShutdownHook] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-04 13:48:47.513 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-04 13:48:47.536 [SpringApplicationShutdownHook] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation stopped
+2025-04-04 13:49:11.820 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Starting PlatformSimulatorRestApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-04 13:49:11.893 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-04 13:49:25.791 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-04 13:49:25.900 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-04 13:49:25.940 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-04 13:49:25.954 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-04 13:49:26.065 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-04 13:49:26.087 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 13760 ms
+2025-04-04 13:49:28.798 [main] INFO  com.example.platformsimulatorrest.config.SimulatorConfig - Loaded 3 initial rates from: rates-config.json
+2025-04-04 13:49:28.933 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_EURUSD', bid=1.037, ask=1.041, timestamp=2025-04-04T13:49:28.932965868}
+2025-04-04 13:49:29.015 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_GBPUSD', bid=1.259, ask=1.2615, timestamp=2025-04-04T13:49:29.015428823}
+2025-04-04 13:49:29.033 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_USDTRY', bid=34.8, ask=35.1, timestamp=2025-04-04T13:49:29.033375418}
+2025-04-04 13:49:29.043 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation started with update interval: 8000ms
+2025-04-04 13:49:33.131 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2025-04-04 13:49:33.634 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-04 13:49:33.858 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-04 13:49:33.942 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Started PlatformSimulatorRestApplication in 25.205 seconds (process running for 35.346)
+2025-04-04 13:56:10.299 [SpringApplicationShutdownHook] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-04 13:56:10.328 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-04 13:56:10.362 [SpringApplicationShutdownHook] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation stopped
+2025-04-04 13:56:33.713 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Starting PlatformSimulatorRestApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-04 13:56:33.783 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-04 13:56:50.672 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-04 13:56:50.947 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-04 13:56:51.029 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-04 13:56:51.033 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-04 13:56:51.488 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-04 13:56:51.546 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 16708 ms
+2025-04-04 13:56:55.269 [main] INFO  com.example.platformsimulatorrest.config.SimulatorConfig - Loaded 3 initial rates from: rates-config.json
+2025-04-04 13:56:55.315 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_EURUSD', bid=1.037, ask=1.041, timestamp=2025-04-04T13:56:55.313328418}
+2025-04-04 13:56:55.325 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_GBPUSD', bid=1.259, ask=1.2615, timestamp=2025-04-04T13:56:55.325486265}
+2025-04-04 13:56:55.357 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_USDTRY', bid=34.8, ask=35.1, timestamp=2025-04-04T13:56:55.356901682}
+2025-04-04 13:56:55.358 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation started with update interval: 8000ms
+2025-04-04 13:57:00.444 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2025-04-04 13:57:00.909 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-04 13:57:01.097 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-04 13:57:01.161 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Started PlatformSimulatorRestApplication in 31.759 seconds (process running for 43.132)
+2025-04-04 14:05:48.549 [SpringApplicationShutdownHook] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-04 14:05:48.570 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-04 14:05:48.592 [SpringApplicationShutdownHook] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation stopped
+2025-04-04 14:08:08.694 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Starting PlatformSimulatorRestApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-04 14:08:08.768 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-04 14:08:20.498 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-04 14:08:20.665 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-04 14:08:20.685 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-04 14:08:20.690 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-04 14:08:20.949 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-04 14:08:21.010 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 11852 ms
+2025-04-04 14:08:22.541 [main] INFO  com.example.platformsimulatorrest.config.SimulatorConfig - Loaded 3 initial rates from: rates-config.json
+2025-04-04 14:08:22.588 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_EURUSD', bid=1.037, ask=1.041, timestamp=2025-04-04T14:08:22.588400465}
+2025-04-04 14:08:22.600 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_GBPUSD', bid=1.259, ask=1.2615, timestamp=2025-04-04T14:08:22.600238776}
+2025-04-04 14:08:22.601 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Initialized rate: RateData{rateName='PF2_USDTRY', bid=34.8, ask=35.1, timestamp=2025-04-04T14:08:22.601312015}
+2025-04-04 14:08:22.602 [main] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation started with update interval: 8000ms
+2025-04-04 14:08:25.921 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2025-04-04 14:08:26.349 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-04 14:08:26.588 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-04 14:08:26.850 [main] INFO  com.example.platformsimulatorrest.PlatformSimulatorRestApplication - Started PlatformSimulatorRestApplication in 22.128 seconds (process running for 32.023)
+2025-04-04 14:15:28.111 [SpringApplicationShutdownHook] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-04 14:15:28.123 [tomcat-shutdown] INFO  org.springframework.boot.web.embedded.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-04 14:15:28.134 [SpringApplicationShutdownHook] INFO  com.example.platformsimulatorrest.service.RateSimulationService - Rate simulation stopped

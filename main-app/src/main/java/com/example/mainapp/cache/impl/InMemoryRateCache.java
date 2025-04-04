@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Component
 @ConditionalOnProperty(name = "cache.type", havingValue = "memory", matchIfMissing = true)
 public class InMemoryRateCache implements RateCache {
 

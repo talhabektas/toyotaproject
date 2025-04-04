@@ -229,12 +229,17 @@ services:
       - rest-simulator
       - fix-simulator
     environment:
+      - TCP_PLATFORM_HOST=tcp-simulator
+      - TCP_PLATFORM_PORT=8081
+      - REST_PLATFORM_HOST=rest-simulator
+      - REST_PLATFORM_PORT=8080
       - SPRING_DATA_REDIS_HOST=redis
       - SPRING_DATA_REDIS_PORT=6379
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
       - KAFKA_TOPIC_RATES=finansal.rates
       - OPENSEARCH_URL=http://opensearch:9200
-      - cache.type=redis
+      - cache.type=memory
+      - spring.main.allow-bean-definition-overriding=true
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8090/actuator/health" ]
       interval: 30s
@@ -246,6 +251,7 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+
 
   # Kafka Consumer for PostgreSQL
   kafka-consumer:
@@ -291,6 +297,7 @@ services:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
       - KAFKA_TOPIC_RATES=finansal.rates
       - OPENSEARCH_URL=http://opensearch:9200
+      - spring.main.allow-bean-definition-overriding=true
     logging:
       driver: "json-file"
       options:

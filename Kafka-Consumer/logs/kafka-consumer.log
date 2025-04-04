@@ -266,3 +266,994 @@ Caused by: java.net.UnknownHostException: postgres
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.3.jar!/:6.2.3]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.3.jar!/:6.2.3]
 	... 21 more
+2025-04-04 12:38:21.405 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Starting KafkaConsumerApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-04 12:38:21.418 [main] DEBUG com.example.kafkaconsumer.KafkaConsumerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-04 12:38:21.432 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-04 12:38:25.278 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-04 12:38:26.149 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 707 ms. Found 1 JPA repository interface.
+2025-04-04 12:38:31.719 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-04 12:38:32.835 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-04 12:38:33.725 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-04 12:38:37.337 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-04 12:38:37.779 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-04 12:38:39.909 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@691567ea
+2025-04-04 12:38:39.918 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-04 12:38:40.438 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-04 12:38:40.763 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-04 12:38:49.087 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-04 12:38:49.839 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-04 12:38:55.996 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [kafka:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-finansal-rates-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = finansal-rates-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-04 12:38:56.517 [main] INFO  org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-04-04 12:38:57.437 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2025-04-04 12:38:57.440 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-04-04 12:38:57.441 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1743770337432
+2025-04-04 12:38:57.473 [main] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Subscribed to topic(s): finansal.rates
+2025-04-04 12:38:57.673 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Started KafkaConsumerApplication in 40.916 seconds (process running for 53.22)
+2025-04-04 12:38:59.912 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Cluster ID: LOXJmav0SCChd4c3cptSRw
+2025-04-04 12:38:59.940 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Discovered group coordinator kafka:29092 (id: 2147483646 rack: null)
+2025-04-04 12:38:59.979 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 12:39:00.147 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: need to re-join with the given member-id: consumer-finansal-rates-group-1-88361053-2750-4fcc-aefd-6fe3e30ac941
+2025-04-04 12:39:00.149 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 12:39:38.177 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully joined group with generation Generation{generationId=68, memberId='consumer-finansal-rates-group-1-88361053-2750-4fcc-aefd-6fe3e30ac941', protocol='range'}
+2025-04-04 12:39:38.202 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Finished assignment for group at generation 68: {consumer-finansal-rates-group-1-88361053-2750-4fcc-aefd-6fe3e30ac941=Assignment(partitions=[finansal.rates-0])}
+2025-04-04 12:39:38.341 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully synced group in generation Generation{generationId=68, memberId='consumer-finansal-rates-group-1-88361053-2750-4fcc-aefd-6fe3e30ac941', protocol='range'}
+2025-04-04 12:39:38.343 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Notifying assignor about the new Assignment(partitions=[finansal.rates-0])
+2025-04-04 12:39:38.348 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Adding newly assigned partitions: finansal.rates-0
+2025-04-04 12:39:38.418 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition finansal.rates-0 to the committed offset FetchPosition{offset=25, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}
+2025-04-04 12:39:38.524 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions assigned: [finansal.rates-0]
+2025-04-04 12:47:52.879 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.KafkaConsumerService - Received message: payload=
+2025-04-04 12:47:52.903 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] ERROR com.example.kafkaconsumer.util.RateDataParser - Cannot parse null or empty message
+2025-04-04 12:47:52.904 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] ERROR com.example.kafkaconsumer.service.RatePersistenceService - Failed to parse message: 
+2025-04-04 12:47:52.910 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] ERROR com.example.kafkaconsumer.service.KafkaConsumerService - Failed to process message
+2025-04-04 12:47:52.913 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.KafkaConsumerService - Received message: payload=PF1_USDTRY|33.95|34.15|2023-03-12T12:30:45
+2025-04-04 12:47:52.914 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.util.RateDataParser - Detected standard format
+2025-04-04 12:47:53.067 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.RatePersistenceService - Saved rate: RateEntity{id=6, rateName='PF1_USDTRY', bid=33.95, ask=34.15, rateUpdateTime=2023-03-12T12:30:45, dbUpdateTime=2025-04-04T12:47:52.918449140}
+2025-04-04 12:47:53.080 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.KafkaConsumerService - Successfully processed message
+2025-04-04 12:48:00.381 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-04 12:48:42.769 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.KafkaConsumerService - Received message: payload=PF1_USDTRY|33.25|31.15|2023-03-12T12:30:41
+2025-04-04 12:48:42.771 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.util.RateDataParser - Detected standard format
+2025-04-04 12:48:42.774 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.RatePersistenceService - Saved rate: RateEntity{id=7, rateName='PF1_USDTRY', bid=33.25, ask=31.15, rateUpdateTime=2023-03-12T12:30:41, dbUpdateTime=2025-04-04T12:48:42.772432361}
+2025-04-04 12:48:42.777 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] DEBUG com.example.kafkaconsumer.service.KafkaConsumerService - Successfully processed message
+2025-04-04 12:58:00.258 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-04 13:04:41.151 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Revoke previously assigned partitions finansal.rates-0
+2025-04-04 13:04:41.153 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions revoked: [finansal.rates-0]
+2025-04-04 13:04:41.155 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Member consumer-finansal-rates-group-1-88361053-2750-4fcc-aefd-6fe3e30ac941 sending LeaveGroup request to coordinator kafka:29092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-04-04 13:04:41.157 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-04 13:04:41.158 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-04 13:04:41.158 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Unsubscribed all topics or patterns and assigned partitions
+2025-04-04 13:04:41.167 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-04 13:04:41.168 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-04 13:04:41.402 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-04-04 13:04:41.404 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-04-04 13:04:41.405 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-04-04 13:04:41.409 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-04-04 13:04:41.426 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-finansal-rates-group-1 unregistered
+2025-04-04 13:04:41.428 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: Consumer stopped
+2025-04-04 13:04:41.434 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-04 13:04:41.444 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-04 13:04:41.454 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-04 13:16:52.963 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Starting KafkaConsumerApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-04 13:16:52.991 [main] DEBUG com.example.kafkaconsumer.KafkaConsumerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-04 13:16:53.032 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-04 13:16:58.351 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-04 13:16:59.372 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 858 ms. Found 1 JPA repository interface.
+2025-04-04 13:17:04.760 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-04 13:17:05.117 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-04 13:17:05.486 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-04 13:17:08.434 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-04 13:17:08.858 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-04 13:17:10.308 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5438fa43
+2025-04-04 13:17:10.312 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-04 13:17:10.588 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-04 13:17:10.957 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-04 13:17:17.705 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-04 13:17:18.096 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-04 13:17:22.106 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [kafka:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-finansal-rates-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = finansal-rates-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-04 13:17:22.282 [main] INFO  org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-04-04 13:17:22.796 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2025-04-04 13:17:22.798 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-04-04 13:17:22.813 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1743772642793
+2025-04-04 13:17:22.856 [main] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Subscribed to topic(s): finansal.rates
+2025-04-04 13:17:22.999 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Started KafkaConsumerApplication in 32.985 seconds (process running for 40.678)
+2025-04-04 13:17:24.425 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Cluster ID: LOXJmav0SCChd4c3cptSRw
+2025-04-04 13:17:24.485 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Discovered group coordinator kafka:29092 (id: 2147483646 rack: null)
+2025-04-04 13:17:24.505 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 13:17:24.652 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: need to re-join with the given member-id: consumer-finansal-rates-group-1-e5b69cee-9fd1-4f98-92aa-3ea5acb7ffcc
+2025-04-04 13:17:24.663 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 13:17:27.747 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully joined group with generation Generation{generationId=70, memberId='consumer-finansal-rates-group-1-e5b69cee-9fd1-4f98-92aa-3ea5acb7ffcc', protocol='range'}
+2025-04-04 13:17:27.811 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Finished assignment for group at generation 70: {consumer-finansal-rates-group-1-e5b69cee-9fd1-4f98-92aa-3ea5acb7ffcc=Assignment(partitions=[finansal.rates-0])}
+2025-04-04 13:17:28.135 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully synced group in generation Generation{generationId=70, memberId='consumer-finansal-rates-group-1-e5b69cee-9fd1-4f98-92aa-3ea5acb7ffcc', protocol='range'}
+2025-04-04 13:17:28.144 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Notifying assignor about the new Assignment(partitions=[finansal.rates-0])
+2025-04-04 13:17:28.150 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Adding newly assigned partitions: finansal.rates-0
+2025-04-04 13:17:28.229 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition finansal.rates-0 to the committed offset FetchPosition{offset=28, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}
+2025-04-04 13:17:28.239 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions assigned: [finansal.rates-0]
+2025-04-04 13:25:58.414 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Revoke previously assigned partitions finansal.rates-0
+2025-04-04 13:25:58.415 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions revoked: [finansal.rates-0]
+2025-04-04 13:25:58.417 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Member consumer-finansal-rates-group-1-e5b69cee-9fd1-4f98-92aa-3ea5acb7ffcc sending LeaveGroup request to coordinator kafka:29092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-04-04 13:25:58.418 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-04 13:25:58.419 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-04 13:25:58.420 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Unsubscribed all topics or patterns and assigned partitions
+2025-04-04 13:25:58.423 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-04 13:25:58.423 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-04 13:25:58.508 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-04-04 13:25:58.509 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-04-04 13:25:58.509 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-04-04 13:25:58.510 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-04-04 13:25:58.519 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-finansal-rates-group-1 unregistered
+2025-04-04 13:25:58.520 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: Consumer stopped
+2025-04-04 13:25:58.525 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-04 13:25:58.530 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-04 13:25:58.539 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-04 13:46:09.830 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Starting KafkaConsumerApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-04 13:46:09.868 [main] DEBUG com.example.kafkaconsumer.KafkaConsumerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-04 13:46:09.873 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-04 13:46:14.035 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-04 13:46:15.044 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 856 ms. Found 1 JPA repository interface.
+2025-04-04 13:46:20.548 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-04 13:46:21.119 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-04 13:46:21.422 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-04 13:46:23.634 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-04 13:46:23.803 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-04 13:46:25.558 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1a1c21b4
+2025-04-04 13:46:25.600 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-04 13:46:25.796 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-04 13:46:26.051 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-04 13:46:30.209 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-04 13:46:30.575 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-04 13:46:35.594 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [kafka:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-finansal-rates-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = finansal-rates-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-04 13:46:35.933 [main] INFO  org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-04-04 13:46:36.929 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2025-04-04 13:46:36.930 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-04-04 13:46:36.935 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1743774396923
+2025-04-04 13:46:36.964 [main] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Subscribed to topic(s): finansal.rates
+2025-04-04 13:46:37.121 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Started KafkaConsumerApplication in 31.045 seconds (process running for 37.742)
+2025-04-04 13:46:38.954 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Cluster ID: LOXJmav0SCChd4c3cptSRw
+2025-04-04 13:46:38.970 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Discovered group coordinator kafka:29092 (id: 2147483646 rack: null)
+2025-04-04 13:46:39.010 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 13:46:39.144 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: need to re-join with the given member-id: consumer-finansal-rates-group-1-5554a832-7eff-459e-a689-ee766efbae2c
+2025-04-04 13:46:39.155 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 13:46:42.269 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully joined group with generation Generation{generationId=72, memberId='consumer-finansal-rates-group-1-5554a832-7eff-459e-a689-ee766efbae2c', protocol='range'}
+2025-04-04 13:46:42.343 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Finished assignment for group at generation 72: {consumer-finansal-rates-group-1-5554a832-7eff-459e-a689-ee766efbae2c=Assignment(partitions=[finansal.rates-0])}
+2025-04-04 13:46:42.548 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully synced group in generation Generation{generationId=72, memberId='consumer-finansal-rates-group-1-5554a832-7eff-459e-a689-ee766efbae2c', protocol='range'}
+2025-04-04 13:46:42.550 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Notifying assignor about the new Assignment(partitions=[finansal.rates-0])
+2025-04-04 13:46:42.564 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Adding newly assigned partitions: finansal.rates-0
+2025-04-04 13:46:42.642 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition finansal.rates-0 to the committed offset FetchPosition{offset=28, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}
+2025-04-04 13:46:42.647 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions assigned: [finansal.rates-0]
+2025-04-04 13:48:46.730 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Revoke previously assigned partitions finansal.rates-0
+2025-04-04 13:48:46.732 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions revoked: [finansal.rates-0]
+2025-04-04 13:48:46.734 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Member consumer-finansal-rates-group-1-5554a832-7eff-459e-a689-ee766efbae2c sending LeaveGroup request to coordinator kafka:29092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-04-04 13:48:46.735 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-04 13:48:46.736 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-04 13:48:46.737 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Unsubscribed all topics or patterns and assigned partitions
+2025-04-04 13:48:46.740 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-04 13:48:46.741 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-04 13:48:46.813 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-04-04 13:48:46.814 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-04-04 13:48:46.815 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-04-04 13:48:46.816 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-04-04 13:48:46.836 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-finansal-rates-group-1 unregistered
+2025-04-04 13:48:46.837 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: Consumer stopped
+2025-04-04 13:48:46.842 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-04 13:48:46.846 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-04 13:48:46.859 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-04 13:49:16.119 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Starting KafkaConsumerApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-04 13:49:16.184 [main] DEBUG com.example.kafkaconsumer.KafkaConsumerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-04 13:49:16.195 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-04 13:49:20.793 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-04 13:49:21.296 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 374 ms. Found 1 JPA repository interface.
+2025-04-04 13:49:26.072 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-04 13:49:27.561 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-04 13:49:27.950 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-04 13:49:29.846 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-04 13:49:30.011 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-04 13:49:31.939 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@de77146
+2025-04-04 13:49:31.953 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-04 13:49:32.296 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-04 13:49:32.621 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-04 13:49:37.111 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-04 13:49:37.460 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-04 13:49:42.067 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [kafka:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-finansal-rates-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = finansal-rates-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-04 13:49:42.186 [main] INFO  org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-04-04 13:49:43.384 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2025-04-04 13:49:43.388 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-04-04 13:49:43.391 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1743774583340
+2025-04-04 13:49:43.443 [main] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Subscribed to topic(s): finansal.rates
+2025-04-04 13:49:43.590 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Started KafkaConsumerApplication in 32.37 seconds (process running for 40.736)
+2025-04-04 13:49:45.237 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Cluster ID: LOXJmav0SCChd4c3cptSRw
+2025-04-04 13:49:45.240 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Discovered group coordinator kafka:29092 (id: 2147483646 rack: null)
+2025-04-04 13:49:45.247 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 13:49:45.370 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: need to re-join with the given member-id: consumer-finansal-rates-group-1-4ec014a6-7f27-4c79-84d7-d3c222a9f0ab
+2025-04-04 13:49:45.383 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 13:49:48.481 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully joined group with generation Generation{generationId=74, memberId='consumer-finansal-rates-group-1-4ec014a6-7f27-4c79-84d7-d3c222a9f0ab', protocol='range'}
+2025-04-04 13:49:48.536 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Finished assignment for group at generation 74: {consumer-finansal-rates-group-1-4ec014a6-7f27-4c79-84d7-d3c222a9f0ab=Assignment(partitions=[finansal.rates-0])}
+2025-04-04 13:49:48.774 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully synced group in generation Generation{generationId=74, memberId='consumer-finansal-rates-group-1-4ec014a6-7f27-4c79-84d7-d3c222a9f0ab', protocol='range'}
+2025-04-04 13:49:48.784 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Notifying assignor about the new Assignment(partitions=[finansal.rates-0])
+2025-04-04 13:49:48.794 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Adding newly assigned partitions: finansal.rates-0
+2025-04-04 13:49:48.895 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition finansal.rates-0 to the committed offset FetchPosition{offset=28, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}
+2025-04-04 13:49:49.002 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions assigned: [finansal.rates-0]
+2025-04-04 13:56:03.951 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node 1 disconnected.
+2025-04-04 13:56:03.955 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Cancelled in-flight FETCH request with correlation id 881 due to node 1 being disconnected (elapsed time since creation: 178ms, elapsed time since send: 178ms, throttle time: 0ms, request timeout: 30000ms)
+2025-04-04 13:56:03.957 [kafka-coordinator-heartbeat-thread | finansal-rates-group] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node -1 disconnected.
+2025-04-04 13:56:03.958 [kafka-coordinator-heartbeat-thread | finansal-rates-group] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node 2147483646 disconnected.
+2025-04-04 13:56:03.959 [kafka-coordinator-heartbeat-thread | finansal-rates-group] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Group coordinator kafka:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: true. Rediscovery will be attempted.
+2025-04-04 13:56:03.956 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.FetchSessionHandler - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Error sending fetch request (sessionId=1655720160, epoch=744) to node 1:
+org.apache.kafka.common.errors.DisconnectException: null
+2025-04-04 13:56:04.067 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node 1 disconnected.
+2025-04-04 13:56:04.068 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node 1 (kafka/172.21.0.6:29092) could not be established. Node may not be available.
+2025-04-04 13:56:04.258 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node 1 disconnected.
+2025-04-04 13:56:04.259 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node 1 (kafka/172.21.0.6:29092) could not be established. Node may not be available.
+2025-04-04 13:56:04.442 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node 1 disconnected.
+2025-04-04 13:56:04.442 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node 1 (kafka/172.21.0.6:29092) could not be established. Node may not be available.
+2025-04-04 13:56:05.850 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node 1 disconnected.
+2025-04-04 13:56:05.851 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node 1 (kafka/172.21.0.6:29092) could not be established. Node may not be available.
+2025-04-04 13:56:06.743 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node 1 disconnected.
+2025-04-04 13:56:06.743 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node 1 (kafka/172.21.0.6:29092) could not be established. Node may not be available.
+2025-04-04 13:56:07.747 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node 1 disconnected.
+2025-04-04 13:56:07.748 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node 1 (kafka/172.21.0.6:29092) could not be established. Node may not be available.
+2025-04-04 13:56:08.756 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Node 1 disconnected.
+2025-04-04 13:56:08.757 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Connection to node 1 (kafka/172.21.0.6:29092) could not be established. Node may not be available.
+2025-04-04 13:56:09.437 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Revoke previously assigned partitions finansal.rates-0
+2025-04-04 13:56:09.439 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions revoked: [finansal.rates-0]
+2025-04-04 13:56:09.440 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-04 13:56:09.441 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-04 13:56:09.441 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Unsubscribed all topics or patterns and assigned partitions
+2025-04-04 13:56:09.445 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-04 13:56:09.445 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-04 13:56:09.473 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-04-04 13:56:09.475 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-04-04 13:56:09.477 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-04-04 13:56:09.478 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-04-04 13:56:09.495 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-finansal-rates-group-1 unregistered
+2025-04-04 13:56:09.496 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: Consumer stopped
+2025-04-04 13:56:09.511 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-04 13:56:09.517 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-04 13:56:09.537 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-04 13:56:36.040 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Starting KafkaConsumerApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-04 13:56:36.059 [main] DEBUG com.example.kafkaconsumer.KafkaConsumerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-04 13:56:36.066 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-04 13:56:40.879 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-04 13:56:41.325 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 403 ms. Found 1 JPA repository interface.
+2025-04-04 13:56:48.855 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-04 13:56:49.505 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-04 13:56:49.990 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-04 13:56:53.115 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-04 13:56:53.327 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-04 13:56:55.259 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@382d71c7
+2025-04-04 13:56:55.269 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-04 13:56:55.502 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-04 13:56:55.726 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-04 13:57:02.874 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-04 13:57:03.113 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-04 13:57:07.552 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [kafka:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-finansal-rates-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = finansal-rates-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-04 13:57:07.767 [main] INFO  org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-04-04 13:57:08.909 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2025-04-04 13:57:08.914 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-04-04 13:57:08.916 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1743775028903
+2025-04-04 13:57:08.939 [main] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Subscribed to topic(s): finansal.rates
+2025-04-04 13:57:09.005 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Started KafkaConsumerApplication in 36.409 seconds (process running for 45.705)
+2025-04-04 13:57:10.091 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Cluster ID: LOXJmav0SCChd4c3cptSRw
+2025-04-04 13:57:10.103 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Discovered group coordinator kafka:29092 (id: 2147483646 rack: null)
+2025-04-04 13:57:10.128 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 13:57:10.233 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: need to re-join with the given member-id: consumer-finansal-rates-group-1-fec710db-8bdd-4860-86b8-77f76660b38e
+2025-04-04 13:57:10.235 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 13:57:50.509 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully joined group with generation Generation{generationId=75, memberId='consumer-finansal-rates-group-1-fec710db-8bdd-4860-86b8-77f76660b38e', protocol='range'}
+2025-04-04 13:57:50.562 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Finished assignment for group at generation 75: {consumer-finansal-rates-group-1-fec710db-8bdd-4860-86b8-77f76660b38e=Assignment(partitions=[finansal.rates-0])}
+2025-04-04 13:57:50.874 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully synced group in generation Generation{generationId=75, memberId='consumer-finansal-rates-group-1-fec710db-8bdd-4860-86b8-77f76660b38e', protocol='range'}
+2025-04-04 13:57:50.912 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Notifying assignor about the new Assignment(partitions=[finansal.rates-0])
+2025-04-04 13:57:50.933 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Adding newly assigned partitions: finansal.rates-0
+2025-04-04 13:57:51.076 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition finansal.rates-0 to the committed offset FetchPosition{offset=28, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}
+2025-04-04 13:57:51.469 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions assigned: [finansal.rates-0]
+2025-04-04 14:05:47.561 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Revoke previously assigned partitions finansal.rates-0
+2025-04-04 14:05:47.566 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions revoked: [finansal.rates-0]
+2025-04-04 14:05:47.569 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Member consumer-finansal-rates-group-1-fec710db-8bdd-4860-86b8-77f76660b38e sending LeaveGroup request to coordinator kafka:29092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-04-04 14:05:47.570 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-04 14:05:47.573 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-04 14:05:47.574 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Unsubscribed all topics or patterns and assigned partitions
+2025-04-04 14:05:47.578 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-04 14:05:47.579 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-04 14:05:48.038 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-04-04 14:05:48.038 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-04-04 14:05:48.039 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-04-04 14:05:48.039 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-04-04 14:05:48.045 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-finansal-rates-group-1 unregistered
+2025-04-04 14:05:48.046 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: Consumer stopped
+2025-04-04 14:05:48.050 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-04 14:05:48.052 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-04 14:05:48.057 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-04 14:08:09.346 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Starting KafkaConsumerApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 1 (/app/app.jar started by root in /app)
+2025-04-04 14:08:09.360 [main] DEBUG com.example.kafkaconsumer.KafkaConsumerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-04 14:08:09.369 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-04 14:08:12.245 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-04 14:08:13.333 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 862 ms. Found 1 JPA repository interface.
+2025-04-04 14:08:18.525 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-04 14:08:19.349 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-04 14:08:19.671 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-04 14:08:21.351 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-04 14:08:21.649 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-04 14:08:22.772 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@691567ea
+2025-04-04 14:08:22.817 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-04 14:08:23.048 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-04 14:08:23.322 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-04 14:08:28.785 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-04 14:08:29.016 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-04 14:08:33.801 [main] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [kafka:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-finansal-rates-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = finansal-rates-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-04 14:08:34.069 [main] INFO  org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-04-04 14:08:34.873 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2025-04-04 14:08:34.874 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-04-04 14:08:34.876 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1743775714870
+2025-04-04 14:08:34.914 [main] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Subscribed to topic(s): finansal.rates
+2025-04-04 14:08:35.037 [main] INFO  com.example.kafkaconsumer.KafkaConsumerApplication - Started KafkaConsumerApplication in 29.561 seconds (process running for 37.821)
+2025-04-04 14:08:36.562 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Cluster ID: LOXJmav0SCChd4c3cptSRw
+2025-04-04 14:08:36.569 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Discovered group coordinator kafka:29092 (id: 2147483646 rack: null)
+2025-04-04 14:08:36.578 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 14:08:36.667 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: need to re-join with the given member-id: consumer-finansal-rates-group-1-b5bc281d-1070-46ae-bf38-9538569a823b
+2025-04-04 14:08:36.676 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 14:08:39.688 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully joined group with generation Generation{generationId=77, memberId='consumer-finansal-rates-group-1-b5bc281d-1070-46ae-bf38-9538569a823b', protocol='range'}
+2025-04-04 14:08:39.729 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Finished assignment for group at generation 77: {consumer-finansal-rates-group-1-b5bc281d-1070-46ae-bf38-9538569a823b=Assignment(partitions=[finansal.rates-0])}
+2025-04-04 14:08:39.748 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully synced group in generation Generation{generationId=77, memberId='consumer-finansal-rates-group-1-b5bc281d-1070-46ae-bf38-9538569a823b', protocol='range'}
+2025-04-04 14:08:39.757 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Notifying assignor about the new Assignment(partitions=[finansal.rates-0])
+2025-04-04 14:08:39.763 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Adding newly assigned partitions: finansal.rates-0
+2025-04-04 14:08:39.797 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition finansal.rates-0 to the committed offset FetchPosition{offset=28, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}
+2025-04-04 14:08:39.801 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions assigned: [finansal.rates-0]
+2025-04-04 14:13:36.754 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: cached metadata has changed from (version2: {finansal.rates=[NO_RACKS]}) at the beginning of the rebalance to (version3: {finansal.rates=[NO_RACKS, NO_RACKS, NO_RACKS]})
+2025-04-04 14:13:36.756 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Revoke previously assigned partitions finansal.rates-0
+2025-04-04 14:13:36.757 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions revoked: [finansal.rates-0]
+2025-04-04 14:13:36.758 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] (Re-)joining group
+2025-04-04 14:13:36.761 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully joined group with generation Generation{generationId=78, memberId='consumer-finansal-rates-group-1-b5bc281d-1070-46ae-bf38-9538569a823b', protocol='range'}
+2025-04-04 14:13:36.762 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Finished assignment for group at generation 78: {consumer-finansal-rates-group-1-b5bc281d-1070-46ae-bf38-9538569a823b=Assignment(partitions=[finansal.rates-0, finansal.rates-1, finansal.rates-2])}
+2025-04-04 14:13:36.766 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Successfully synced group in generation Generation{generationId=78, memberId='consumer-finansal-rates-group-1-b5bc281d-1070-46ae-bf38-9538569a823b', protocol='range'}
+2025-04-04 14:13:36.768 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Notifying assignor about the new Assignment(partitions=[finansal.rates-0, finansal.rates-1, finansal.rates-2])
+2025-04-04 14:13:36.771 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Adding newly assigned partitions: finansal.rates-0, finansal.rates-1, finansal.rates-2
+2025-04-04 14:13:36.774 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Found no committed offset for partition finansal.rates-1
+2025-04-04 14:13:36.774 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Found no committed offset for partition finansal.rates-2
+2025-04-04 14:13:36.775 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition finansal.rates-0 to the committed offset FetchPosition{offset=28, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}
+2025-04-04 14:13:37.254 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting offset for partition finansal.rates-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}.
+2025-04-04 14:13:37.254 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting offset for partition finansal.rates-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}.
+2025-04-04 14:13:37.255 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions assigned: [finansal.rates-0, finansal.rates-1, finansal.rates-2]
+2025-04-04 14:15:26.083 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Revoke previously assigned partitions finansal.rates-0, finansal.rates-1, finansal.rates-2
+2025-04-04 14:15:26.085 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: partitions revoked: [finansal.rates-0, finansal.rates-1, finansal.rates-2]
+2025-04-04 14:15:26.086 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Member consumer-finansal-rates-group-1-b5bc281d-1070-46ae-bf38-9538569a823b sending LeaveGroup request to coordinator kafka:29092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-04-04 14:15:26.087 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-04 14:15:26.088 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-04 14:15:26.088 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Unsubscribed all topics or patterns and assigned partitions
+2025-04-04 14:15:26.094 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-04-04 14:15:26.094 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-finansal-rates-group-1, groupId=finansal-rates-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-04 14:15:26.192 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-04-04 14:15:26.194 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-04-04 14:15:26.206 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-04-04 14:15:26.207 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-04-04 14:15:26.256 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-finansal-rates-group-1 unregistered
+2025-04-04 14:15:26.258 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer - finansal-rates-group: Consumer stopped
+2025-04-04 14:15:26.268 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-04 14:15:26.273 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-04 14:15:26.305 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
