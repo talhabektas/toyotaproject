@@ -18,13 +18,14 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 15s
 
-  # Kafka
   kafka:
     image: confluentinc/cp-kafka:7.3.2
     container_name: kafka
     depends_on:
-      - zookeeper
+      zookeeper:
+        condition: service_healthy
     ports:
       - "9092:9092"
       - "29092:29092"
@@ -37,17 +38,24 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_LOG_DIRS: "/var/lib/kafka/data"
+      KAFKA_LOG_RETENTION_HOURS: "168"
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 100
+      KAFKA_JMX_PORT: 9999
+      KAFKA_JMX_HOSTNAME: localhost
     volumes:
       - kafka-data:/var/lib/kafka/data
     networks:
       - finansal_network
     restart: always
     healthcheck:
-      test: ["CMD-SHELL", "kafka-topics --bootstrap-server localhost:9092 --list"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 30s
+      test: [ "CMD", "nc", "-z", "localhost", "9092" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
 
   # Redis
   redis:
@@ -81,10 +89,12 @@ services:
     networks:
       - finansal_network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
-      timeout: 3s
+      test: ["CMD-SHELL", "pg_isready -U postgres || exit 1"]
+      interval: 10s
+      timeout: 5s
       retries: 5
+      start_period: 20s
+    restart: always
 
   # OpenSearch
   opensearch:
@@ -107,11 +117,12 @@ services:
     networks:
       - finansal_network
     healthcheck:
-      test: [ "CMD-SHELL", "curl -s http://localhost:9200/_cluster/health | grep -q '\"status\":\"green\"\\|\"status\":\"yellow\"'" ]
+      test: [ "CMD-SHELL", "curl -s http://localhost:9200/_cluster/health || exit 1" ]
       interval: 20s
       timeout: 10s
-      retries: 3
-      start_period: 40s
+      retries: 5
+      start_period: 60s
+    restart: always
 
   # OpenSearch Dashboards
   opensearch-dashboards:
@@ -125,7 +136,9 @@ services:
     networks:
       - finansal_network
     depends_on:
-      - opensearch
+      opensearch:
+        condition: service_healthy
+    restart: always
 
   # Filebeat
   filebeat:
@@ -139,7 +152,9 @@ services:
     networks:
       - finansal_network
     depends_on:
-      - opensearch
+      opensearch:
+        condition: service_healthy
+    restart: always
 
   # TCP Platform Simulator
   tcp-simulator:
@@ -155,7 +170,8 @@ services:
       - ./demo/config:/app/config
     restart: unless-stopped
     depends_on:
-      - kafka
+      kafka:
+        condition: service_healthy
     environment:
       - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     logging:
@@ -163,6 +179,12 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8081"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
 
   # REST Platform Simulator
   rest-simulator:
@@ -177,7 +199,8 @@ services:
       - ./platform-simulator-rest/logs:/app/logs
     restart: unless-stopped
     depends_on:
-      - kafka
+      kafka:
+        condition: service_healthy
     environment:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     logging:
@@ -185,6 +208,12 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/rates || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
 
   # FIX Platform Simulator
   fix-simulator:
@@ -200,7 +229,8 @@ services:
       - ./fix-simulator/config:/app/config
     restart: unless-stopped
     depends_on:
-      - kafka
+      kafka:
+        condition: service_healthy
     environment:
       - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     logging:
@@ -208,6 +238,12 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8082"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
 
   # Main Application
   main-app:
@@ -222,12 +258,16 @@ services:
       - ./main-app/logs:/app/logs
     restart: unless-stopped
     depends_on:
-      - kafka
-      - redis
-      - opensearch
-      - tcp-simulator
-      - rest-simulator
-      - fix-simulator
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      opensearch:
+        condition: service_healthy
+      tcp-simulator:
+        condition: service_started
+      rest-simulator:
+        condition: service_started
     environment:
       - TCP_PLATFORM_HOST=tcp-simulator
       - TCP_PLATFORM_PORT=8081
@@ -240,18 +280,21 @@ services:
       - OPENSEARCH_URL=http://opensearch:9200
       - cache.type=memory
       - spring.main.allow-bean-definition-overriding=true
+      # Bağlantı yeniden deneme parametreleri
+      - spring.datasource.hikari.connection-timeout=60000
+      - spring.datasource.hikari.maximum-pool-size=10
+      - spring.datasource.hikari.minimum-idle=5
+      - spring.kafka.producer.retries=5
+      - spring.kafka.producer.retry-backoff-ms=1000
+      # Simulator bağlantılarını bekle
+      - spring.cloud.config.fail-fast=false
+      - management.health.defaults.enabled=false
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8090/actuator/health" ]
+      test: [ "CMD", "curl", "-f", "http://localhost:8090/actuator/health || exit 1" ]
       interval: 30s
       timeout: 10s
-      retries: 3
-      start_period: 30s
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
-
+      retries: 5
+      start_period: 90s
 
   # Kafka Consumer for PostgreSQL
   kafka-consumer:
@@ -264,15 +307,24 @@ services:
       - ./Kafka-Consumer/logs:/app/logs
     restart: unless-stopped
     depends_on:
-      - kafka
-      - postgres
-      - main-app
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      main-app:
+        condition: service_healthy
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/finansal_rates
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
       - KAFKA_TOPIC_RATES=finansal.rates
+      # Bağlantı havuzu ayarları
+      - SPRING_DATASOURCE_HIKARI_CONNECTION_TIMEOUT=60000
+      - SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE=10
+      - SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE=5
+      - SPRING_DATASOURCE_HIKARI_IDLE_TIMEOUT=300000
+      - SPRING_DATASOURCE_HIKARI_MAX_LIFETIME=1200000
     logging:
       driver: "json-file"
       options:
@@ -290,9 +342,12 @@ services:
       - ./Kafka-Consumer-OpenSearch/logs:/app/logs
     restart: unless-stopped
     depends_on:
-      - kafka
-      - opensearch
-      - main-app
+      kafka:
+        condition: service_healthy
+      opensearch:
+        condition: service_healthy
+      main-app:
+        condition: service_healthy
     environment:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
       - KAFKA_TOPIC_RATES=finansal.rates

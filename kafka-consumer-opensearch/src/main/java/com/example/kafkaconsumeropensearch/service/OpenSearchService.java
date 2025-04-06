@@ -1,7 +1,6 @@
 package com.example.kafkaconsumeropensearch.service;
 
 import com.example.kafkaconsumeropensearch.model.RateData;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,6 +12,9 @@ import org.opensearch.client.indices.GetIndexRequest;
 import org.opensearch.common.xcontent.XContentType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.EnableRetry;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 import jakarta.annotation.PostConstruct;
@@ -23,6 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
+@EnableRetry
 public class OpenSearchService {
 
     private static final Logger logger = LogManager.getLogger(OpenSearchService.class);
@@ -41,71 +44,97 @@ public class OpenSearchService {
     }
 
     @PostConstruct
+    @Retryable(value = {IOException.class}, maxAttempts = 5, backoff = @Backoff(delay = 5000))
     public void init() {
-        // Create daily index name
-        String indexName = getIndexName();
+        int retryCount = 0;
+        int maxRetries = 5;
+        long retryDelayMs = 10000; // 10 saniye
 
-        try {
-            // Check if index exists
-            boolean exists = client.indices().exists(
-                    new GetIndexRequest(indexName), RequestOptions.DEFAULT);
+        while (retryCount < maxRetries) {
+            try {
+                // Create daily index name
+                String indexName = getIndexName();
+                logger.info("İndeks oluşturma başlatılıyor: {}", indexName);
 
-            if (!exists) {
-                // Create index if it doesn't exist
-                CreateIndexRequest createIndexRequest = new CreateIndexRequest(indexName);
+                // Check if index exists
+                boolean exists = client.indices().exists(new GetIndexRequest(indexName), RequestOptions.DEFAULT);
 
-                // Define mapping for fields
-                Map<String, Object> properties = new HashMap<>();
+                if (!exists) {
+                    // Create index if it doesn't exist
+                    CreateIndexRequest createIndexRequest = new CreateIndexRequest(indexName);
 
-                // rateName field - keyword type
-                Map<String, Object> rateName = new HashMap<>();
-                rateName.put("type", "keyword");
+                    // Define mapping for fields
+                    Map<String, Object> properties = new HashMap<>();
 
-                // bid and ask fields - double type
-                Map<String, Object> bid = new HashMap<>();
-                bid.put("type", "double");
+                    // rateName field - keyword type
+                    Map<String, Object> rateName = new HashMap<>();
+                    rateName.put("type", "keyword");
 
-                Map<String, Object> ask = new HashMap<>();
-                ask.put("type", "double");
+                    // bid and ask fields - double type
+                    Map<String, Object> bid = new HashMap<>();
+                    bid.put("type", "double");
 
-                // spread and midPrice fields - double type (calculated)
-                Map<String, Object> spread = new HashMap<>();
-                spread.put("type", "double");
+                    Map<String, Object> ask = new HashMap<>();
+                    ask.put("type", "double");
 
-                Map<String, Object> midPrice = new HashMap<>();
-                midPrice.put("type", "double");
+                    // spread and midPrice fields - double type (calculated)
+                    Map<String, Object> spread = new HashMap<>();
+                    spread.put("type", "double");
 
-                // timestamp field - date type
-                Map<String, Object> timestamp = new HashMap<>();
-                timestamp.put("type", "date");
-                timestamp.put("format", "date_time||strict_date_time");
+                    Map<String, Object> midPrice = new HashMap<>();
+                    midPrice.put("type", "double");
 
-                // Add all fields to properties
-                properties.put("rateName", rateName);
-                properties.put("bid", bid);
-                properties.put("ask", ask);
-                properties.put("spread", spread);
-                properties.put("midPrice", midPrice);
-                properties.put("timestamp", timestamp);
+                    // timestamp field - date type
+                    Map<String, Object> timestamp = new HashMap<>();
+                    timestamp.put("type", "date");
+                    timestamp.put("format", "date_time||strict_date_time");
 
-                Map<String, Object> mapping = new HashMap<>();
-                mapping.put("properties", properties);
+                    // Add all fields to properties
+                    properties.put("rateName", rateName);
+                    properties.put("bid", bid);
+                    properties.put("ask", ask);
+                    properties.put("spread", spread);
+                    properties.put("midPrice", midPrice);
+                    properties.put("timestamp", timestamp);
 
-                // Create a proper mapping using XContentType.JSON
-                String mappingJson = objectMapper.writeValueAsString(mapping);
-                createIndexRequest.mapping(mappingJson, XContentType.JSON);
+                    Map<String, Object> mapping = new HashMap<>();
+                    mapping.put("properties", properties);
 
-                // Create the index
-                client.indices().create(createIndexRequest, RequestOptions.DEFAULT);
-                logger.info("Index created: {}", indexName);
-            } else {
-                logger.info("Index already exists: {}", indexName);
+                    // Create a proper mapping using XContentType.JSON
+                    String mappingJson = objectMapper.writeValueAsString(mapping);
+                    createIndexRequest.mapping(mappingJson, XContentType.JSON);
+
+                    // Create the index with RequestOptions
+                    client.indices().create(createIndexRequest, RequestOptions.DEFAULT);
+                    logger.info("İndeks başarıyla oluşturuldu: {}", indexName);
+                    break; // Başarıyla oluşturuldu, döngüden çık
+                } else {
+                    logger.info("İndeks zaten mevcut: {}", indexName);
+                    break; // İndeks zaten var, döngüden çık
+                }
+            } catch (IOException e) {
+                retryCount++;
+                logger.error("İndeks oluşturulurken hata (deneme {}/{}): {}",
+                        retryCount, maxRetries, e.getMessage());
+
+                if (retryCount >= maxRetries) {
+                    logger.error("Maksimum yeniden deneme sayısına ulaşıldı. İndeks oluşturma başarısız.");
+                    break;
+                }
+
+                try {
+                    logger.info("{} ms sonra tekrar denenecek...", retryDelayMs);
+                    Thread.sleep(retryDelayMs);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                    logger.error("Bekleme sırasında kesinti", ie);
+                    break;
+                }
             }
-        } catch (IOException e) {
-            logger.error("Error creating index: {}", indexName, e);
         }
     }
 
+    @Retryable(value = {IOException.class}, maxAttempts = 3, backoff = @Backoff(delay = 2000))
     public void indexRateData(RateData rateData) {
         try {
             // Create daily index name
@@ -127,14 +156,15 @@ public class OpenSearchService {
             // Create IndexRequest
             IndexRequest indexRequest = new IndexRequest(indexName)
                     .id(id)
-                    .source(objectMapper.writeValueAsString(document), XContentType.JSON);
+                    .source(document);  // Map direkt olarak kullanılabilir
 
-            // Index the document
+            // Index the document with RequestOptions
             client.index(indexRequest, RequestOptions.DEFAULT);
 
             logger.debug("Rate data indexed: {}", rateData.getRateName());
         } catch (IOException e) {
             logger.error("Error indexing rate data: {}", rateData.getRateName(), e);
+            throw new RuntimeException("Failed to index rate data", e);
         }
     }
 
