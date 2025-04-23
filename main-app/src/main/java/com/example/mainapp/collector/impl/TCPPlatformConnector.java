@@ -53,14 +53,14 @@ public class TCPPlatformConnector extends DataCollector {
         super(platformName, config);
 
         // Konfigürasyon değerlerini yükle
-        this.host = config.getProperty("tcp.host", "localhost");
+        this.host = config.getProperty("tcp.host", "tcp-simulator");
         this.port = Integer.parseInt(config.getProperty("tcp.port", "8081"));
-        this.retryCount = Integer.parseInt(config.getProperty("connection.retryCount", "3"));
-        this.retryIntervalMs = Long.parseLong(config.getProperty("connection.retryIntervalMs", "5000"));
-        this.connectTimeout = Integer.parseInt(config.getProperty("connection.timeoutMs", "10000"));
+        this.retryCount = Integer.parseInt(config.getProperty("connection.retryCount", "10"));
+        this.retryIntervalMs = Long.parseLong(config.getProperty("connection.retryIntervalMs", "15000"));
+        this.connectTimeout = Integer.parseInt(config.getProperty("connection.timeoutMs", "30000"));
 
-        logger.info("TCP Platform Connector initialized with host={}, port={}, retryCount={}, retryInterval={}, timeout={}",
-                host, port, retryCount, retryIntervalMs, connectTimeout);
+        logger.info("TCPPlatformConnector initialized for {} with host={}, port={}",
+                platformName, host, port);
     }
 
     @Override

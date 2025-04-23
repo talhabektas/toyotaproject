@@ -20,11 +20,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DefaultCoordinator implements Coordinator {
 
     private static final Logger logger = LoggerFactory.getLogger(DefaultCoordinator.class);
-    private static final double TOLERANCE_THRESHOLD = 0.01; // %1 tolerans eşiği
+    private static final double TOLERANCE_THRESHOLD = 0.01;
 
     private final Map<String, PlatformConnector> connectors = new ConcurrentHashMap<>();
     private final Map<String, Set<String>> calculatedRateDependencies = new ConcurrentHashMap<>();
-    private final Map<String, Rate> lastRates = new ConcurrentHashMap<>(); // Son kur değerlerini tut
+    private final Map<String, Rate> lastRates = new ConcurrentHashMap<>();
 
     private final RateCache rateCache;
     private final RateCalculator rateCalculator;
@@ -41,13 +41,13 @@ public class DefaultCoordinator implements Coordinator {
     }
 
     private void initializeCalculatedRateDependencies() {
-        // USDTRY dependencies: PF1_USDTRY and PF2_USDTRY
+
         Set<String> usdtryDeps = new HashSet<>();
         usdtryDeps.add("PF1_USDTRY");
         usdtryDeps.add("PF2_USDTRY");
         calculatedRateDependencies.put("USDTRY", usdtryDeps);
 
-        // EURTRY dependencies: PF1_EURUSD, PF2_EURUSD, PF1_USDTRY, and PF2_USDTRY
+
         Set<String> eurtryDeps = new HashSet<>();
         eurtryDeps.add("PF1_EURUSD");
         eurtryDeps.add("PF2_EURUSD");
@@ -55,7 +55,7 @@ public class DefaultCoordinator implements Coordinator {
         eurtryDeps.add("PF2_USDTRY");
         calculatedRateDependencies.put("EURTRY", eurtryDeps);
 
-        // GBPTRY dependencies: PF1_GBPUSD, PF2_GBPUSD, PF1_USDTRY, and PF2_USDTRY
+
         Set<String> gbptryDeps = new HashSet<>();
         gbptryDeps.add("PF1_GBPUSD");
         gbptryDeps.add("PF2_GBPUSD");
@@ -256,26 +256,21 @@ public class DefaultCoordinator implements Coordinator {
     public void onRateAvailable(String platformName, String rateName, Rate rate) {
         logger.info("Rate {} available from platform {}", rateName, platformName);
 
-        // Veri temizleme - tolerans kontrolü
         String fullRateName = platformName + "_" + rateName;
         Rate previousRate = lastRates.get(fullRateName);
         if (isWithinTolerance(rate, previousRate)) {
-            // Add to cache
             rateCache.putRate(rate);
             lastRates.put(fullRateName, rate);
 
-            // Send to Kafka
             kafkaProducerService.sendRate(rate);
             logger.debug("Sent rate to Kafka: {}", rate);
 
-            // Check if this rate is a dependency for any calculated rates
             checkAndCalculateDependentRates(rateName);
         } else {
             logger.warn("Rate change exceeds tolerance threshold: {}", rate);
             if (previousRate != null) {
                 logger.info("Using previous rate value: {}", previousRate);
             } else {
-                // İlk veri ise toleransı geçse bile kabul et
                 rateCache.putRate(rate);
                 lastRates.put(fullRateName, rate);
                 kafkaProducerService.sendRate(rate);
@@ -288,10 +283,8 @@ public class DefaultCoordinator implements Coordinator {
     public void onRateUpdate(String platformName, String rateName, RateFields rateFields) {
         logger.info("Rate {} updated from platform {}", rateName, platformName);
 
-        // Get existing rate from cache
         Rate existingRate = rateCache.getRate(platformName, rateName);
         if (existingRate != null) {
-            // Create updated rate
             Rate updatedRate = new Rate(
                     existingRate.getRateName(),
                     existingRate.getPlatformName(),
@@ -301,19 +294,15 @@ public class DefaultCoordinator implements Coordinator {
                     existingRate.isCalculated()
             );
 
-            // Veri temizleme - tolerans kontrolü
             String fullRateName = platformName + "_" + rateName;
             Rate previousRate = lastRates.get(fullRateName);
             if (isWithinTolerance(updatedRate, previousRate)) {
-                // Update cache
                 rateCache.putRate(updatedRate);
                 lastRates.put(fullRateName, updatedRate);
 
-                // Send to Kafka
                 kafkaProducerService.sendRate(updatedRate);
                 logger.debug("Sent updated rate to Kafka: {}", updatedRate);
 
-                // Check if this rate is a dependency for any calculated rates
                 checkAndCalculateDependentRates(rateName);
             } else {
                 logger.warn("Rate update exceeds tolerance threshold: {}", updatedRate);

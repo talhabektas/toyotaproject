@@ -42,7 +42,6 @@ public class DefaultRateCalculationService implements RateCalculationService {
 
     @PostConstruct
     public void initialize() {
-        // Load platform connectors from configuration
         loadPlatformConnectors();
     }
 
@@ -59,7 +58,7 @@ public class DefaultRateCalculationService implements RateCalculationService {
     }
 
     @Override
-    public boolean subscribeRate(String rateName) {
+    public boolean  subscribeRate(String rateName) {
         Set<String> platforms = coordinator.subscribeRate(rateName);
         return !platforms.isEmpty();
     }

@@ -11,6 +11,8 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +22,8 @@ import java.util.Map;
  */
 @Configuration
 public class KafkaConfig {
+
+    private static final Logger logger = LoggerFactory.getLogger(KafkaConfig.class);
 
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
@@ -49,8 +53,15 @@ public class KafkaConfig {
      * @return New topic configuration
      */
     @Bean
+
     public NewTopic ratesTopic() {
-        return new NewTopic(ratesTopic, ratesTopicPartitions, ratesTopicReplicationFactor);
+        try {
+            return new NewTopic(ratesTopic, ratesTopicPartitions, ratesTopicReplicationFactor);
+        } catch (Exception e) {
+            // Topic muhtemelen zaten var, log'a kaydet ve devam et
+            logger.warn("Topic oluşturulamadı {}, zaten var olabilir: {}", ratesTopic, e.getMessage());
+            return null;
+        }
     }
 
     /**

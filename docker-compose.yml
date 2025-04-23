@@ -1,80 +1,41 @@
 version: '3.8'
 services:
-  # Zookeeper
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.3.2
+    image: wurstmeister/zookeeper
     container_name: zookeeper
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "2181:2181"
+    networks:
+      - finansal_network
     volumes:
       - zookeeper-data:/var/lib/zookeeper/data
-    networks:
-      - finansal_network
-    healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "2181"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 15s
 
   kafka:
-    image: confluentinc/cp-kafka:7.3.2
+    image: wurstmeister/kafka
     container_name: kafka
-    depends_on:
-      zookeeper:
-        condition: service_healthy
     ports:
       - "9092:9092"
-      - "29092:29092"
     environment:
-      KAFKA_BROKER_ID: 1
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-      KAFKA_LOG_DIRS: "/var/lib/kafka/data"
-      KAFKA_LOG_RETENTION_HOURS: "168"
-      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 100
-      KAFKA_JMX_PORT: 9999
-      KAFKA_JMX_HOSTNAME: localhost
-    volumes:
-      - kafka-data:/var/lib/kafka/data
+      KAFKA_CREATE_TOPICS: "finansal.rates:1:1"
+    depends_on:
+      - zookeeper
     networks:
       - finansal_network
-    restart: always
-    healthcheck:
-      test: [ "CMD", "nc", "-z", "localhost", "9092" ]
-      interval: 10s
-      timeout: 5s
-      retries: 10
-      start_period: 60s
+    volumes:
+      - kafka-data:/var/lib/kafka/data
 
-  # Redis
   redis:
     image: redis:7.0-alpine
     container_name: redis
     ports:
       - "6379:6379"
-    volumes:
-      - redis-data:/data
     networks:
       - finansal_network
-    healthcheck:
-      test: [ "CMD", "redis-cli", "ping" ]
-      interval: 5s
-      timeout: 3s
-      retries: 3
-    command: [ "redis-server", "--appendonly", "yes" ]
+    volumes:
+      - redis-data:/data
 
-  # PostgreSQL
   postgres:
     image: postgres:15-alpine
     container_name: postgres
@@ -84,19 +45,11 @@ services:
       POSTGRES_DB: finansal_rates
     ports:
       - "5432:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
     networks:
       - finansal_network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 20s
-    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
 
-  # OpenSearch
   opensearch:
     image: opensearchproject/opensearch:2.4.0
     container_name: opensearch
@@ -105,58 +58,13 @@ services:
       - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
       - bootstrap.memory_lock=true
       - "DISABLE_SECURITY_PLUGIN=true"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    volumes:
-      - opensearch-data:/usr/share/opensearch/data
     ports:
       - "9200:9200"
-      - "9600:9600"
     networks:
       - finansal_network
-    healthcheck:
-      test: [ "CMD-SHELL", "curl -s http://localhost:9200/_cluster/health || exit 1" ]
-      interval: 20s
-      timeout: 10s
-      retries: 5
-      start_period: 60s
-    restart: always
-
-  # OpenSearch Dashboards
-  opensearch-dashboards:
-    image: opensearchproject/opensearch-dashboards:2.4.0
-    container_name: opensearch-dashboards
-    ports:
-      - "5601:5601"
-    environment:
-      - "OPENSEARCH_HOSTS=http://opensearch:9200"
-      - "DISABLE_SECURITY_DASHBOARDS_PLUGIN=true"
-    networks:
-      - finansal_network
-    depends_on:
-      opensearch:
-        condition: service_healthy
-    restart: always
-
-  # Filebeat
-  filebeat:
-    image: docker.elastic.co/beats/filebeat:8.6.0
-    container_name: filebeat
-    user: root
     volumes:
-      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
-      - /var/lib/docker/containers:/var/lib/docker/containers:ro
-      - ./logs:/logs:ro
-    networks:
-      - finansal_network
-    depends_on:
-      opensearch:
-        condition: service_healthy
-    restart: always
+      - opensearch-data:/usr/share/opensearch/data
 
-  # TCP Platform Simulator
   tcp-simulator:
     build:
       context: ./demo
@@ -165,28 +73,9 @@ services:
       - "8081:8081"
     networks:
       - finansal_network
-    volumes:
-      - ./demo/logs:/app/logs
-      - ./demo/config:/app/config
-    restart: unless-stopped
     depends_on:
-      kafka:
-        condition: service_healthy
-    environment:
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
-    healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "8081"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 30s
+      - kafka
 
-  # REST Platform Simulator
   rest-simulator:
     build:
       context: ./platform-simulator-rest
@@ -195,57 +84,9 @@ services:
       - "8080:8080"
     networks:
       - finansal_network
-    volumes:
-      - ./platform-simulator-rest/logs:/app/logs
-    restart: unless-stopped
     depends_on:
-      kafka:
-        condition: service_healthy
-    environment:
-      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/api/rates || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 40s
+      - kafka
 
-  # FIX Platform Simulator
-  fix-simulator:
-    build:
-      context: ./fix-simulator
-    container_name: fix-simulator
-    ports:
-      - "8082:8082"
-    networks:
-      - finansal_network
-    volumes:
-      - ./fix-simulator/logs:/app/logs
-      - ./fix-simulator/config:/app/config
-    restart: unless-stopped
-    depends_on:
-      kafka:
-        condition: service_healthy
-    environment:
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
-    healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "8082"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 30s
-
-  # Main Application
   main-app:
     build:
       context: ./main-app
@@ -254,20 +95,6 @@ services:
       - "8090:8090"
     networks:
       - finansal_network
-    volumes:
-      - ./main-app/logs:/app/logs
-    restart: unless-stopped
-    depends_on:
-      kafka:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-      opensearch:
-        condition: service_healthy
-      tcp-simulator:
-        condition: service_started
-      rest-simulator:
-        condition: service_started
     environment:
       - TCP_PLATFORM_HOST=tcp-simulator
       - TCP_PLATFORM_PORT=8081
@@ -275,89 +102,50 @@ services:
       - REST_PLATFORM_PORT=8080
       - SPRING_DATA_REDIS_HOST=redis
       - SPRING_DATA_REDIS_PORT=6379
-      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
-      - KAFKA_TOPIC_RATES=finansal.rates
-      - OPENSEARCH_URL=http://opensearch:9200
-      - cache.type=memory
-      - spring.main.allow-bean-definition-overriding=true
-      # Bağlantı yeniden deneme parametreleri
-      - spring.datasource.hikari.connection-timeout=60000
-      - spring.datasource.hikari.maximum-pool-size=10
-      - spring.datasource.hikari.minimum-idle=5
-      - spring.kafka.producer.retries=5
-      - spring.kafka.producer.retry-backoff-ms=1000
-      # Simulator bağlantılarını bekle
-      - spring.cloud.config.fail-fast=false
-      - management.health.defaults.enabled=false
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8090/actuator/health || exit 1" ]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 90s
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+    depends_on:
+      - tcp-simulator
+      - rest-simulator
+      - redis
+      - kafka
+      - postgres
+      - opensearch # main-app'in OpenSearch'e de ihtiyacı olabilir
 
-  # Kafka Consumer for PostgreSQL
   kafka-consumer:
     build:
       context: ./Kafka-Consumer
     container_name: kafka-consumer
     networks:
       - finansal_network
-    volumes:
-      - ./Kafka-Consumer/logs:/app/logs
-    restart: unless-stopped
-    depends_on:
-      kafka:
-        condition: service_healthy
-      postgres:
-        condition: service_healthy
-      main-app:
-        condition: service_healthy
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/finansal_rates
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
-      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
       - KAFKA_TOPIC_RATES=finansal.rates
-      # Bağlantı havuzu ayarları
-      - SPRING_DATASOURCE_HIKARI_CONNECTION_TIMEOUT=60000
-      - SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE=10
-      - SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE=5
-      - SPRING_DATASOURCE_HIKARI_IDLE_TIMEOUT=300000
-      - SPRING_DATASOURCE_HIKARI_MAX_LIFETIME=1200000
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
+    depends_on:
+      - kafka
+      - postgres
+      - main-app
 
-  # Kafka Consumer for OpenSearch
   kafka-consumer-opensearch:
     build:
-      context: ./Kafka-Consumer-OpenSearch
+      context: ./kafka-consumer-opensearch
     container_name: kafka-consumer-opensearch
     networks:
       - finansal_network
-    volumes:
-      - ./Kafka-Consumer-OpenSearch/logs:/app/logs
-    restart: unless-stopped
-    depends_on:
-      kafka:
-        condition: service_healthy
-      opensearch:
-        condition: service_healthy
-      main-app:
-        condition: service_healthy
     environment:
-      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
       - KAFKA_TOPIC_RATES=finansal.rates
       - OPENSEARCH_URL=http://opensearch:9200
-      - spring.main.allow-bean-definition-overriding=true
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
+    depends_on:
+      - kafka
+      - opensearch
+      - main-app
+
+networks:
+  finansal_network:
+    driver: bridge
 
 volumes:
   zookeeper-data:
@@ -365,7 +153,3 @@ volumes:
   redis-data:
   postgres-data:
   opensearch-data:
-
-networks:
-  finansal_network:
-    driver: bridge

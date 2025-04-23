@@ -44,8 +44,12 @@ public class RestPlatformConnector extends DataCollector {
         super(platformName, config);
         this.restTemplate = new RestTemplate();
         this.objectMapper = new ObjectMapper();
-        this.objectMapper.findAndRegisterModules(); // For Java 8 date/time support
+
+        this.baseUrl = config.getProperty("rest.baseUrl", "http://rest-simulator:8080/api/rates");
+
+        logger.info("RestPlatformConnector initialized for {} with baseUrl={}", platformName, this.baseUrl);
     }
+
 
     @Override
     public boolean connect(String platformName, String userid, String password) {
@@ -55,7 +59,7 @@ public class RestPlatformConnector extends DataCollector {
         }
 
         try {
-            this.baseUrl = config.getProperty("rest.baseUrl", "http://localhost:8080/api/rates");
+            this.baseUrl = config.getProperty("rest.baseUrl", "http://rest-simulator:8080/api/rates");
             this.pollingIntervalMs = Long.parseLong(config.getProperty("rest.pollingIntervalMs", "5000"));
 
             logger.info("Connecting to REST API {} for platform {}", baseUrl, platformName);
