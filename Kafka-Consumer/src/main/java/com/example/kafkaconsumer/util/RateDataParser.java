@@ -23,6 +23,7 @@ public class RateDataParser {
      * @param message Message from Kafka
      * @return RateEntity or null if parsing fails
      */
+// parseMessage metodu içinde:
     public static RateEntity parseMessage(String message) {
         if (message == null || message.isEmpty()) {
             logger.error("Cannot parse null or empty message");
@@ -30,18 +31,30 @@ public class RateDataParser {
         }
 
         try {
-            // Detect TCP Simulator format: PF1_USDTRY|22:number:34.15|25:number:37.06|5:timestamp:2025-03-12T23:59:21
-            if (message.contains(":number:")) {
-                logger.debug("Detected TCP Simulator format");
-                return parseTcpSimulatorFormat(message);
+            // Basit format: rateName|bid|ask|timestamp
+            String[] parts = message.split("\\|");
+            if (parts.length < 4) {
+                logger.error("Invalid message format: {}", message);
+                return null;
             }
-            // Standard format: PF1_USDTRY|34.15|37.06|2025-03-12T23:59:21
-            else {
-                logger.debug("Detected standard format");
-                return parseStandardFormat(message);
+
+            String rateName = parts[0];
+            double bid = Double.parseDouble(parts[1]);
+            double ask = Double.parseDouble(parts[2]);
+            LocalDateTime timestamp;
+
+            try {
+                timestamp = LocalDateTime.parse(parts[3]);
+            } catch (Exception e) {
+                logger.error("Error parsing timestamp: {}", parts[3], e);
+                timestamp = LocalDateTime.now(); // Geçici çözüm olarak şimdiki zamanı kullan
             }
+
+            LocalDateTime dbUpdateTime = LocalDateTime.now();
+
+            return new RateEntity(rateName, bid, ask, timestamp, dbUpdateTime);
         } catch (Exception e) {
-            logger.error("Unexpected error parsing message: {}", message, e);
+            logger.error("Error parsing message: {}", message, e);
             return null;
         }
     }
