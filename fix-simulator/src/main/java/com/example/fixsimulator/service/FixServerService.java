@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * FIX protokolü sunucusu ve kur simülasyonu servisi
+ * Service for FIX protocol server and rate simulation
  */
 @Service
 public class FixServerService {
@@ -54,7 +54,7 @@ public class FixServerService {
     }
 
     /**
-     * Servis başlatıldığında çalışır
+     * Runs when the service is initialized
      */
     @PostConstruct
     public void init() {
@@ -64,7 +64,7 @@ public class FixServerService {
     }
 
     /**
-     * Servis durdurulduğunda çalışır
+     * Runs when the service is being shut down
      */
     @PreDestroy
     public void shutdown() {
@@ -72,7 +72,7 @@ public class FixServerService {
     }
 
     /**
-     * Kur verilerini başlangıç değerleriyle doldurur
+     * Populates the rate data with initial values
      */
     private void initializeRates() {
         simulatorConfig.getInitialRates().forEach((rateName, rateConfig) -> {
@@ -86,12 +86,12 @@ public class FixServerService {
             logger.info("Initialized rate: {}", rateData);
         });
 
-        // FixApplication'a kur verilerini set et
+        // Set the rate data for the FixApplication
         fixApplication.setRateData(rateDataMap);
     }
 
     /**
-     * FIX acceptor'u başlatır
+     * Initializes the FIX acceptor
      */
     private void initializeFixAcceptor() {
         try {
@@ -115,7 +115,7 @@ public class FixServerService {
     }
 
     /**
-     * Servisi başlatır
+     * Starts the service
      */
     public synchronized void start() {
         if (running.compareAndSet(false, true)) {
@@ -133,7 +133,7 @@ public class FixServerService {
     }
 
     /**
-     * Servisi durdurur
+     * Stops the service
      */
     public synchronized void stop() {
         if (running.compareAndSet(true, false)) {
@@ -149,7 +149,7 @@ public class FixServerService {
     }
 
     /**
-     * Kur verilerini düzenli aralıklarla günceller
+     * Updates rate data at regular intervals
      */
     @Scheduled(fixedDelayString = "${simulation.updateIntervalMs:5000}")
     public void updateRates() {
@@ -170,7 +170,7 @@ public class FixServerService {
             RateData newRateData = rateGenerator.generateNextRate(oldRateData);
             rateDataMap.put(rateName, newRateData);
 
-            // Bağlı olan tüm oturumlara güncel kur verilerini gönder
+            // Send updated rate data to all connected sessions
             fixApplication.publishRateUpdate(newRateData);
 
             logger.debug("Updated rate: {}", newRateData);
@@ -178,17 +178,17 @@ public class FixServerService {
     }
 
     /**
-     * Tüm kur verilerini döndürür
-     * @return Kur verileri haritası
+     * Returns all rate data
+     * @return A map of rate data
      */
     public Map<String, RateData> getAllRates() {
         return new HashMap<>(rateDataMap);
     }
 
     /**
-     * Belirli bir kur verisini döndürür
-     * @param rateName Kur adı
-     * @return Kur verisi veya bulunamazsa null
+     * Returns specific rate data
+     * @param rateName The rate name
+     * @return The rate data, or null if not found
      */
     public RateData getRateData(String rateName) {
         return rateDataMap.get(rateName);

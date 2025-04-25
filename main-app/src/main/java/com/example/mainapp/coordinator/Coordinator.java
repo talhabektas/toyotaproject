@@ -8,100 +8,100 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Koordinatörün temel işlevselliğini tanımlayan arayüz
+ * Interface defining the core functionality of the coordinator
  */
 public interface Coordinator extends CoordinatorCallBack {
 
     /**
-     * Koordinatörü başlatır
+     * Starts the coordinator
      */
     void start();
 
     /**
-     * Koordinatörü durdurur
+     * Stops the coordinator
      */
     void stop();
 
     /**
-     * Platform bağlayıcı ekler
-     * @param connector Platform bağlayıcı
+     * Adds a platform connector
+     * @param connector The platform connector
      */
     void addConnector(PlatformConnector connector);
 
     /**
-     * Platform bağlayıcıyı kaldırır
-     * @param platformName Platform adı
-     * @return İşlem başarılı ise true
+     * Removes a platform connector
+     * @param platformName The platform name
+     * @return True if the operation was successful
      */
     boolean removeConnector(String platformName);
 
     /**
-     * Tüm platform bağlayıcıları döndürür
-     * @return Platform bağlayıcı listesi
+     * Returns all platform connectors
+     * @return A list of platform connectors
      */
     List<PlatformConnector> getConnectors();
 
     /**
-     * Tüm platformlarda bir kura abone olur
-     * @param rateName Kur adı
-     * @return Aboneliğin başarılı olduğu platform adları kümesi
+     * Subscribes to a rate on all platforms
+     * @param rateName The rate name
+     * @return A set of platform names where the subscription was successful
      */
     Set<String> subscribeRate(String rateName);
 
     /**
-     * Belirli bir platformda bir kura abone olur
-     * @param platformName Platform adı
-     * @param rateName Kur adı
-     * @return Abonelik başarılı ise true
+     * Subscribes to a rate on a specific platform
+     * @param platformName The platform name
+     * @param rateName The rate name
+     * @return True if the subscription was successful
      */
     boolean subscribeRate(String platformName, String rateName);
 
     /**
-     * Tüm platformlarda bir kurun aboneliğini iptal eder
-     * @param rateName Kur adı
-     * @return Aboneliğin iptal edildiği platform adları kümesi
+     * Unsubscribes from a rate on all platforms
+     * @param rateName The rate name
+     * @return A set of platform names where the unsubscription was successful
      */
     Set<String> unsubscribeRate(String rateName);
 
     /**
-     * Belirli bir platformda bir kurun aboneliğini iptal eder
-     * @param platformName Platform adı
-     * @param rateName Kur adı
-     * @return İptal işlemi başarılı ise true
+     * Unsubscribes from a rate on a specific platform
+     * @param platformName The platform name
+     * @param rateName The rate name
+     * @return True if the unsubscription was successful
      */
     boolean unsubscribeRate(String platformName, String rateName);
 
     /**
-     * Önbellekten bir kur verisini döndürür
-     * @param rateName Kur adı
-     * @return Kur verisi veya bulunamazsa null
+     * Returns a rate data from the cache
+     * @param rateName The rate name
+     * @return The rate data, or null if not found
      */
     Rate getRate(String rateName);
 
     /**
-     * Belirli bir platformdan bir kur verisini döndürür
-     * @param platformName Platform adı
-     * @param rateName Kur adı
-     * @return Kur verisi veya bulunamazsa null
+     * Returns a rate data from a specific platform
+     * @param platformName The platform name
+     * @param rateName The rate name
+     * @return The rate data, or null if not found
      */
     Rate getRate(String platformName, String rateName);
 
     /**
-     * Tüm mevcut kur adlarını döndürür
-     * @return Kur adları kümesi
+     * Returns all available rate names
+     * @return A set of rate names
      */
     Set<String> getAllRateNames();
 
     /**
-     * Tüm mevcut platform adlarını döndürür
-     * @return Platform adları kümesi
+     * Returns all available platform names
+     * @return A set of platform names
      */
     Set<String> getAllPlatformNames();
 
     /**
-     * Bir kur hesaplar
-     * @param targetRateName Hedef kur adı
-     * @return Hesaplama başarılı ise true
+     * Calculates a rate
+     * @param targetRateName The target rate name
+     * @return True if the calculation was successful
      */
     boolean calculateRate(String targetRateName);
 }

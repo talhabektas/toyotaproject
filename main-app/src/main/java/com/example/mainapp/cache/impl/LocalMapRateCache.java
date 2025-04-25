@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * Local in-memory implementation of RateCache using ConcurrentHashMap
  */
 @Component
-@ConditionalOnProperty(name = "cache.type", havingValue = "local", matchIfMissing = true)
+@ConditionalOnProperty(name = "cache.type", havingValue = "local") // Sadece cache.type=local olduğunda aktif olur
 public class LocalMapRateCache implements RateCache {
 
     private static final Logger logger = LoggerFactory.getLogger(LocalMapRateCache.class);

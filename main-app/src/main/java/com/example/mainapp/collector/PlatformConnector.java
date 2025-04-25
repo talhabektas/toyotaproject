@@ -3,63 +3,63 @@ package com.example.mainapp.collector;
 import com.example.mainapp.coordinator.CoordinatorCallBack;
 
 /**
- * Platform bağlantılarını yönetmek için ortak arayüz
+ * Common interface for managing platform connections
  */
 public interface PlatformConnector {
 
     /**
-     * Bağlantıyı gerçekleştirmek için kullanılan metod
-     * @param platformName Platform adı
-     * @param userid Kullanıcı adı
-     * @param password Şifre
-     * @return Bağlantı başarılı ise true
+     * Method used to establish a connection
+     * @param platformName The platform name
+     * @param userid The user ID
+     * @param password The password
+     * @return True if the connection was successful
      */
     boolean connect(String platformName, String userid, String password);
 
     /**
-     * Bağlantıyı kesmek için kullanılan metod
-     * @param platformName Platform adı
-     * @param userid Kullanıcı adı
-     * @param password Şifre
-     * @return İşlem başarılı ise true
+     * Method used to disconnect
+     * @param platformName The platform name
+     * @param userid The user ID
+     * @param password The password
+     * @return True if the operation was successful
      */
     boolean disconnect(String platformName, String userid, String password);
 
     /**
-     * Bir kura abone olmak için çağrılacak metod
-     * @param platformName Platform adı
-     * @param rateName Kur adı
-     * @return İşlem başarılı ise true
+     * Method to be called to subscribe to a rate
+     * @param platformName The platform name
+     * @param rateName The rate name
+     * @return True if the operation was successful
      */
     boolean subscribe(String platformName, String rateName);
 
     /**
-     * Bir kur aboneliğini sonlandırmak için çağrılacak metod
-     * @param platformName Platform adı
-     * @param rateName Kur adı
-     * @return İşlem başarılı ise true
+     * Method to be called to end a rate subscription
+     * @param platformName The platform name
+     * @param rateName The rate name
+     * @return True if the operation was successful
      */
     boolean unsubscribe(String platformName, String rateName);
 
     /**
-     * Koordinatör callback'ini ayarlar
-     * @param callback Koordinatör callback'i
+     * Sets the coordinator callback
+     * @param callback The coordinator callback
      */
     void setCallback(CoordinatorCallBack callback);
 
     /**
-     * Platform adını döndürür
-     * @return Platform adı
+     * Returns the platform name
+     * @return The platform name
      */
     String getPlatformName();
 
     /**
-     * Bağlayıcıyı başlatır
+     * Starts the connector
      */
     void start();
 
     /**
-     * Bağlayıcıyı durdurur
+     * Stops the connector
      */
     void stop();
 }

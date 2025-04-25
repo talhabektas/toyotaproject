@@ -11,6 +11,7 @@ import org.opensearch.client.indices.CreateIndexRequest;
 import org.opensearch.client.indices.GetIndexRequest;
 import org.opensearch.common.xcontent.XContentType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.EnableRetry;
@@ -37,7 +38,7 @@ public class OpenSearchService {
     private String indexPrefix;
 
     @Autowired
-    public OpenSearchService(RestHighLevelClient client, ObjectMapper objectMapper) {
+    public OpenSearchService(RestHighLevelClient client, @Qualifier("opensearchObjectMapper") ObjectMapper objectMapper) {
         this.client = client;
         this.objectMapper = objectMapper;
         logger.info("OpenSearchService initialized with objectMapper: {}", objectMapper);

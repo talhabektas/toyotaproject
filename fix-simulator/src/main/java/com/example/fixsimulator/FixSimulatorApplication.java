@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import java.io.File;
 
 /**
- * FIX Protocol Platform Simülatörü Ana Uygulama Sınıfı
+ * Main Application Class for the FIX Protocol Platform Simulator
  */
 @SpringBootApplication
 @EnableScheduling
@@ -21,43 +21,43 @@ public class FixSimulatorApplication {
 	private static final Logger logger = LogManager.getLogger(FixSimulatorApplication.class);
 
 	public static void main(String[] args) {
-		// Komut satırı argümanlarını işle
+		// Handle command line arguments
 		CommandLineParser parser = new DefaultParser();
 		Options options = getCommandLineOptions();
 
 		try {
 			CommandLine cmd = parser.parse(options, args);
 
-			// Yapılandırma dosyası yollarını al
+			// Get configuration file paths
 			String quickfixConfigFile = cmd.getOptionValue("config", "config/quickfix.cfg");
 			String ratesConfigFile = cmd.getOptionValue("rates", "config/rates-config.json");
 
-			// Dosyaların varlığını kontrol et
+			// Check if files exist
 			checkFileExists(quickfixConfigFile);
 			checkFileExists(ratesConfigFile);
 
-			// Sistem özelliklerini ayarla
+			// Set system properties
 			System.setProperty("quickfix.config", quickfixConfigFile);
 			System.setProperty("rates.config", ratesConfigFile);
 
-			// Uygulamayı başlat
+			// Start the application
 			SpringApplication.run(FixSimulatorApplication.class, args);
-			logger.info("FIX Simulator başlatıldı");
+			logger.info("FIX Simulator started");
 
 		} catch (ParseException e) {
-			logger.error("Komut satırı argümanları ayrıştırılamadı", e);
+			logger.error("Could not parse command line arguments", e);
 			HelpFormatter formatter = new HelpFormatter();
 			formatter.printHelp("fix-simulator", options);
 			System.exit(1);
 		} catch (Exception e) {
-			logger.error("Uygulama başlatılırken hata oluştu", e);
+			logger.error("An error occurred while starting the application", e);
 			System.exit(1);
 		}
 	}
 
 	/**
-	 * Komut satırı seçeneklerini tanımlar
-	 * @return Komut satırı seçenekleri
+	 * Defines command line options
+	 * @return Command line options
 	 */
 	private static Options getCommandLineOptions() {
 		Options options = new Options();
@@ -66,14 +66,14 @@ public class FixSimulatorApplication {
 				.longOpt("config")
 				.argName("file")
 				.hasArg()
-				.desc("QuickFIX yapılandırma dosyasının yolu (varsayılan: config/quickfix.cfg)")
+				.desc("Path to the QuickFIX configuration file (default: config/quickfix.cfg)")
 				.build();
 
 		Option ratesOption = Option.builder("r")
 				.longOpt("rates")
 				.argName("file")
 				.hasArg()
-				.desc("Kurlar JSON dosyasının yolu (varsayılan: config/rates-config.json)")
+				.desc("Path to the rates JSON file (default: config/rates-config.json)")
 				.build();
 
 		options.addOption(configOption);
@@ -83,14 +83,14 @@ public class FixSimulatorApplication {
 	}
 
 	/**
-	 * Dosyanın var olup olmadığını kontrol eder
-	 * @param filePath Dosya yolu
+	 * Checks if the file exists
+	 * @param filePath The file path
 	 */
 	private static void checkFileExists(String filePath) {
 		File file = new File(filePath);
 		if (!file.exists() || !file.isFile()) {
-			logger.error("Dosya bulunamadı: {}", filePath);
-			throw new RuntimeException("Gerekli dosya bulunamadı: " + filePath);
+			logger.error("File not found: {}", filePath);
+			throw new RuntimeException("Required file not found: " + filePath);
 		}
 	}
 }

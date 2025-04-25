@@ -8,13 +8,19 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.kafka.annotation.EnableKafka;
+import org.springframework.retry.annotation.EnableRetry;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * Main application class
  */
 @SpringBootApplication
 @EnableKafka
+@EnableRetry
+@EnableScheduling
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class MainAppApplication {
 
     private static final Logger logger = LoggerFactory.getLogger(MainAppApplication.class);

@@ -9,9 +9,8 @@ import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class JacksonConfig {
-
-    @Bean
-    @Primary
+    // AppConfig ile çakışmayı önlemek için farklı isimli bean
+    @Bean("opensearchObjectMapper")
     public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());

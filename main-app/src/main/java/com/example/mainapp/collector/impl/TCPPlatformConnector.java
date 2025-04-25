@@ -52,7 +52,6 @@ public class TCPPlatformConnector extends DataCollector {
     public TCPPlatformConnector(String platformName, Properties config) {
         super(platformName, config);
 
-        // Konfigürasyon değerlerini yükle
         this.host = config.getProperty("tcp.host", "tcp-simulator");
         this.port = Integer.parseInt(config.getProperty("tcp.port", "8081"));
         this.retryCount = Integer.parseInt(config.getProperty("connection.retryCount", "10"));

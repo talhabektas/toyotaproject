@@ -7,6 +7,11 @@ services:
       - "2181:2181"
     networks:
       - finansal_network
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "2181"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
   kafka:
     image: wurstmeister/kafka
@@ -25,14 +30,28 @@ services:
       - zookeeper
     networks:
       - finansal_network
+    healthcheck:
+      test: ["CMD", "kafka-topics.sh", "--list", "--bootstrap-server", "localhost:29092"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   redis:
     image: redis:7.0-alpine
     container_name: redis
     ports:
       - "6379:6379"
+    command: redis-server --appendonly yes --appendfsync everysec
+    volumes:
+      - redis-data:/data
     networks:
       - finansal_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 2s
+      retries: 3
 
   postgres:
     image: postgres:15-alpine
@@ -41,12 +60,18 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: finansal_rates
+      PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - "5432:5432"
     networks:
       - finansal_network
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   opensearch:
     image: opensearchproject/opensearch:2.4.0
@@ -60,6 +85,28 @@ services:
       - "9200:9200"
     networks:
       - finansal_network
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9200"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 40s
+
+    # docker-compose.yml dosyanıza ekleyin
+  opensearch-dashboards:
+      image: opensearchproject/opensearch-dashboards:2.4.0
+      container_name: opensearch-dashboards
+      ports:
+        - "5601:5601"
+      environment:
+        - OPENSEARCH_HOSTS=["http://opensearch:9200"]
+        - DISABLE_SECURITY_DASHBOARDS_PLUGIN=true
+      networks:
+        - finansal_network
+      depends_on:
+        - opensearch
 
   tcp-simulator:
     build:
@@ -69,8 +116,16 @@ services:
       - "8081:8081"
     networks:
       - finansal_network
-    depends_on:
-      - kafka
+    volumes:
+      - ./demo/config:/app/config
+      - tcp-simulator-logs:/app/logs
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8081"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
 
   rest-simulator:
     build:
@@ -80,8 +135,15 @@ services:
       - "8080:8080"
     networks:
       - finansal_network
-    depends_on:
-      - kafka
+    volumes:
+      - rest-simulator-logs:/app/logs
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/rates"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
 
   main-app:
     build:
@@ -102,12 +164,24 @@ services:
       - SPRING_MAIN_ALLOW_BEAN_DEFINITION_OVERRIDING=true
     networks:
       - finansal_network
+    volumes:
+      - main-app-logs:/app/logs
     depends_on:
-      - tcp-simulator
-      - rest-simulator
-      - redis
-      - kafka
+      tcp-simulator:
+        condition: service_healthy
+      rest-simulator:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
     restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8090/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
 
   kafka-consumer:
     build:
@@ -124,9 +198,15 @@ services:
       - SPRING_MAIN_ALLOW_BEAN_DEFINITION_OVERRIDING=true
     networks:
       - finansal_network
+    volumes:
+      - kafka-consumer-logs:/app/logs
     depends_on:
-      - kafka
-      - postgres
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      main-app:
+        condition: service_healthy
     restart: on-failure
 
   kafka-consumer-opensearch:
@@ -141,8 +221,32 @@ services:
       - SPRING_MAIN_ALLOW_BEAN_DEFINITION_OVERRIDING=true
     networks:
       - finansal_network
+    volumes:
+      - kafka-consumer-opensearch-logs:/app/logs
     depends_on:
-      - kafka
+      kafka:
+        condition: service_healthy
+      opensearch:
+        condition: service_healthy
+      main-app:
+        condition: service_healthy
+    restart: on-failure
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.10.2
+    container_name: filebeat
+    volumes:
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - tcp-simulator-logs:/logs/tcp-simulator:ro
+      - rest-simulator-logs:/logs/rest-simulator:ro
+      - main-app-logs:/logs/main-app:ro
+      - kafka-consumer-logs:/logs/kafka-consumer:ro
+      - kafka-consumer-opensearch-logs:/logs/kafka-consumer-opensearch:ro
+    user: root
+    command: [ "--strict.perms=false" ]
+    networks:
+      - finansal_network
+    depends_on:
       - opensearch
     restart: on-failure
 
@@ -152,3 +256,10 @@ networks:
 
 volumes:
   postgres-data:
+  redis-data:
+  opensearch-data:
+  tcp-simulator-logs:
+  rest-simulator-logs:
+  main-app-logs:
+  kafka-consumer-logs:
+  kafka-consumer-opensearch-logs:

@@ -5,14 +5,12 @@ import com.example.mainapp.model.Rate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-@ConditionalOnProperty(name = "cache.type", havingValue = "memory", matchIfMissing = true)
 public class InMemoryRateCache implements RateCache {
 
     private static final Logger logger = LoggerFactory.getLogger(InMemoryRateCache.class);
