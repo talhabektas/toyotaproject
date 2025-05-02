@@ -19,8 +19,12 @@ processors:
   - add_host_metadata: ~
   - add_docker_metadata: ~
 
-
+setup.template.name: "finansal-rates-logs"
+setup.template.pattern: "finansal-rates-logs-*"
+setup.ilm.enabled: false
+setup.template.enabled: true
 output.elasticsearch:
+
   hosts: ["opensearch:9200"]
   protocol: "http"
   username: ""

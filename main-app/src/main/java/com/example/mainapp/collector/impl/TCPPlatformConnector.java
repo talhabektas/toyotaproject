@@ -178,7 +178,6 @@ public class TCPPlatformConnector extends DataCollector {
         if (!isConnected()) {
             logger.error("Cannot subscribe - not connected to platform: {}", platformName);
 
-            // Bağlantıyı otomatik olarak yeniden kurmayı dene
             boolean reconnected = connect(platformName, null, null);
             if (!reconnected) {
                 return false;

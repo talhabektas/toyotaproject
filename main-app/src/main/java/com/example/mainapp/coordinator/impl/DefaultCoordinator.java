@@ -351,13 +351,18 @@ public class DefaultCoordinator implements Coordinator {
             return true; // İlk veri ise tolerans kontrolü yapma
         }
 
+        if (previousRate.getBid() == 0 || previousRate.getAsk() == 0) {
+            logger.warn("Önceki kur değerleri sıfır, tolerans kontrolü yapılamıyor");
+            return true;
+        }
+
         double bidDiff = Math.abs((newRate.getBid() - previousRate.getBid()) / previousRate.getBid());
         double askDiff = Math.abs((newRate.getAsk() - previousRate.getAsk()) / previousRate.getAsk());
 
         boolean isValid = bidDiff <= TOLERANCE_THRESHOLD && askDiff <= TOLERANCE_THRESHOLD;
 
         if (!isValid) {
-            logger.warn("Rate change exceeds tolerance limit: bid diff = {}%, ask diff = {}%",
+            logger.warn("Kur değişimi tolerans limitini aşıyor: bid farkı = {}%, ask farkı = {}%",
                     bidDiff * 100, askDiff * 100);
         }
 

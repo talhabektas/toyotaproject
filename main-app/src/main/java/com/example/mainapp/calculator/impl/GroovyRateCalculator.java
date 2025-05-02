@@ -17,7 +17,7 @@ public class GroovyRateCalculator {
 
     private static final Logger logger = LoggerFactory.getLogger(GroovyRateCalculator.class);
 
-    // Derlenmiş scriptleri önbellekle
+
     private final Map<String, groovy.lang.Script> compiledScripts = new ConcurrentHashMap<>();
 
     /**

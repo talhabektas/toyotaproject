@@ -42,13 +42,13 @@ services:
     container_name: redis
     ports:
       - "6379:6379"
-    command: redis-server --appendonly yes --appendfsync everysec
+    command: redis-server --appendonly yes
     volumes:
       - redis-data:/data
     networks:
       - finansal_network
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: [ "CMD", "redis-cli", "ping" ]
       interval: 5s
       timeout: 2s
       retries: 3

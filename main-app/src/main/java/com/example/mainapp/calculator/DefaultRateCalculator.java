@@ -54,18 +54,23 @@ public class DefaultRateCalculator implements RateCalculator {
         return false;
     }
 
+    // DefaultRateCalculator.java dosyasında calculate metotlarını tutarlı hale getirin
     private Rate calculateUSDTRY(Map<String, Rate> dependencyRates) {
         Rate pf1Rate = dependencyRates.get("PF1_USDTRY");
         Rate pf2Rate = dependencyRates.get("PF2_USDTRY");
 
         if (pf1Rate == null || pf2Rate == null) {
-            logger.warn("Missing dependency rates for USDTRY calculation");
+            logger.warn("USDTRY hesaplaması için bağımlı kurlar eksik");
             return null;
         }
 
-        // Simple average of platform rates
+        // Platform kur ortalaması hesaplama
         double bid = (pf1Rate.getBid() + pf2Rate.getBid()) / 2;
         double ask = (pf1Rate.getAsk() + pf2Rate.getAsk()) / 2;
+
+        // Değerleri yuvarla
+        bid = Math.round(bid * 100000.0) / 100000.0;
+        ask = Math.round(ask * 100000.0) / 100000.0;
 
         Rate calculatedRate = new Rate();
         calculatedRate.setRateName("USDTRY");
@@ -74,6 +79,7 @@ public class DefaultRateCalculator implements RateCalculator {
         calculatedRate.setTimestamp(LocalDateTime.now());
         calculatedRate.setCalculated(true);
 
+        logger.info("USDTRY hesaplandı: bid={}, ask={}", bid, ask);
         return calculatedRate;
     }
 
