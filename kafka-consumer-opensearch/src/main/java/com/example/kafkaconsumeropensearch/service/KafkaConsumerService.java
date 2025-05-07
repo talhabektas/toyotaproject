@@ -1,6 +1,7 @@
 package com.example.kafkaconsumeropensearch.service;
 
 import com.example.kafkaconsumeropensearch.model.RateData;
+import com.example.kafkaconsumeropensearch.util.RateDataParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +11,6 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
-/**
- * Kafka mesajlarını tüketen servis
- */
 @Service
 public class KafkaConsumerService {
 
@@ -20,20 +18,11 @@ public class KafkaConsumerService {
 
     private final OpenSearchService openSearchService;
 
-    /**
-     * Constructor
-     * @param openSearchService OpenSearch servis
-     */
     @Autowired
     public KafkaConsumerService(OpenSearchService openSearchService) {
         this.openSearchService = openSearchService;
     }
 
-    /**
-     * Kafka rates topiğini dinler
-     * @param message Mesaj
-     * @param key Mesaj anahtarı
-     */
     @KafkaListener(topics = "${kafka.topic.rates}", groupId = "${spring.kafka.consumer.group-id}")
     public void listen(
             @Payload String message,
@@ -43,12 +32,15 @@ public class KafkaConsumerService {
 
         try {
             // Mesajı RateData nesnesine dönüştür
-            RateData rateData = RateData.fromKafkaMessage(message);
+            RateData rateData = RateDataParser.parseMessage(message);
 
-            // OpenSearch'e kaydet
-            openSearchService.indexRateData(rateData);
-
-            logger.info("Kur verisi OpenSearch'e aktarıldı: {}", rateData.getRateName());
+            if (rateData != null) {
+                // OpenSearch'e kaydet
+                openSearchService.indexRateData(rateData);
+                logger.info("Kur verisi OpenSearch'e aktarıldı: {}", rateData.getRateName());
+            } else {
+                logger.error("Kafka mesajı geçerli bir RateData nesnesine dönüştürülemedi: {}", message);
+            }
         } catch (Exception e) {
             logger.error("Kafka mesajı işlenirken hata: {}", message, e);
         }

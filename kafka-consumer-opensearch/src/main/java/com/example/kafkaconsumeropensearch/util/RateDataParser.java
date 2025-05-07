@@ -1,6 +1,6 @@
-package com.example.kafkaconsumer.util;
+package com.example.kafkaconsumeropensearch.util;
 
-import com.example.kafkaconsumer.model.RateEntity;
+import com.example.kafkaconsumeropensearch.model.RateData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,20 +9,23 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 /**
- * Utility class for parsing rate data
+ * Kur verilerini çözümlemek için yardımcı sınıf
  */
 public class RateDataParser {
     private static final Logger logger = LoggerFactory.getLogger(RateDataParser.class);
 
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
+    private RateDataParser() {
+        // Private constructor to prevent instantiation
+    }
+
     /**
-     * Parse a Kafka message into a RateEntity
-     *
-     * @param message Message from Kafka
-     * @return RateEntity or null if parsing fails
+     * Kafka mesajından RateData nesnesi oluşturur
+     * @param message Kafka mesajı (format: rateName|bid|ask|timestamp)
+     * @return RateData nesnesi veya null (hata durumunda)
      */
-    public static RateEntity parseMessage(String message) {
+    public static RateData parseMessage(String message) {
         if (message == null || message.isEmpty()) {
             logger.error("Boş mesaj ayrıştırılamaz");
             return null;
@@ -40,7 +43,6 @@ public class RateDataParser {
             double bid;
             double ask;
             LocalDateTime timestamp;
-            LocalDateTime dbUpdateTime = LocalDateTime.now();
 
             try {
                 bid = Double.parseDouble(parts[1]);
@@ -71,7 +73,7 @@ public class RateDataParser {
                 timestamp = LocalDateTime.now(); // Hata durumunda şu anki zamanı kullan
             }
 
-            return new RateEntity(rateName, bid, ask, timestamp, dbUpdateTime);
+            return new RateData(rateName, bid, ask, timestamp);
         } catch (Exception e) {
             logger.error("Mesaj ayrıştırma hatası: {}", message, e);
             return null;

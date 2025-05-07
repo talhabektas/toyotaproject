@@ -24,26 +24,7 @@ public class RateData {
         this.timestamp = timestamp;
     }
 
-    /**
-     * Kafka mesajından RateData nesnesi oluşturur
-     * @param message Kafka mesajı (format: rateName|bid|ask|timestamp)
-     * @return RateData nesnesi
-     */
-    public static RateData fromKafkaMessage(String message) {
-        String[] parts = message.split("\\|");
-        if (parts.length < 4) {
-            throw new IllegalArgumentException("Kafka mesajı geçersiz formattta: " + message);
-        }
-
-        String rateName = parts[0];
-        double bid = Double.parseDouble(parts[1]);
-        double ask = Double.parseDouble(parts[2]);
-        LocalDateTime timestamp = LocalDateTime.parse(parts[3]);
-
-        return new RateData(rateName, bid, ask, timestamp);
-    }
-
-    // Getter ve Setterlar
+    // Getter ve Setter metodları
     public String getRateName() {
         return rateName;
     }
@@ -74,22 +55,6 @@ public class RateData {
 
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
-    }
-
-    /**
-     * Spread hesaplar (ask - bid)
-     * @return Spread değeri
-     */
-    public double getSpread() {
-        return ask - bid;
-    }
-
-    /**
-     * Mid-price hesaplar ((ask + bid) / 2)
-     * @return Mid-price değeri
-     */
-    public double getMidPrice() {
-        return (ask + bid) / 2;
     }
 
     @Override
