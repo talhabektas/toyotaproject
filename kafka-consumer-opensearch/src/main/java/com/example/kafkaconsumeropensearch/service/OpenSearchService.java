@@ -90,255 +90,102 @@ public class OpenSearchService {
 
 
 
+    // OpenSearchService.java dosyasında
     @PostConstruct
-
     @Retryable(value = {IOException.class}, maxAttempts = 5, backoff = @Backoff(delay = 5000))
-
     public void init() {
-
-        int retryCount = 0;
-
-        int maxRetries = 5;
-
-        long retryDelayMs = 10000; // 10 saniye
-
-
-
-        while (retryCount < maxRetries) {
-
-            try {
-
-// Create daily index name
-
-                String indexName = getIndexName();
-
-                logger.info("İndeks oluşturma başlatılıyor: {}", indexName);
-
-
-
-// Check if index exists
-
-                boolean exists = client.indices().exists(new GetIndexRequest(indexName), RequestOptions.DEFAULT);
-
-
-
-                if (!exists) {
-
-// Create index if it doesn't exist
-
-                    CreateIndexRequest createIndexRequest = new CreateIndexRequest(indexName);
-
-
-
-// Define mapping for fields
-
-                    Map<String, Object> properties = new HashMap<>();
-
-
-
-// rateName field - keyword type
-
-                    Map<String, Object> rateName = new HashMap<>();
-
-                    rateName.put("type", "keyword");
-
-
-
-// bid and ask fields - double type
-
-                    Map<String, Object> bid = new HashMap<>();
-
-                    bid.put("type", "double");
-
-
-
-                    Map<String, Object> ask = new HashMap<>();
-
-                    ask.put("type", "double");
-
-
-
-// spread and midPrice fields - double type (calculated)
-
-                    Map<String, Object> spread = new HashMap<>();
-
-                    spread.put("type", "double");
-
-
-
-                    Map<String, Object> midPrice = new HashMap<>();
-
-                    midPrice.put("type", "double");
-
-
-
-// timestamp field - date type
-
-                    Map<String, Object> timestamp = new HashMap<>();
-
-                    timestamp.put("type", "date");
-
-                    timestamp.put("format", "date_time||strict_date_time");
-
-
-
-// Add all fields to properties
-
-                    properties.put("rateName", rateName);
-
-                    properties.put("bid", bid);
-
-                    properties.put("ask", ask);
-
-                    properties.put("spread", spread);
-
-                    properties.put("midPrice", midPrice);
-
-                    properties.put("timestamp", timestamp);
-
-
-
-                    Map<String, Object> mapping = new HashMap<>();
-
-                    mapping.put("properties", properties);
-
-
-
-// Create a proper mapping using XContentType.JSON
-
-                    String mappingJson = objectMapper.writeValueAsString(mapping);
-
-                    createIndexRequest.mapping(mappingJson, XContentType.JSON);
-
-
-
-// Create the index with RequestOptions
-
-                    client.indices().create(createIndexRequest, RequestOptions.DEFAULT);
-
-                    logger.info("İndeks başarıyla oluşturuldu: {}", indexName);
-
-                    break; // Başarıyla oluşturuldu, döngüden çık
-
-                } else {
-
-                    logger.info("İndeks zaten mevcut: {}", indexName);
-
-                    break; // İndeks zaten var, döngüden çık
-
-                }
-
-            } catch (IOException e) {
-
-                retryCount++;
-
-                logger.error("İndeks oluşturulurken hata (deneme {}/{}): {}",
-
-                        retryCount, maxRetries, e.getMessage());
-
-
-
-                if (retryCount >= maxRetries) {
-
-                    logger.error("Maksimum yeniden deneme sayısına ulaşıldı. İndeks oluşturma başarısız.");
-
-                    break;
-
-                }
-
-
-
-                try {
-
-                    logger.info("{} ms sonra tekrar denenecek...", retryDelayMs);
-
-                    Thread.sleep(retryDelayMs);
-
-                } catch (InterruptedException ie) {
-
-                    Thread.currentThread().interrupt();
-
-                    logger.error("Bekleme sırasında kesinti", ie);
-
-                    break;
-
-                }
-
+        try {
+            // Günlük indeks adı oluştur
+            String indexName = getIndexName();
+            logger.info("İndeks oluşturma başlatılıyor: {}", indexName);
+
+            // İndeks var mı kontrol et
+            boolean exists = client.indices().exists(new GetIndexRequest(indexName), RequestOptions.DEFAULT);
+
+            if (!exists) {
+                // İndeks yoksa oluştur
+                CreateIndexRequest createIndexRequest = new CreateIndexRequest(indexName);
+
+                // Alanlar için mapping tanımla
+                Map<String, Object> properties = new HashMap<>();
+
+                // rateName alanı - keyword tipi
+                Map<String, Object> rateName = new HashMap<>();
+                rateName.put("type", "keyword");
+
+                // bid ve ask alanları - double tipi
+                Map<String, Object> bid = new HashMap<>();
+                bid.put("type", "double");
+
+                Map<String, Object> ask = new HashMap<>();
+                ask.put("type", "double");
+
+                // timestamp alanı - date tipi - FORMAT DÜZELTİLDİ!
+                Map<String, Object> timestamp = new HashMap<>();
+                timestamp.put("type", "date");
+                timestamp.put("format", "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ||yyyy-MM-dd'T'HH:mm:ss.SSSSSS||yyyy-MM-dd'T'HH:mm:ss||strict_date_optional_time");
+
+                // Tüm alanları properties'e ekle
+                properties.put("rateName", rateName);
+                properties.put("bid", bid);
+                properties.put("ask", ask);
+                properties.put("timestamp", timestamp);
+
+                Map<String, Object> mapping = new HashMap<>();
+                mapping.put("properties", properties);
+
+                // Mapping oluştur
+                String mappingJson = objectMapper.writeValueAsString(mapping);
+                createIndexRequest.mapping(mappingJson, XContentType.JSON);
+
+                // İndeksi oluştur
+                client.indices().create(createIndexRequest, RequestOptions.DEFAULT);
+                logger.info("İndeks başarıyla oluşturuldu: {}", indexName);
+            } else {
+                logger.info("İndeks zaten mevcut: {}", indexName);
             }
-
+        } catch (IOException e) {
+            logger.error("İndeks oluşturulurken hata: {}", e.getMessage());
+            throw new RuntimeException("İndeks oluşturulamadı", e);
         }
-
     }
-
 
 
     @Retryable(value = {IOException.class}, maxAttempts = 3, backoff = @Backoff(delay = 2000))
-
     public void indexRateData(RateData rateData) {
-
         try {
-
-// Create daily index name
-
+            // Günlük indeks adı oluştur
             String indexName = getIndexName();
 
-
-
-// Create ID - combination of rateName and timestamp
-
+            // ID oluştur
             String id = rateData.getRateName() + "_" +
+                    rateData.getTimestamp().format(DateTimeFormatter.ISO_DATE_TIME);
 
-                    rateData.getTimestamp().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-
-
-
-// Prepare document - add calculated fields spread and midPrice
-
+            // Doküman hazırla
             Map<String, Object> document = new HashMap<>();
-
             document.put("rateName", rateData.getRateName());
-
             document.put("bid", rateData.getBid());
-
             document.put("ask", rateData.getAsk());
-
             document.put("spread", rateData.getAsk() - rateData.getBid());
-
             document.put("midPrice", (rateData.getBid() + rateData.getAsk()) / 2);
 
-            document.put("timestamp", rateData.getTimestamp().format(DateTimeFormatter.ISO_DATE_TIME));
+            // Tarih formatını basitleştiriyoruz
+            document.put("timestamp", rateData.getTimestamp().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss")));
 
-
-
-// Create IndexRequest
-
+            // IndexRequest oluştur
             IndexRequest indexRequest = new IndexRequest(indexName)
-
                     .id(id)
+                    .source(document);
 
-                    .source(document); // Map direkt olarak kullanılabilir
-
-
-
-// Index the document with RequestOptions
-
+            // Dokümanı ekle
             client.index(indexRequest, RequestOptions.DEFAULT);
 
-
-
-            logger.debug("Rate data indexed: {}", rateData.getRateName());
-
+            logger.debug("Rate verisi indekslendi: {}", rateData.getRateName());
         } catch (IOException e) {
-
-            logger.error("Error indexing rate data: {}", rateData.getRateName(), e);
-
-            throw new RuntimeException("Failed to index rate data", e);
-
+            logger.error("Rate verisi indekslenirken hata: {}", rateData.getRateName(), e);
+            throw new RuntimeException("Rate verisi indekslenemedi", e);
         }
-
     }
-
-
 
     private String getIndexName() {
 

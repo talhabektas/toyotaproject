@@ -13,13 +13,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 /**
  * OpenSearch konfigürasyon sınıfı
  */
 @Configuration
 public class OpenSearchConfig {
-
     private static final Logger logger = LoggerFactory.getLogger(OpenSearchConfig.class);
 
     @Value("${opensearch.url}")
@@ -31,11 +31,15 @@ public class OpenSearchConfig {
     @Value("${opensearch.password:}")
     private String password;
 
-    /**
-     * OpenSearch için RestHighLevelClient
-     * @return RestHighLevelClient
-     */
+    @Value("${opensearch.connect-timeout:30000}")
+    private int connectTimeout;
+
+    @Value("${opensearch.socket-timeout:60000}")
+    private int socketTimeout;
+
     @Bean(destroyMethod = "close")
+    @Retryable(value = {Exception.class}, maxAttempts = 5,
+            backoff = @Backoff(delay = 10000, multiplier = 2))
     public RestHighLevelClient opensearchClient() {
         try {
             // URL'yi parçala
@@ -67,8 +71,8 @@ public class OpenSearchConfig {
             // Bağlantıya timeout ekle
             builder.setRequestConfigCallback(requestConfigBuilder ->
                     requestConfigBuilder
-                            .setConnectTimeout(30000)
-                            .setSocketTimeout(60000));
+                            .setConnectTimeout(connectTimeout)
+                            .setSocketTimeout(socketTimeout));
 
             // Kimlik doğrulama bilgileri varsa ekle
             if (username != null && !username.isEmpty()) {
@@ -81,10 +85,7 @@ public class OpenSearchConfig {
             }
 
             RestHighLevelClient client = new RestHighLevelClient(builder);
-
-            // OpenSearch ping işlemi için RequestOptions yok
             logger.info("OpenSearch bağlantısı başarıyla oluşturuldu");
-
             return client;
         } catch (Exception e) {
             logger.error("OpenSearch client oluşturulurken hata: {}", e.getMessage(), e);

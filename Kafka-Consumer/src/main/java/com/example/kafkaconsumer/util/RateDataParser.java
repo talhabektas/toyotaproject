@@ -20,59 +20,54 @@ public class RateDataParser {
 
     /**
      * Parse a Kafka message into a RateEntity
+     *
      * @param message Message from Kafka
      * @return RateEntity or null if parsing fails
      */
     public static RateEntity parseMessage(String message) {
         if (message == null || message.isEmpty()) {
-            logger.error("Cannot parse null or empty message");
+            logger.error("Boş mesaj ayrıştırılamaz");
             return null;
         }
 
         try {
-            // Basit format: rateName|bid|ask|timestamp
+            // Format: rateName|bid|ask|timestamp
             String[] parts = message.split("\\|");
             if (parts.length < 4) {
-                logger.error("Invalid message format: {}", message);
+                logger.error("Geçersiz mesaj formatı: {}", message);
                 return null;
             }
 
             String rateName = parts[0];
-
-            // Bid değerini parse et
             double bid;
+            double ask;
+            LocalDateTime timestamp;
+            LocalDateTime dbUpdateTime = LocalDateTime.now();
+
             try {
                 bid = Double.parseDouble(parts[1]);
             } catch (NumberFormatException e) {
-                logger.error("Error parsing bid value: {}", parts[1], e);
+                logger.error("Bid değeri ayrıştırma hatası: {}", parts[1], e);
                 return null;
             }
 
-            // Ask değerini parse et
-            double ask;
             try {
                 ask = Double.parseDouble(parts[2]);
             } catch (NumberFormatException e) {
-                logger.error("Error parsing ask value: {}", parts[2], e);
+                logger.error("Ask değeri ayrıştırma hatası: {}", parts[2], e);
                 return null;
             }
 
-            // Timestamp'i parse et
-            LocalDateTime timestamp;
             try {
                 timestamp = LocalDateTime.parse(parts[3]);
-            } catch (DateTimeParseException e) {
-                logger.error("Error parsing timestamp: {}", parts[3], e);
-                // Veritabanı tutarlılığı için şimdiki zamanı kullan
+            } catch (Exception e) {
+                logger.error("Tarih ayrıştırma hatası: {}", parts[3], e);
                 timestamp = LocalDateTime.now();
             }
 
-            // Veritabanı güncelleme zamanını ayarla
-            LocalDateTime dbUpdateTime = LocalDateTime.now();
-
             return new RateEntity(rateName, bid, ask, timestamp, dbUpdateTime);
         } catch (Exception e) {
-            logger.error("Error parsing message: {}", message, e);
+            logger.error("Mesaj ayrıştırma hatası: {}", message, e);
             return null;
         }
     }

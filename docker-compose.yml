@@ -10,6 +10,12 @@ services:
       - finansal_network
     volumes:
       - zookeeper-data:/var/lib/zookeeper/data
+    healthcheck:
+      test: [ "CMD-SHELL", "echo 'ruok' | nc localhost 2181 || exit 1" ]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+    restart: on-failure
 
   kafka:
     image: wurstmeister/kafka
@@ -24,12 +30,21 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_CREATE_TOPICS: "finansal.rates:1:1"
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_ZOOKEEPER_CONNECTION_TIMEOUT_MS: 60000
     depends_on:
-      - zookeeper
+      zookeeper:
+        condition: service_healthy
     networks:
       - finansal_network
     volumes:
       - kafka-data:/var/lib/kafka/data
+    healthcheck:
+      test: [ "CMD-SHELL", "kafka-topics.sh --bootstrap-server kafka:29092 --list || exit 1" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    restart: on-failure
 
   redis:
     image: redis:7.0-alpine
@@ -40,6 +55,7 @@ services:
       - finansal_network
     volumes:
       - redis-data:/data
+    command: redis-server --appendonly yes
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
@@ -53,12 +69,18 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: finansal_rates
+      PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - "5432:5432"
     networks:
       - finansal_network
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   opensearch:
     image: opensearchproject/opensearch:2.4.0
@@ -74,6 +96,19 @@ services:
       - finansal_network
     volumes:
       - opensearch-data:/usr/share/opensearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9200"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
 
   tcp-simulator:
     build:
@@ -83,8 +118,12 @@ services:
       - "8081:8081"
     networks:
       - finansal_network
-    depends_on:
-      - kafka
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8081"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
   rest-simulator:
     build:
@@ -94,8 +133,12 @@ services:
       - "8080:8080"
     networks:
       - finansal_network
-    depends_on:
-      - kafka
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/rates"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
   main-app:
     build:
@@ -115,13 +158,19 @@ services:
       - SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES=true
       - SPRING_MAIN_ALLOW_BEAN_DEFINITION_OVERRIDING=true
       - CACHE_TYPE=memory
+      - JAVA_OPTS=-Xmx512m
     networks:
       - finansal_network
     depends_on:
-      - tcp-simulator
-      - rest-simulator
-      - redis
-      - kafka
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      tcp-simulator:
+        condition: service_started
+      rest-simulator:
+        condition: service_started
+    restart: on-failure
 
   kafka-consumer:
     build:
@@ -136,12 +185,17 @@ services:
       - SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE=10
       - SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES=true
       - SPRING_MAIN_ALLOW_BEAN_DEFINITION_OVERRIDING=true
+      - JAVA_OPTS=-Xmx512m
     networks:
       - finansal_network
     depends_on:
-      - kafka
-      - postgres
-      - main-app
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      main-app:
+        condition: service_started
+    restart: on-failure
 
   kafka-consumer-opensearch:
     build:
@@ -153,12 +207,20 @@ services:
       - OPENSEARCH_URL=http://opensearch:9200
       - SPRING_MAIN_ALLOW_CIRCULAR_REFERENCES=true
       - SPRING_MAIN_ALLOW_BEAN_DEFINITION_OVERRIDING=true
+      - JAVA_OPTS=-Xmx512m
+      - SPRING_RETRY_ENABLED=true
+      - SPRING_RETRY_MAX_ATTEMPTS=10
+      - SPRING_RETRY_INITIAL_INTERVAL=5000
     networks:
       - finansal_network
     depends_on:
-      - kafka
-      - opensearch
-      - main-app
+      kafka:
+        condition: service_healthy
+      opensearch:
+        condition: service_healthy
+      main-app:
+        condition: service_started
+    restart: on-failure
 
 networks:
   finansal_network:

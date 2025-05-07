@@ -188,61 +188,64 @@ public class DefaultCoordinator implements Coordinator {
 
     @Override
     public boolean calculateRate(String targetRateName) {
-        logger.info("Calculating rate: {}", targetRateName);
+        logger.info("Hesaplanıyor: {}", targetRateName);
 
         Set<String> dependencies = calculatedRateDependencies.get(targetRateName);
-        if (dependencies == null) {
-            logger.warn("No dependencies defined for calculated rate: {}", targetRateName);
+        if (dependencies == null || dependencies.isEmpty()) {
+            logger.warn("Hesaplanacak kur için bağımlılık tanımlanmamış: {}", targetRateName);
             return false;
         }
 
-        // Check if all dependencies are available
+        // Tüm bağımlılıkların mevcut olup olmadığını kontrol edelim
         Map<String, Rate> dependencyRates = new HashMap<>();
         for (String depRateName : dependencies) {
             Rate depRate = rateCache.getRate(depRateName);
             if (depRate == null) {
-                logger.warn("Dependency rate {} not available for calculating {}", depRateName, targetRateName);
+                logger.warn("Bağımlı kur mevcut değil {}, {} hesaplanamıyor",
+                        depRateName, targetRateName);
                 return false;
             }
             dependencyRates.put(depRateName, depRate);
         }
 
         try {
-            // Calculate the rate
+            // Kur hesaplaması
             Rate calculatedRate = rateCalculator.calculate(targetRateName, dependencyRates);
-            if (calculatedRate != null) {
-                // Veri temizleme - tolerans kontrolü
-                Rate previousRate = lastRates.get(targetRateName);
-                if (isWithinTolerance(calculatedRate, previousRate)) {
-                    // Cache the calculated rate
-                    rateCache.putRate(calculatedRate);
-                    lastRates.put(targetRateName, calculatedRate);
+            if (calculatedRate == null) {
+                logger.error("{} için hesaplama başarısız oldu", targetRateName);
+                return false;
+            }
 
-                    // Send to Kafka
-                    kafkaProducerService.sendRate(calculatedRate);
-                    logger.info("Successfully calculated and sent rate to Kafka: {}", calculatedRate);
+            // Veri temizleme - tolerans kontrolü
+            Rate previousRate = lastRates.get(targetRateName);
+            if (isWithinTolerance(calculatedRate, previousRate)) {
+                // Hesaplanan kuru önbelleğe al
+                rateCache.putRate(calculatedRate);
+                lastRates.put(targetRateName, calculatedRate);
 
-                    return true;
-                } else {
-                    logger.warn("Calculated rate exceeds tolerance threshold: {}", calculatedRate);
-                    if (previousRate != null) {
-                        logger.info("Using previous rate value: {}", previousRate);
-                        return true;
-                    }
-                    // İlk hesaplama ise toleransı geçse bile kabul et
-                    rateCache.putRate(calculatedRate);
-                    lastRates.put(targetRateName, calculatedRate);
-                    kafkaProducerService.sendRate(calculatedRate);
+                // Kafka'ya gönder
+                kafkaProducerService.sendRate(calculatedRate);
+                logger.info("Kur başarıyla hesaplandı ve Kafka'ya gönderildi: {}", calculatedRate);
+
+                return true;
+            } else {
+                logger.warn("Hesaplanan kur tolerans eşiğini aşıyor: {}", calculatedRate);
+                if (previousRate != null) {
+                    logger.info("Önceki kur değeri kullanılıyor: {}", previousRate);
                     return true;
                 }
+
+                // İlk hesaplama ise toleransı geçse bile kabul et
+                rateCache.putRate(calculatedRate);
+                lastRates.put(targetRateName, calculatedRate);
+                kafkaProducerService.sendRate(calculatedRate);
+                return true;
             }
         } catch (Exception e) {
-            logger.error("Error calculating rate {}", targetRateName, e);
+            logger.error("{} hesaplanırken hata oluştu", targetRateName, e);
+            return false;
         }
-
-        return false;
     }
-
     // Coordinator callback methods implementation
     @Override
     public void onConnect(String platformName, boolean status) {
