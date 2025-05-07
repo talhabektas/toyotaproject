@@ -17,6 +17,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Service to simulate rate changes over time
+ */
 @Service
 public class RateSimulationService {
     private static final Logger logger = LoggerFactory.getLogger(RateSimulationService.class);
@@ -26,7 +29,7 @@ public class RateSimulationService {
     private final Map<String, RateData> rateDataMap = new ConcurrentHashMap<>();
 
     private AtomicInteger updateCount = new AtomicInteger(0);
-    private boolean running = false;
+    private volatile boolean running = false;
 
     @Autowired
     public RateSimulationService(SimulatorConfig config) {
@@ -34,7 +37,7 @@ public class RateSimulationService {
         this.rateGenerator = new RandomRateGenerator(
                 config.getMinRateChange(),
                 config.getMaxRateChange());
-        logger.info("RateSimulationService initialized with config: {}", config);
+        logger.info("RateSimulationService initialized with update interval: {}ms", config.getUpdateIntervalMs());
     }
 
     @PostConstruct
@@ -81,7 +84,7 @@ public class RateSimulationService {
         logger.info("Rate simulation stopped");
     }
 
-    @Scheduled(fixedDelayString = "${simulation.updateIntervalMs}")
+    @Scheduled(fixedDelayString = "${simulation.updateIntervalMs:5000}")
     public void updateRates() {
         if (!running) {
             return;
@@ -97,9 +100,13 @@ public class RateSimulationService {
         }
 
         rateDataMap.forEach((rateName, oldRateData) -> {
-            RateData newRateData = rateGenerator.generateNextRate(oldRateData);
-            rateDataMap.put(rateName, newRateData);
-            logger.debug("Updated rate: {}", newRateData);
+            try {
+                RateData newRateData = rateGenerator.generateNextRate(oldRateData);
+                rateDataMap.put(rateName, newRateData);
+                logger.debug("Updated rate: {}", newRateData);
+            } catch (Exception e) {
+                logger.error("Error updating rate {}: {}", rateName, e.getMessage(), e);
+            }
         });
     }
 

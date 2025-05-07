@@ -216,7 +216,34 @@ public class TCPPlatformConnector extends DataCollector {
     private boolean isConnected() {
         return socket != null && !socket.isClosed() && socket.isConnected() && out != null && in != null;
     }
+    private boolean reconnect() {
+        int attempts = 0;
+        while (attempts < retryCount && !isConnected()) {
+            attempts++;
+            try {
+                logger.info("Reconnecting to TCP server (attempt {}/{})", attempts, retryCount);
+                disconnect(platformName, null, null);
+                Thread.sleep(1000); // Disconnect sonrası kısa bir bekleme
+                connect(platformName, null, null);
 
+                if (isConnected()) {
+                    for (String rateName : subscribedRates) {
+                        subscribe(platformName, rateName);
+                    }
+                    return true;
+                }
+            } catch (Exception e) {
+                logger.error("Reconnection attempt failed: {}", e.getMessage());
+            }
+            try {
+                Thread.sleep(retryIntervalMs);
+            } catch (InterruptedException ie) {
+                Thread.currentThread().interrupt();
+                return false;
+            }
+        }
+        return false;
+    }
     @Override
     public void run() {
         connect(platformName, null, null);

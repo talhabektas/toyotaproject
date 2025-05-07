@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * Controller for rate data API endpoints
+ */
 @RestController
 @RequestMapping("/api/rates")
 public class RateController {
@@ -22,6 +25,10 @@ public class RateController {
         this.rateSimulationService = rateSimulationService;
     }
 
+    /**
+     * Get all available rates
+     * @return Map of rate name to rate data
+     */
     @GetMapping
     public ResponseEntity<Map<String, RateData>> getAllRates() {
         logger.info("Request received for all rates");
@@ -29,8 +36,13 @@ public class RateController {
         return ResponseEntity.ok(rates);
     }
 
+    /**
+     * Get rate data for a specific rate
+     * @param rateName Rate name
+     * @return Rate data or 404 if not found
+     */
     @GetMapping("/{rateName}")
-    public ResponseEntity<?> getRate(@PathVariable String rateName) {
+    public ResponseEntity<RateData> getRate(@PathVariable String rateName) {
         logger.info("Request received for rate: {}", rateName);
 
         RateData rateData = rateSimulationService.getRateData(rateName);
@@ -42,6 +54,11 @@ public class RateController {
         return ResponseEntity.ok(rateData);
     }
 
+    /**
+     * Control simulation (start/stop)
+     * @param action Action to perform (start/stop)
+     * @return Status message
+     */
     @PostMapping("/simulation/{action}")
     public ResponseEntity<String> controlSimulation(@PathVariable String action) {
         logger.info("Simulation control action: {}", action);
@@ -51,7 +68,6 @@ public class RateController {
                 rateSimulationService.start();
                 return ResponseEntity.ok("Simulation started");
             case "stop":
-                rateSimulationService.stop();
                 rateSimulationService.stop();
                 return ResponseEntity.ok("Simulation stopped");
             default:

@@ -306,7 +306,7 @@ public class OpenSearchService {
 
             document.put("midPrice", (rateData.getBid() + rateData.getAsk()) / 2);
 
-            document.put("timestamp", rateData.getTimestamp().toString());
+            document.put("timestamp", rateData.getTimestamp().format(DateTimeFormatter.ISO_DATE_TIME));
 
 
 
