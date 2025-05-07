@@ -58,87 +58,58 @@ public class RestPlatformConnector extends DataCollector {
             return true;
         }
 
-        // Bağlantı parametrelerini yükle
-        String configuredUrl = config.getProperty("rest.baseUrl", "http://localhost:8080/api/rates");
+        // Tek seferde tüm olası URL'leri deneme listesi
+        String[] urlsToTry = {
+                "http://rest-simulator:8080/api/rates",  // Docker servis adı (öncelikli)
+                "http://platform-simulator-rest:8080/api/rates",  // Alternatif servis adı
+                "http://localhost:8080/api/rates"  // Yerel geliştirme ortamı
+        };
+
         this.pollingIntervalMs = Long.parseLong(config.getProperty("rest.pollingIntervalMs", "5000"));
-        int maxRetries = Integer.parseInt(config.getProperty("connection.retryCount", "5"));
+        int maxRetries = Integer.parseInt(config.getProperty("connection.retryCount", "10"));
         long retryInterval = Long.parseLong(config.getProperty("connection.retryIntervalMs", "5000"));
 
-        logger.info("Attempting to connect to REST API {} for platform {}", configuredUrl, platformName);
+        // Her URL'yi dene
+        for (String urlToTry : urlsToTry) {
+            logger.info("Trying to connect to: {}", urlToTry);
 
-        // Bağlantı deneme sayacı
-        int attempts = 0;
-
-        while (attempts < maxRetries && !connected.get()) {
-            attempts++;
-
-            try {
-                // İlk olarak yapılandırılmış URL ile dene
-                logger.info("Attempt {}/{}: Connecting to {}", attempts, maxRetries, configuredUrl);
-                ResponseEntity<String> response = restTemplate.getForEntity(configuredUrl, String.class);
-
-                if (response.getStatusCode() == HttpStatus.OK) {
-                    this.baseUrl = configuredUrl;
-                    connected.set(true);
-
-                    if (callback != null) {
-                        callback.onConnect(platformName, true);
-                    }
-
-                    logger.info("Successfully connected to REST API for platform {}", platformName);
-                    return true;
-                }
-            } catch (Exception e) {
-                logger.warn("Attempt {}/{}: Failed to connect to {} - {}",
-                        attempts, maxRetries, configuredUrl, e.getMessage());
-
-                // Farklı URL varyasyonları dene
-                String[] alternativeUrls = {
-                        "http://localhost:8080/api/rates",
-                        "http://rest-simulator:8080/api/rates",
-                        "http://platform-simulator-rest:8080/api/rates"
-                };
-
-                // Her alternatif URL'yi dene
-                for (String altUrl : alternativeUrls) {
-                    if (altUrl.equals(configuredUrl)) continue; // Zaten denenmiş
-
-                    try {
-                        logger.info("Trying alternative URL: {}", altUrl);
-                        ResponseEntity<String> altResponse = restTemplate.getForEntity(altUrl, String.class);
-
-                        if (altResponse.getStatusCode() == HttpStatus.OK) {
-                            this.baseUrl = altUrl;
-                            connected.set(true);
-
-                            if (callback != null) {
-                                callback.onConnect(platformName, true);
-                            }
-
-                            logger.info("Successfully connected using alternative URL: {}", altUrl);
-                            return true;
-                        }
-                    } catch (Exception ignored) {
-                        // Bu alternatif de başarısız oldu, bir sonrakine geç
-                        logger.debug("Alternative URL failed: {}", altUrl);
-                    }
-                }
-            }
-
-            // Başarısız deneme sonrası bekle
-            if (!connected.get() && attempts < maxRetries) {
+            // Her URL için birkaç deneme yap
+            for (int attempt = 1; attempt <= maxRetries; attempt++) {
                 try {
-                    logger.info("Waiting {} ms before next connection attempt...", retryInterval);
-                    Thread.sleep(retryInterval);
-                } catch (InterruptedException ie) {
-                    Thread.currentThread().interrupt();
-                    break;
+                    logger.info("Attempt {}/{} for URL: {}", attempt, maxRetries, urlToTry);
+                    ResponseEntity<String> response = restTemplate.getForEntity(urlToTry, String.class);
+
+                    if (response.getStatusCode() == HttpStatus.OK) {
+                        this.baseUrl = urlToTry;
+                        connected.set(true);
+
+                        if (callback != null) {
+                            callback.onConnect(platformName, true);
+                        }
+
+                        logger.info("Successfully connected to REST API {} for platform {}", urlToTry, platformName);
+                        return true;
+                    }
+                } catch (Exception e) {
+                    logger.warn("Attempt {}/{} for URL {} failed: {}",
+                            attempt, maxRetries, urlToTry, e.getMessage());
+
+                    // Sadece son deneme değilse bekle
+                    if (attempt < maxRetries) {
+                        try {
+                            logger.info("Waiting {} ms before next attempt...", retryInterval);
+                            Thread.sleep(retryInterval);
+                        } catch (InterruptedException ie) {
+                            Thread.currentThread().interrupt();
+                            break;
+                        }
+                    }
                 }
             }
         }
 
-        // Tüm denemeler başarısız oldu
-        logger.error("All connection attempts failed for platform: {}", platformName);
+        // Hiçbir URL çalışmadı
+        logger.error("Failed to connect to any REST API URL for platform: {}", platformName);
 
         if (callback != null) {
             callback.onConnect(platformName, false);

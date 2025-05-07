@@ -138,31 +138,29 @@ services:
       - "8081:8081"
     networks:
       - finansal_network
-    restart: on-failure
     healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "8081"]
+      test: [ "CMD", "nc", "-z", "localhost", "8081" ]
       interval: 10s
       timeout: 5s
       retries: 3
+      start_period: 20s
+    restart: on-failure
 
   rest-simulator:
-    build:
-      context: ./platform-simulator-rest
-    container_name: rest-simulator
-    ports:
-      - "8080:8080"
-    networks:
-      - finansal_network
-    restart: unless-stopped
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8080/api/rates" ]
-      interval: 10s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
-    environment:
-      - SERVER_PORT=8080
-      - SPRING_APPLICATION_NAME=platform-simulator-rest
+      build:
+        context: ./platform-simulator-rest
+      container_name: rest-simulator
+      ports:
+        - "8080:8080"
+      networks:
+        - finansal_network
+      healthcheck:
+        test: [ "CMD", "curl", "-f", "http://localhost:8080/api/rates" ]
+        interval: 10s
+        timeout: 5s
+        retries: 3
+        start_period: 20s
+      restart: on-failure
 
   main-app:
     build:
@@ -186,9 +184,9 @@ services:
     networks:
       - finansal_network
     depends_on:
-      kafka:
-        condition: service_healthy
       redis:
+        condition: service_healthy
+      kafka:
         condition: service_healthy
       tcp-simulator:
         condition: service_started
