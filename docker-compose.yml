@@ -153,12 +153,16 @@ services:
       - "8080:8080"
     networks:
       - finansal_network
-    restart: on-failure
+    restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/api/rates"]
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/api/rates" ]
       interval: 10s
       timeout: 5s
       retries: 3
+      start_period: 10s
+    environment:
+      - SERVER_PORT=8080
+      - SPRING_APPLICATION_NAME=platform-simulator-rest
 
   main-app:
     build:

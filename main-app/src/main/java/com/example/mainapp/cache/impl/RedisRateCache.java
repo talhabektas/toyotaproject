@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Component
-@ConditionalOnProperty(name = "cache.type", havingValue = "redis")
+@ConditionalOnProperty(name = "cache.type", havingValue = "memory")
 public class RedisRateCache implements RateCache {
 
     private static final Logger logger = LoggerFactory.getLogger(RedisRateCache.class);

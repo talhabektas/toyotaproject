@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Service to simulate rate changes over time
+ * Kur değerlerini belirli aralıklarla güncelleyen servis
  */
 @Service
 public class RateSimulationService {

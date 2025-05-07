@@ -39,11 +39,11 @@ public class RandomRateGenerator {
             throw new IllegalArgumentException("Current rate cannot be null");
         }
 
-        // Rastgele değişim oranları oluştur
+        // Random rates
         double bidChangeRate = getRandomChangeRate();
         double askChangeRate = getRandomChangeRate();
 
-        // Mevcut değerleri değişim oranına göre güncelle
+        // Update about their current values
         double newBid = applyChangeRate(currentRate.getBid(), bidChangeRate);
         double newAsk = applyChangeRate(currentRate.getAsk(), askChangeRate);
 
@@ -52,7 +52,7 @@ public class RandomRateGenerator {
             newAsk = newBid * 1.01; // Alış ve satış arasında min %1 fark olsun
         }
 
-        // Yeni kur verisini oluştur
+        // New rate data
         return new RateData(
                 currentRate.getRateName(),
                 newBid,

@@ -58,45 +58,94 @@ public class RestPlatformConnector extends DataCollector {
             return true;
         }
 
-        try {
-            this.baseUrl = config.getProperty("rest.baseUrl", "http://rest-simulator:8080/api/rates");
-            this.pollingIntervalMs = Long.parseLong(config.getProperty("rest.pollingIntervalMs", "5000"));
+        // Bağlantı parametrelerini yükle
+        String configuredUrl = config.getProperty("rest.baseUrl", "http://localhost:8080/api/rates");
+        this.pollingIntervalMs = Long.parseLong(config.getProperty("rest.pollingIntervalMs", "5000"));
+        int maxRetries = Integer.parseInt(config.getProperty("connection.retryCount", "5"));
+        long retryInterval = Long.parseLong(config.getProperty("connection.retryIntervalMs", "5000"));
 
-            logger.info("Connecting to REST API {} for platform {}", baseUrl, platformName);
+        logger.info("Attempting to connect to REST API {} for platform {}", configuredUrl, platformName);
 
-            // Test the connection with a request
-            ResponseEntity<String> response = restTemplate.getForEntity(baseUrl, String.class);
+        // Bağlantı deneme sayacı
+        int attempts = 0;
 
-            if (response.getStatusCode() == HttpStatus.OK) {
-                connected.set(true);
+        while (attempts < maxRetries && !connected.get()) {
+            attempts++;
 
-                if (callback != null) {
-                    callback.onConnect(platformName, true);
+            try {
+                // İlk olarak yapılandırılmış URL ile dene
+                logger.info("Attempt {}/{}: Connecting to {}", attempts, maxRetries, configuredUrl);
+                ResponseEntity<String> response = restTemplate.getForEntity(configuredUrl, String.class);
+
+                if (response.getStatusCode() == HttpStatus.OK) {
+                    this.baseUrl = configuredUrl;
+                    connected.set(true);
+
+                    if (callback != null) {
+                        callback.onConnect(platformName, true);
+                    }
+
+                    logger.info("Successfully connected to REST API for platform {}", platformName);
+                    return true;
                 }
+            } catch (Exception e) {
+                logger.warn("Attempt {}/{}: Failed to connect to {} - {}",
+                        attempts, maxRetries, configuredUrl, e.getMessage());
 
-                logger.info("Connected to REST API for platform {}", platformName);
-                return true;
-            } else {
-                logger.error("Failed to connect to REST API for platform {}: {}",
-                        platformName, response.getStatusCode());
+                // Farklı URL varyasyonları dene
+                String[] alternativeUrls = {
+                        "http://localhost:8080/api/rates",
+                        "http://rest-simulator:8080/api/rates",
+                        "http://platform-simulator-rest:8080/api/rates"
+                };
 
-                if (callback != null) {
-                    callback.onConnect(platformName, false);
+                // Her alternatif URL'yi dene
+                for (String altUrl : alternativeUrls) {
+                    if (altUrl.equals(configuredUrl)) continue; // Zaten denenmiş
+
+                    try {
+                        logger.info("Trying alternative URL: {}", altUrl);
+                        ResponseEntity<String> altResponse = restTemplate.getForEntity(altUrl, String.class);
+
+                        if (altResponse.getStatusCode() == HttpStatus.OK) {
+                            this.baseUrl = altUrl;
+                            connected.set(true);
+
+                            if (callback != null) {
+                                callback.onConnect(platformName, true);
+                            }
+
+                            logger.info("Successfully connected using alternative URL: {}", altUrl);
+                            return true;
+                        }
+                    } catch (Exception ignored) {
+                        // Bu alternatif de başarısız oldu, bir sonrakine geç
+                        logger.debug("Alternative URL failed: {}", altUrl);
+                    }
                 }
-
-                return false;
-            }
-        } catch (Exception e) {
-            logger.error("Failed to connect to platform: {}", platformName, e);
-
-            if (callback != null) {
-                callback.onConnect(platformName, false);
             }
 
-            return false;
+            // Başarısız deneme sonrası bekle
+            if (!connected.get() && attempts < maxRetries) {
+                try {
+                    logger.info("Waiting {} ms before next connection attempt...", retryInterval);
+                    Thread.sleep(retryInterval);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+            }
         }
-    }
 
+        // Tüm denemeler başarısız oldu
+        logger.error("All connection attempts failed for platform: {}", platformName);
+
+        if (callback != null) {
+            callback.onConnect(platformName, false);
+        }
+
+        return false;
+    }
     @Override
     public boolean disconnect(String platformName, String userid, String password) {
         if (!connected.get()) {
@@ -203,23 +252,38 @@ public class RestPlatformConnector extends DataCollector {
      * @return true if successful
      */
     private boolean fetchAndProcessRate(String rateName) {
+        String url = baseUrl + "/" + rateName;
+        logger.info("Fetching rate data from URL: {}", url);
+
         try {
-            String url = baseUrl + "/" + rateName;
             ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
 
             if (response.getStatusCode() == HttpStatus.OK && response.getBody() != null) {
                 Map<String, Object> rateData = response.getBody();
+                logger.debug("Received rate data: {}", rateData);
 
                 String responseRateName = (String) rateData.get("rateName");
+                if (responseRateName == null) {
+                    logger.error("Rate data missing 'rateName' field: {}", rateData);
+                    return false;
+                }
+
                 Double bid = (Double) rateData.get("bid");
                 Double ask = (Double) rateData.get("ask");
                 String timestampStr = (String) rateData.get("timestamp");
 
                 // Parse timestamp
-                LocalDateTime timestamp = LocalDateTime.parse(timestampStr);
+                LocalDateTime timestamp;
+                try {
+                    timestamp = LocalDateTime.parse(timestampStr);
+                } catch (Exception e) {
+                    logger.error("Error parsing timestamp '{}': {}", timestampStr, e.getMessage());
+                    timestamp = LocalDateTime.now(); // Default to current time
+                }
 
                 // Create rate object
                 Rate rate = new Rate(responseRateName, platformName, bid, ask, timestamp, false);
+                logger.info("Created rate object: {}", rate);
 
                 // Notify callback
                 if (callback != null) {
@@ -228,18 +292,17 @@ public class RestPlatformConnector extends DataCollector {
                     if (previousRate == null) {
                         // First time data is available
                         callback.onRateAvailable(platformName, rateName, rate);
-                        logger.debug("Rate available - {}: {}", rateName, rate);
+                        logger.info("Rate available - {}: {}", rateName, rate);
                     } else {
                         // Update existing data
                         RateFields rateFields = new RateFields(bid, ask, timestamp);
                         callback.onRateUpdate(platformName, rateName, rateFields);
-                        logger.debug("Rate update - {}: {}", rateName, rateFields);
+                        logger.info("Rate update - {}: {}", rateName, rateFields);
                     }
                 }
 
                 // Store last rate
                 lastRates.put(rateName, rate);
-
                 return true;
             } else {
                 logger.error("Failed to fetch rate {} from platform {}: {}",
@@ -248,16 +311,15 @@ public class RestPlatformConnector extends DataCollector {
                 if (callback != null) {
                     callback.onRateStatus(platformName, rateName, RateStatus.UNAVAILABLE);
                 }
-
                 return false;
             }
         } catch (Exception e) {
-            logger.error("Error fetching rate {} from platform {}", rateName, platformName, e);
+            logger.error("Error fetching rate {} from platform {}: {}",
+                    rateName, platformName, e.getMessage());
 
             if (callback != null) {
                 callback.onRateStatus(platformName, rateName, RateStatus.ERROR);
             }
-
             return false;
         }
     }
