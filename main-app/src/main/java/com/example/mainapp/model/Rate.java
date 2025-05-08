@@ -91,7 +91,7 @@ public class Rate implements Serializable {
      * Kafka formatına dönüştürür
      */
     public String toKafkaString() {
-        return String.format("%s|%.5f|%.5f|%s",
+        return String.format("%s|%.2f|%.2f|%s",
                 rateName, bid, ask, timestamp.toString());
     }
 

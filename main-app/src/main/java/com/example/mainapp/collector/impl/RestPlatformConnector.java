@@ -222,6 +222,11 @@ public class RestPlatformConnector extends DataCollector {
      * @param rateName Rate name
      * @return true if successful
      */
+    /**
+     * Fetch and process the specified rate data from REST API
+     * @param rateName Rate name
+     * @return true if successful
+     */
     private boolean fetchAndProcessRate(String rateName) {
         String url = baseUrl + "/" + rateName;
         logger.info("Fetching rate data from URL: {}", url);
@@ -239,8 +244,8 @@ public class RestPlatformConnector extends DataCollector {
                     return false;
                 }
 
-                Double bid = (Double) rateData.get("bid");
-                Double ask = (Double) rateData.get("ask");
+                Double bid = ((Number) rateData.get("bid")).doubleValue();
+                Double ask = ((Number) rateData.get("ask")).doubleValue();
                 String timestampStr = (String) rateData.get("timestamp");
 
                 // Parse timestamp
@@ -252,9 +257,8 @@ public class RestPlatformConnector extends DataCollector {
                     timestamp = LocalDateTime.now(); // Default to current time
                 }
 
-                // Create rate object
+                // Create rate object with exactly matching platform name
                 Rate rate = new Rate(responseRateName, platformName, bid, ask, timestamp, false);
-                logger.info("Created rate object: {}", rate);
 
                 // Notify callback
                 if (callback != null) {
@@ -274,6 +278,10 @@ public class RestPlatformConnector extends DataCollector {
 
                 // Store last rate
                 lastRates.put(rateName, rate);
+
+                // Update last response time
+                updateLastResponseTime();
+
                 return true;
             } else {
                 logger.error("Failed to fetch rate {} from platform {}: {}",

@@ -54,7 +54,6 @@ public class DefaultRateCalculator implements RateCalculator {
         return false;
     }
 
-    // DefaultRateCalculator.java dosyasında calculate metotlarını tutarlı hale getirin
     private Rate calculateUSDTRY(Map<String, Rate> dependencyRates) {
         Rate pf1Rate = dependencyRates.get("PF1_USDTRY");
         Rate pf2Rate = dependencyRates.get("PF2_USDTRY");
@@ -64,11 +63,9 @@ public class DefaultRateCalculator implements RateCalculator {
             return null;
         }
 
-        // Platform kur ortalaması hesaplama
         double bid = (pf1Rate.getBid() + pf2Rate.getBid()) / 2;
         double ask = (pf1Rate.getAsk() + pf2Rate.getAsk()) / 2;
 
-        // Değerleri yuvarla
         bid = Math.round(bid * 100000.0) / 100000.0;
         ask = Math.round(ask * 100000.0) / 100000.0;
 
@@ -84,24 +81,28 @@ public class DefaultRateCalculator implements RateCalculator {
     }
 
     private Rate calculateEURTRY(Map<String, Rate> dependencyRates) {
-        Rate eurusd1 = dependencyRates.get("PF1_EURUSD");
-        Rate eurusd2 = dependencyRates.get("PF2_EURUSD");
-        Rate usdtry1 = dependencyRates.get("PF1_USDTRY");
-        Rate usdtry2 = dependencyRates.get("PF2_USDTRY");
+        Rate pf1EurUsd = dependencyRates.get("PF1_EURUSD");
+        Rate pf2EurUsd = dependencyRates.get("PF2_EURUSD");
+        Rate pf1UsdTry = dependencyRates.get("PF1_USDTRY");
+        Rate pf2UsdTry = dependencyRates.get("PF2_USDTRY");
 
-        if (eurusd1 == null || eurusd2 == null || usdtry1 == null || usdtry2 == null) {
-            logger.warn("Missing dependency rates for EURTRY calculation");
+        if (pf1EurUsd == null || pf2EurUsd == null || pf1UsdTry == null || pf2UsdTry == null) {
+            logger.warn("EURTRY hesaplaması için bağımlı kurlar eksik");
             return null;
         }
 
-        // Calculate EURTRY as EURUSD * USDTRY
-        double eurusdBid = (eurusd1.getBid() + eurusd2.getBid()) / 2;
-        double eurusdAsk = (eurusd1.getAsk() + eurusd2.getAsk()) / 2;
-        double usdtryBid = (usdtry1.getBid() + usdtry2.getBid()) / 2;
-        double usdtryAsk = (usdtry1.getAsk() + usdtry2.getAsk()) / 2;
+        double usdMid = ((pf1UsdTry.getBid() + pf2UsdTry.getBid()) / 2 +
+                (pf1UsdTry.getAsk() + pf2UsdTry.getAsk()) / 2) / 2;
 
-        double bid = eurusdBid * usdtryBid;
-        double ask = eurusdAsk * usdtryAsk;
+        double eurUsdBid = (pf1EurUsd.getBid() + pf2EurUsd.getBid()) / 2;
+        double eurUsdAsk = (pf1EurUsd.getAsk() + pf2EurUsd.getAsk()) / 2;
+
+        double bid = usdMid * eurUsdBid;
+        double ask = usdMid * eurUsdAsk;
+
+        // Değerleri yuvarla
+        bid = Math.round(bid * 100000.0) / 100000.0;
+        ask = Math.round(ask * 100000.0) / 100000.0;
 
         Rate calculatedRate = new Rate();
         calculatedRate.setRateName("EURTRY");
@@ -110,28 +111,33 @@ public class DefaultRateCalculator implements RateCalculator {
         calculatedRate.setTimestamp(LocalDateTime.now());
         calculatedRate.setCalculated(true);
 
+        logger.info("EURTRY hesaplandı: bid={}, ask={}", bid, ask);
         return calculatedRate;
     }
 
     private Rate calculateGBPTRY(Map<String, Rate> dependencyRates) {
-        Rate gbpusd1 = dependencyRates.get("PF1_GBPUSD");
-        Rate gbpusd2 = dependencyRates.get("PF2_GBPUSD");
-        Rate usdtry1 = dependencyRates.get("PF1_USDTRY");
-        Rate usdtry2 = dependencyRates.get("PF2_USDTRY");
+        Rate pf1GbpUsd = dependencyRates.get("PF1_GBPUSD");
+        Rate pf2GbpUsd = dependencyRates.get("PF2_GBPUSD");
+        Rate pf1UsdTry = dependencyRates.get("PF1_USDTRY");
+        Rate pf2UsdTry = dependencyRates.get("PF2_USDTRY");
 
-        if (gbpusd1 == null || gbpusd2 == null || usdtry1 == null || usdtry2 == null) {
-            logger.warn("Missing dependency rates for GBPTRY calculation");
+        if (pf1GbpUsd == null || pf2GbpUsd == null || pf1UsdTry == null || pf2UsdTry == null) {
+            logger.warn("GBPTRY hesaplaması için bağımlı kurlar eksik");
             return null;
         }
 
-        // Calculate GBPTRY as GBPUSD * USDTRY
-        double gbpusdBid = (gbpusd1.getBid() + gbpusd2.getBid()) / 2;
-        double gbpusdAsk = (gbpusd1.getAsk() + gbpusd2.getAsk()) / 2;
-        double usdtryBid = (usdtry1.getBid() + usdtry2.getBid()) / 2;
-        double usdtryAsk = (usdtry1.getAsk() + usdtry2.getAsk()) / 2;
+        double usdMid = ((pf1UsdTry.getBid() + pf2UsdTry.getBid()) / 2 +
+                (pf1UsdTry.getAsk() + pf2UsdTry.getAsk()) / 2) / 2;
 
-        double bid = gbpusdBid * usdtryBid;
-        double ask = gbpusdAsk * usdtryAsk;
+        double gbpUsdBid = (pf1GbpUsd.getBid() + pf2GbpUsd.getBid()) / 2;
+        double gbpUsdAsk = (pf1GbpUsd.getAsk() + pf2GbpUsd.getAsk()) / 2;
+
+        double bid = usdMid * gbpUsdBid;
+        double ask = usdMid * gbpUsdAsk;
+
+        // Değerleri yuvarla
+        bid = Math.round(bid * 100000.0) / 100000.0;
+        ask = Math.round(ask * 100000.0) / 100000.0;
 
         Rate calculatedRate = new Rate();
         calculatedRate.setRateName("GBPTRY");
@@ -140,6 +146,7 @@ public class DefaultRateCalculator implements RateCalculator {
         calculatedRate.setTimestamp(LocalDateTime.now());
         calculatedRate.setCalculated(true);
 
+        logger.info("GBPTRY hesaplandı: bid={}, ask={}", bid, ask);
         return calculatedRate;
     }
 }

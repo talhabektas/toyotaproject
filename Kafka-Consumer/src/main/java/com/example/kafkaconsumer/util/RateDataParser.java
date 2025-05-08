@@ -37,39 +37,10 @@ public class RateDataParser {
             }
 
             String rateName = parts[0];
-            double bid;
-            double ask;
-            LocalDateTime timestamp;
+            double bid = Double.parseDouble(parts[1]);
+            double ask = Double.parseDouble(parts[2]);
+            LocalDateTime timestamp = LocalDateTime.parse(parts[3]);
             LocalDateTime dbUpdateTime = LocalDateTime.now();
-
-            try {
-                bid = Double.parseDouble(parts[1]);
-            } catch (NumberFormatException e) {
-                logger.error("Bid değeri ayrıştırma hatası: {}", parts[1], e);
-                return null;
-            }
-
-            try {
-                ask = Double.parseDouble(parts[2]);
-            } catch (NumberFormatException e) {
-                logger.error("Ask değeri ayrıştırma hatası: {}", parts[2], e);
-                return null;
-            }
-
-            try {
-                String timestampStr = parts[3].trim();
-                // Farklı tarih formatlarını destekleme
-                if (timestampStr.contains(".")) {
-                    // Milisaniye içeren format
-                    timestamp = LocalDateTime.parse(timestampStr);
-                } else {
-                    // Milisaniye içermeyen format
-                    timestamp = LocalDateTime.parse(timestampStr, FORMATTER);
-                }
-            } catch (DateTimeParseException e) {
-                logger.error("Tarih ayrıştırma hatası: {}", parts[3], e);
-                timestamp = LocalDateTime.now(); // Hata durumunda şu anki zamanı kullan
-            }
 
             return new RateEntity(rateName, bid, ask, timestamp, dbUpdateTime);
         } catch (Exception e) {
